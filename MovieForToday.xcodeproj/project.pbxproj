@@ -27,8 +27,8 @@
 		288039022B37358F00691E0E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039012B37358F00691E0E /* SearchView.swift */; };
 		288039052B3735CD00691E0E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039042B3735CD00691E0E /* ProfileView.swift */; };
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
-		2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390B2B373E1F00691E0E /* NetworkManager.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
+		865F18EE2B3895A100168F52 /* MyLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 865F18ED2B3895A100168F52 /* MyLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +54,8 @@
 		288039012B37358F00691E0E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		288039042B3735CD00691E0E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
-		2880390B2B373E1F00691E0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		865F18ED2B3895A100168F52 /* MyLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyLibrary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +92,7 @@
 		288038D22B3729A500691E0E = {
 			isa = PBXGroup;
 			children = (
+				865F18ED2B3895A100168F52 /* MyLibrary */,
 				288038EC2B37322800691E0E /* README.md */,
 				288038DD2B3729A500691E0E /* MovieForToday */,
 				288038DC2B3729A500691E0E /* Products */,
@@ -121,7 +122,6 @@
 				288039002B37357C00691E0E /* SearchScreen */,
 				288039032B37359500691E0E /* ProfileScreen */,
 				288039062B3735EB00691E0E /* ChristmasTreeScreen */,
-				288039092B373E0000691E0E /* NetworkManager */,
 				2880390A2B373E0C00691E0E /* StorageManager */,
 				287C8E0F2B384F3300C687E7 /* Helpers */,
 				288038E22B3729A800691E0E /* Assets.xcassets */,
@@ -211,14 +211,6 @@
 			path = ChristmasTreeScreen;
 			sourceTree = "<group>";
 		};
-		288039092B373E0000691E0E /* NetworkManager */ = {
-			isa = PBXGroup;
-			children = (
-				2880390B2B373E1F00691E0E /* NetworkManager.swift */,
-			);
-			path = NetworkManager;
-			sourceTree = "<group>";
-		};
 		2880390A2B373E0C00691E0E /* StorageManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +282,7 @@
 				288038ED2B37322800691E0E /* README.md in Resources */,
 				288038E62B3729A800691E0E /* Preview Assets.xcassets in Resources */,
 				287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */,
+				865F18EE2B3895A100168F52 /* MyLibrary in Resources */,
 				287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */,
 				287C8E272B38707400C687E7 /* Localizable.xcstrings in Resources */,
 				288038E32B3729A800691E0E /* Assets.xcassets in Resources */,
@@ -303,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */,
 				288038F02B3734DF00691E0E /* OnboardingView.swift in Sources */,
 				288039022B37358F00691E0E /* SearchView.swift in Sources */,
 				288039052B3735CD00691E0E /* ProfileView.swift in Sources */,
