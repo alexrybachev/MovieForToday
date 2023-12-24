@@ -16,11 +16,19 @@ struct ContentView: View {
             Text("Hello, world!")
                 .font(.custom(.montMedium, size: 16))
                 .background(Color.primaryColor(.mint))
+            
+            Text("language")
         }
         .padding()
     }
 }
 
-#Preview {
+#Preview("English") {
     ContentView()
+        .environment(\.locale, .init(identifier: "en"))
+}
+
+#Preview("Russian") {
+    ContentView()
+        .environment(\.locale, .init(identifier: "ru"))
 }

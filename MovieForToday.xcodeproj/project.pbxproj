@@ -12,6 +12,7 @@
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
 		287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C8E102B384F4800C687E7 /* Color+Ext.swift */; };
 		287C8E132B38537900C687E7 /* Font+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C8E122B38537900C687E7 /* Font+ext.swift */; };
+		287C8E272B38707400C687E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E262B38707400C687E7 /* Localizable.xcstrings */; };
 		288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288038DE2B3729A500691E0E /* MovieForTodayApp.swift */; };
 		288038E12B3729A500691E0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288038E02B3729A500691E0E /* ContentView.swift */; };
 		288038E32B3729A800691E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288038E22B3729A800691E0E /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		287C8E0E2B384E1500C687E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		287C8E102B384F4800C687E7 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		287C8E122B38537900C687E7 /* Font+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+ext.swift"; sourceTree = "<group>"; };
+		287C8E262B38707400C687E7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		288038DB2B3729A500691E0E /* MovieForToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieForToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288038DE2B3729A500691E0E /* MovieForTodayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieForTodayApp.swift; sourceTree = "<group>"; };
 		288038E02B3729A500691E0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				287C8E102B384F4800C687E7 /* Color+Ext.swift */,
 				287C8E122B38537900C687E7 /* Font+ext.swift */,
+				287C8E262B38707400C687E7 /* Localizable.xcstrings */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 288038D22B3729A500691E0E;
 			productRefGroup = 288038DC2B3729A500691E0E /* Products */;
@@ -287,6 +291,7 @@
 				288038E62B3729A800691E0E /* Preview Assets.xcassets in Resources */,
 				287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */,
 				287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */,
+				287C8E272B38707400C687E7 /* Localizable.xcstrings in Resources */,
 				288038E32B3729A800691E0E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +329,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -387,6 +393,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
