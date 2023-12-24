@@ -10,6 +10,8 @@
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
+		287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C8E102B384F4800C687E7 /* Color+Ext.swift */; };
+		287C8E132B38537900C687E7 /* Font+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287C8E122B38537900C687E7 /* Font+ext.swift */; };
 		288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288038DE2B3729A500691E0E /* MovieForTodayApp.swift */; };
 		288038E12B3729A500691E0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288038E02B3729A500691E0E /* ContentView.swift */; };
 		288038E32B3729A800691E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288038E22B3729A800691E0E /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		287C8E0E2B384E1500C687E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		287C8E102B384F4800C687E7 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		287C8E122B38537900C687E7 /* Font+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+ext.swift"; sourceTree = "<group>"; };
 		288038DB2B3729A500691E0E /* MovieForToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieForToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288038DE2B3729A500691E0E /* MovieForTodayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieForTodayApp.swift; sourceTree = "<group>"; };
 		288038E02B3729A500691E0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +77,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		287C8E0F2B384F3300C687E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				287C8E102B384F4800C687E7 /* Color+Ext.swift */,
+				287C8E122B38537900C687E7 /* Font+ext.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		288038D22B3729A500691E0E = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,7 @@
 				288039062B3735EB00691E0E /* ChristmasTreeScreen */,
 				288039092B373E0000691E0E /* NetworkManager */,
 				2880390A2B373E0C00691E0E /* StorageManager */,
+				287C8E0F2B384F3300C687E7 /* Helpers */,
 				288038E22B3729A800691E0E /* Assets.xcassets */,
 				287C8E072B384CFA00C687E7 /* Fonts */,
 				288038E42B3729A800691E0E /* Preview Content */,
@@ -292,9 +306,11 @@
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				288038F92B37353F00691E0E /* PopularMovieView.swift in Sources */,
+				287C8E132B38537900C687E7 /* Font+ext.swift in Sources */,
 				288038E12B3729A500691E0E /* ContentView.swift in Sources */,
 				288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */,
 				288038FC2B37355D00691E0E /* MovieDetailView.swift in Sources */,
+				287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */,
 				288038FF2B37357600691E0E /* WishListView.swift in Sources */,
 				2880390E2B373E2900691E0E /* StorageManager.swift in Sources */,
 			);
@@ -439,6 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,6 +489,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
