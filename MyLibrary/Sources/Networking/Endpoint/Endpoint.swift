@@ -51,13 +51,20 @@ struct Endpoint {
     @inlinable
     @inline(__always)
     static func movieList(page: Int = 1, limit: Int = 10) -> Self {
-        .init(
-            method: .GET,
-            path: "list"
-        ) {
+        .init(method: .GET, path: "list") {
             paginated(page: page, limit: limit)
         }
     }
+    
+    @inlinable
+    @inline(__always)
+    static func movieList(for slug: String, page: Int = 1, limit: Int = 10) -> Self {
+        .init(method: .GET, path: "list/".appending(slug)) {
+            paginated(page: page, limit: limit)
+        }
+    }
+    
+    
 }
 
 //MARK: - Helpers

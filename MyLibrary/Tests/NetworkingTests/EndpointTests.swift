@@ -10,7 +10,7 @@ import XCTest
 
 final class EndpointTests: XCTestCase {
     func test_movieList() {
-        let sut = Endpoint.movieList(page: 1, limit: 10)
+        let sut = Endpoint.movieList()
         
         XCTAssertEqual(
             sut.url,
@@ -24,6 +24,15 @@ final class EndpointTests: XCTestCase {
         XCTAssertEqual(
             sut.url,
             URL(string: "https://api.kinopoisk.dev/v1.4/list?page=2&limit=1")
+        )
+    }
+    
+    func test_movieListWithSlug() {
+        let sut = Endpoint.movieList(for: "Baz")
+        
+        XCTAssertEqual(
+            sut.url,
+            URL(string: "https://api.kinopoisk.dev/v1.4/list/Baz?page=1&limit=10")
         )
     }
 }
