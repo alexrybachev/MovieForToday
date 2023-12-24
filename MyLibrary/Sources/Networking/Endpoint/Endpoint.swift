@@ -8,9 +8,12 @@
 import Foundation
 
 struct Endpoint {
+    private static let list = "list"
+    private static let movie = "movie"
+    private static let fieldValue = "possible-values-by-field"
+    
     let path: String
     let queryItems: [URLQueryItem]
-    let method: HTTPMethod
     
     var url: URL {
         var components = URLComponents()
@@ -29,29 +32,18 @@ struct Endpoint {
     
     //MARK: - init(_:)
     private init(
-        method: HTTPMethod,
         path: String,
-        @QueryBuilder queryItems: () -> [URLQueryItem]
+        @QueryBuilder queryItems: () -> [URLQueryItem] = { .init() }
     ) {
-        self.method = method
         self.path = path
         self.queryItems = queryItems()
-    }
-    
-    //MARK: - URLRequest builder
-    @inlinable
-    @inline(__always)
-    func request(_ payload: Data? = nil) -> URLRequest {
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        return request
     }
     
     //MARK: - Constructers
     @inlinable
     @inline(__always)
     static func movieList(page: Int = 1, limit: Int = 10) -> Self {
-        .init(method: .GET, path: "list") {
+        .init(path: list) {
             paginated(page: page, limit: limit)
         }
     }
@@ -59,11 +51,34 @@ struct Endpoint {
     @inlinable
     @inline(__always)
     static func movieList(for slug: String, page: Int = 1, limit: Int = 10) -> Self {
-        .init(method: .GET, path: "list/".appending(slug)) {
+        .init(
+            path: [list, slug].joined(separator: "/")
+        ) {
             paginated(page: page, limit: limit)
         }
     }
     
+    @inlinable
+    @inline(__always)
+    static func movie(withId id: Int) -> Self {
+        .init(path: [movie, id.description].joined(separator: "/"))
+    }
+    
+    @inlinable
+    @inline(__always)
+    static func movie(withName name: String, page: Int = 1, limit: Int = 10) -> Self {
+        .init(
+            path: [movie, name].joined(separator: "/")
+        ) {
+            paginated(page: page, limit: limit)
+        }
+    }
+    
+    static let genres: Self = .init(
+        path: [movie, fieldValue].joined(separator: "/")
+    ) {
+        URLQueryItem(name: "field", value: "genres.name")
+    }
     
 }
 
