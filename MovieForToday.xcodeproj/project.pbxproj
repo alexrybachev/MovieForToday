@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
+		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
+		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
 		288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288038DE2B3729A500691E0E /* MovieForTodayApp.swift */; };
 		288038E12B3729A500691E0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288038E02B3729A500691E0E /* ContentView.swift */; };
 		288038E32B3729A800691E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288038E22B3729A800691E0E /* Assets.xcassets */; };
@@ -26,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		287C8E0E2B384E1500C687E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		288038DB2B3729A500691E0E /* MovieForToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieForToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288038DE2B3729A500691E0E /* MovieForTodayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieForTodayApp.swift; sourceTree = "<group>"; };
 		288038E02B3729A500691E0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		287C8E072B384CFA00C687E7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */,
+				287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */,
+				287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		288038D22B3729A500691E0E = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +93,7 @@
 		288038DD2B3729A500691E0E /* MovieForToday */ = {
 			isa = PBXGroup;
 			children = (
+				287C8E0E2B384E1500C687E7 /* Info.plist */,
 				288038DE2B3729A500691E0E /* MovieForTodayApp.swift */,
 				288038E02B3729A500691E0E /* ContentView.swift */,
 				288038EE2B3734C600691E0E /* OnboardingScreen */,
@@ -90,6 +108,7 @@
 				288039092B373E0000691E0E /* NetworkManager */,
 				2880390A2B373E0C00691E0E /* StorageManager */,
 				288038E22B3729A800691E0E /* Assets.xcassets */,
+				287C8E072B384CFA00C687E7 /* Fonts */,
 				288038E42B3729A800691E0E /* Preview Content */,
 			);
 			path = MovieForToday;
@@ -249,8 +268,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */,
 				288038ED2B37322800691E0E /* README.md in Resources */,
 				288038E62B3729A800691E0E /* Preview Assets.xcassets in Resources */,
+				287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */,
+				287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */,
 				288038E32B3729A800691E0E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,11 +433,12 @@
 				DEVELOPMENT_TEAM = 6P96P67U8G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieForToday/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,9 +446,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alexrybachev.MovieForToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -440,11 +466,12 @@
 				DEVELOPMENT_TEAM = 6P96P67U8G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieForToday/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,9 +479,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alexrybachev.MovieForToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
