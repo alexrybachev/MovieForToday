@@ -13,13 +13,16 @@ struct ProfileView: View {
             ZStack {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
-                VStack {
+                VStack(spacing: 14)  {
                     HeaderView(profileImage: "margot", name: "Margot", mail: "margo@gmail.com")
-                    
+                    General()
+                    More()
+                    Spacer()
                 }
             }
         }
         .background(Color(PrimaryColor.softDark.rawValue))
+        .navigationTitle("Profile")
     }
 }
 

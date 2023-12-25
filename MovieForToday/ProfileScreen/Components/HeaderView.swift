@@ -45,6 +45,7 @@ struct HeaderView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.gray, lineWidth: 1.0)
+                .opacity(0.4)
         }
         .padding(.horizontal, 24)
     }
