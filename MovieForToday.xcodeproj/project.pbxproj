@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4AF84A2B39A2360033017D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8492B39A2350033017D /* HeaderView.swift */; };
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D4AF8492B39A2350033017D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D4AF84B2B39A2EB0033017D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D4AF8492B39A2350033017D /* HeaderView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		287C8E072B384CFA00C687E7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				288039042B3735CD00691E0E /* ProfileView.swift */,
+				0D4AF84B2B39A2EB0033017D /* Components */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -369,6 +380,7 @@
 				288038FC2B37355D00691E0E /* MovieDetailView.swift in Sources */,
 				287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */,
 				288038FF2B37357600691E0E /* WishListView.swift in Sources */,
+				0D4AF84A2B39A2360033017D /* HeaderView.swift in Sources */,
 				2880390E2B373E2900691E0E /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
