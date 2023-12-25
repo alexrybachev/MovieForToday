@@ -13,8 +13,8 @@ enum PrimaryColor: String {
     case orange = "customOrange"
     case purple = "customPurple"
     case red = "customRed"
-    case mainDark = "mainColor"
-    case softDark = "softDark"
+    case mainDark = "customMainColor"
+    case softDark = "customSoftDark"
 }
 
 enum TextColors: String {
