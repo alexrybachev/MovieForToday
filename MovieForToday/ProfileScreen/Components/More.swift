@@ -19,7 +19,7 @@ struct More: View {
                 Spacer()
             }
             
-            NavigationSettings(imageIcon: "shield", textNavigation: "Legal and Policies", destination: EmptyView())
+            NavigationSettings(imageIcon: "shield", textNavigation: "Legal and Policies", destination: PrivacyPolicy())
         
             Divider().background(.gray)
                 .padding(.horizontal, 16)

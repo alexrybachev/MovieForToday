@@ -12,6 +12,7 @@ struct NavigationSettings<Destination: View>: View {
     var textNavigation: String
     var destination: Destination
     var body: some View {
+        NavigationLink(destination: destination) {
             HStack {
                 Image(imageIcon)
                     .resizable()
@@ -22,7 +23,6 @@ struct NavigationSettings<Destination: View>: View {
                     .foregroundColor(.white)
                     .padding()
                 Spacer()
-                NavigationLink(destination: destination) {
                     Image("rightArrow")
                         .resizable()
                         .frame(width: 24, height: 24)
