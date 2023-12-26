@@ -36,6 +36,7 @@
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390B2B373E1F00691E0E /* NetworkManager.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
+		FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
 		2880390B2B373E1F00691E0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				287C8E0E2B384E1500C687E7 /* Info.plist */,
 				288038DE2B3729A500691E0E /* MovieForTodayApp.swift */,
 				288038E02B3729A500691E0E /* ContentView.swift */,
+				FAC3CE792B3B0C510090EB66 /* TabBar */,
 				288038EE2B3734C600691E0E /* OnboardingScreen */,
 				288038F12B3734EE00691E0E /* HomeScreen */,
 				288038F42B37350000691E0E /* MovieListScreen */,
@@ -272,6 +275,14 @@
 			path = StorageManager;
 			sourceTree = "<group>";
 		};
+		FAC3CE792B3B0C510090EB66 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +365,7 @@
 				288039052B3735CD00691E0E /* ProfileView.swift in Sources */,
 				288038F32B3734FC00691E0E /* HomeView.swift in Sources */,
 				287C8E2A2B38883F00C687E7 /* MovieView.swift in Sources */,
+				FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */,
 				287C8E382B38B8E600C687E7 /* CachedAsyncImage.swift in Sources */,
 				287C8E2D2B388A2C00C687E7 /* MovieModel.swift in Sources */,
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
