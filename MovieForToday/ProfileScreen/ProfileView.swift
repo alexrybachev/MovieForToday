@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ProfileView: View {
+    var profileImage: String
+    @Binding var name: String
+    @Binding var mail: String
     var body: some View {
         NavigationView {
             ZStack {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
                 VStack(spacing: 14)  {
-                    HeaderView(profileImage: "margot", name: "Margot", mail: "margo@gmail.com")
+                    HeaderView(profileImage: profileImage, name: name, mail: mail)
                     General()
                     More()
                     Spacer()
@@ -27,5 +30,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(profileImage: "margot", name: .constant("Margot"), mail: .constant("margo@gmail.com"))
 }

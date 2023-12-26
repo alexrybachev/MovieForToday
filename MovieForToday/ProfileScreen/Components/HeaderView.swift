@@ -29,10 +29,7 @@ struct HeaderView: View {
             }
             .padding(.leading, 8)
             
-            Button {
-                print(#function)
-            } label: {
-                Image("editColor")
+            NavigationLink(destination: EditProfile(profileImage: profileImage, name: name, mail: mail)) {  Image("editColor")
                     .scaledToFit()
                     .frame(width: 54, height: 54)
             }
@@ -45,7 +42,7 @@ struct HeaderView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.gray, lineWidth: 1.0)
-                .opacity(0.4)
+                .opacity(0.3)
         }
         .padding(.horizontal, 24)
     }

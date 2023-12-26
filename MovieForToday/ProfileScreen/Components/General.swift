@@ -23,7 +23,7 @@ struct General: View {
         
             Divider().background(.gray)
                 .padding(.horizontal, 16)
-                .opacity(0.4)
+                .opacity(0.3)
             NavigationSettings(imageIcon: "globe", textNavigation: "Language", destination: EmptyView())
         }
         .background(Color(PrimaryColor.softDark.rawValue))
@@ -31,7 +31,7 @@ struct General: View {
         .overlay {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.gray, lineWidth: 1.0)
-                .opacity(0.4)
+                .opacity(0.3)
         }
         .padding(.horizontal, 24)
     }

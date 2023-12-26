@@ -11,6 +11,7 @@
 		0D4AF84D2B39B0900033017D /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF84C2B39B0900033017D /* General.swift */; };
 		0D4AF84F2B39B3AF0033017D /* NavigationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF84E2B39B3AF0033017D /* NavigationSettings.swift */; };
 		0D4AF8512B39BE930033017D /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8502B39BE930033017D /* More.swift */; };
+		0D4AF8532B3ADA030033017D /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8522B3ADA030033017D /* EditProfile.swift */; };
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
@@ -47,6 +48,7 @@
 		0D4AF84C2B39B0900033017D /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		0D4AF84E2B39B3AF0033017D /* NavigationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSettings.swift; sourceTree = "<group>"; };
 		0D4AF8502B39BE930033017D /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
+		0D4AF8522B3ADA030033017D /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				288039042B3735CD00691E0E /* ProfileView.swift */,
+				0D4AF8522B3ADA030033017D /* EditProfile.swift */,
 				0D4AF84B2B39A2EB0033017D /* Components */,
 			);
 			path = ProfileScreen;
@@ -376,6 +379,7 @@
 				287C8E2A2B38883F00C687E7 /* MovieView.swift in Sources */,
 				0D4AF84D2B39B0900033017D /* General.swift in Sources */,
 				287C8E382B38B8E600C687E7 /* CachedAsyncImage.swift in Sources */,
+				0D4AF8532B3ADA030033017D /* EditProfile.swift in Sources */,
 				287C8E2D2B388A2C00C687E7 /* MovieModel.swift in Sources */,
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
