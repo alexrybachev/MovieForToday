@@ -10,12 +10,13 @@ import SwiftUI
 struct ImageText: View {
     let image: ImageResource
     let text: String
+    var color: Color = .textGrey
     var isMinutes: Bool = false
     
     var body: some View {
         HStack {
             Image(image)
-                .colorMultiply(.textGrey)
+                .colorMultiply(color)
             HStack(spacing: 5) {
                 Text(text)
                 if isMinutes == true {
@@ -23,7 +24,7 @@ struct ImageText: View {
                 }
             }
             .font(.custom(.montMedium, size: 12))
-            .foregroundColor(.textGrey)
+            .foregroundColor(color)
         }
     }
 }
