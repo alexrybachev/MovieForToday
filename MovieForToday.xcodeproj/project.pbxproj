@@ -36,6 +36,7 @@
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390B2B373E1F00691E0E /* NetworkManager.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
+		6F417CB22B3C706600ED625F /* MovieDetailNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F417CB12B3C706600ED625F /* MovieDetailNavBar.swift */; };
 		FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
 		2880390B2B373E1F00691E0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		6F417CB12B3C706600ED625F /* MovieDetailNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailNavBar.swift; sourceTree = "<group>"; };
 		FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				288038FB2B37355D00691E0E /* MovieDetailView.swift */,
+				6F417CB12B3C706600ED625F /* MovieDetailNavBar.swift */,
 			);
 			path = MovieDetailScreen;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */,
 				288038FF2B37357600691E0E /* WishListView.swift in Sources */,
 				2880390E2B373E2900691E0E /* StorageManager.swift in Sources */,
+				6F417CB22B3C706600ED625F /* MovieDetailNavBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieForToday/Preview Content\"";
-				DEVELOPMENT_TEAM = 6P96P67U8G;
+				DEVELOPMENT_TEAM = 9T65XWHQL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieForToday/Info.plist;
@@ -532,7 +536,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.alexrybachev.MovieForToday;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.alexrybachev.MovieForToday-Mr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -551,7 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieForToday/Preview Content\"";
-				DEVELOPMENT_TEAM = 6P96P67U8G;
+				DEVELOPMENT_TEAM = 9T65XWHQL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieForToday/Info.plist;
@@ -566,7 +570,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.alexrybachev.MovieForToday;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.alexrybachev.MovieForToday-Mr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

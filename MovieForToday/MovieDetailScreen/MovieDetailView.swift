@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    @Environment(\.dismiss) var dismiss
+
+    @State private var movieTitle = "Spider-Man"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                Color(.customMain)
+                    .ignoresSafeArea()
+                VStack{
+                    MovieDetailNavBar(title: movieTitle, buttonAction: likeAction, dismiss: self._dismiss)
+                }
+            }
+        }
+    }
+    
+    //MARK: - methods
+    
+    func likeAction() {
+        //
     }
 }
 

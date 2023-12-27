@@ -121,6 +121,7 @@
       }
     },
     "Hello, world!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
