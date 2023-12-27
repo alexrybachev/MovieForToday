@@ -41,61 +41,20 @@ struct EditProfile: View {
                         .font(.custom(.montMedium, size: 14))
                         .padding(.top, -8)
                     
-                   
-                    
-
-                    TextField("Change your name", text: $name)
-                        .padding(.leading, 16)
-                        .foregroundStyle(.white)
-                        .padding(.vertical, 16)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(name.isEmpty ? Color.red : Color.gray, lineWidth: 1.0)
-                                .opacity(0.3)
-                            Text("Full Name")
-                                .foregroundStyle(.white)
-                                .font(.custom(.montMedium, size: 12))
-                                .offset(x: -130, y: -28)
-                            
-                        }
-                        .padding(.horizontal, 16)
+                    FullName(name: name)
                         .padding(.top, 40)
                                         
-                    TextField("Change your @mail", text: $mail)
-                        .padding(.leading, 16)
-                        .foregroundStyle(.white)
-                        .padding(.vertical, 16)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(mail.isEmpty ? Color.red : Color.gray, lineWidth: 1.0)
-                                .opacity(0.3)
-                            Text("Email")
-                                .foregroundStyle(.white)
-                                .font(.custom(.montMedium, size: 12))
-                                .offset(x: -142, y: -28)
-                            
-                        }
-                        .padding(.horizontal, 16)
+                    Email(mail: mail)
                         .padding(.top, 40)
                     
                     Spacer()
                     
-                    Button {
-                        print(#function)
-                    } label: {
-                        Text("Save Changes")
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 20)
-                            .font(.custom(.montMedium, size: 16))
-                            .background(Color(PrimaryColor.mint.rawValue))
-                            .cornerRadius(32)
-                        
-                    }
+                    CustomButton(text: "Save changes", color: Color(PrimaryColor.mint.rawValue), action: {print(#function)})
                     .padding(.horizontal, 16)
                 }
                 .padding(.top, 20)
             }
+            .foregroundColor(.white)
         }
         .navigationTitle("Edit Profile")
     }
