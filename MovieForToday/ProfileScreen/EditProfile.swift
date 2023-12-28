@@ -41,10 +41,10 @@ struct EditProfile: View {
                         .font(.custom(.montMedium, size: 14))
                         .padding(.top, -8)
                     
-                    FullName(name: name)
+                  
+                    CustomTextField(value: $name, titleBorder: "Full Name", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your full name")
                         .padding(.top, 40)
-                                        
-                    Email(mail: mail)
+                    CustomTextField(value: $mail, titleBorder: "@Mail", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your @mail")
                         .padding(.top, 40)
                     
                     Spacer()

@@ -35,6 +35,9 @@
         }
       }
     },
+    "Changes to the Service and/or Terms:" : {
+
+    },
     "duration" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -51,6 +54,9 @@
           }
         }
       }
+    },
+    "Edit Profile" : {
+
     },
     "edit_profile" : {
       "extractionState" : "manual",
@@ -119,6 +125,9 @@
           }
         }
       }
+    },
+    "General" : {
+
     },
     "Hello, world!" : {
       "localizations" : {
@@ -191,6 +200,12 @@
         }
       }
     },
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames." : {
+
+    },
+    "mail" : {
+
+    },
     "minutes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -225,6 +240,9 @@
         }
       }
     },
+    "More" : {
+
+    },
     "notification" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -241,6 +259,9 @@
           }
         }
       }
+    },
+    "password" : {
+
     },
     "PG-13" : {
 
@@ -296,6 +317,9 @@
         }
       }
     },
+    "Privcy Policy" : {
+
+    },
     "profile" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -312,6 +336,9 @@
           }
         }
       }
+    },
+    "Profile" : {
+
     },
     "rating" : {
       "extractionState" : "manual",
@@ -431,6 +458,9 @@
           }
         }
       }
+    },
+    "Tearms" : {
+
     },
     "trailer" : {
       "extractionState" : "manual",
