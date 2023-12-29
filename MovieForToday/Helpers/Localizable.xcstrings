@@ -120,6 +120,26 @@
         }
       }
     },
+    "Hello, world!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hello, world!"
+          }
+        }
+      }
+    },
+    "Hello, World!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hello, World!"
+          }
+        }
+      }
+    },
     "home" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -171,6 +191,23 @@
         }
       }
     },
+    "minutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minutes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "минут"
+          }
+        }
+      }
+    },
     "more" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -201,6 +238,43 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уведомления"
+          }
+        }
+      }
+    },
+    "PG-13" : {
+
+    },
+    "popular_movie" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popular Movie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярные фильмы"
+          }
+        }
+      }
+    },
+    "premium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Премиум"
           }
         }
       }
