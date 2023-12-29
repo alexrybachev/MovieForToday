@@ -36,6 +36,7 @@
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390B2B373E1F00691E0E /* NetworkManager.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
+		28A67B902B3C8E6400AEAA06 /* GradientBackground+Mod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A67B8F2B3C8E6400AEAA06 /* GradientBackground+Mod.swift */; };
 		FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
 		2880390B2B373E1F00691E0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		28A67B8F2B3C8E6400AEAA06 /* GradientBackground+Mod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradientBackground+Mod.swift"; sourceTree = "<group>"; };
 		FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				287C8E122B38537900C687E7 /* Font+ext.swift */,
 				287C8E352B38AD9E00C687E7 /* View+Ext.swift */,
 				287C8E262B38707400C687E7 /* Localizable.xcstrings */,
+				28A67B8F2B3C8E6400AEAA06 /* GradientBackground+Mod.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A67B902B3C8E6400AEAA06 /* GradientBackground+Mod.swift in Sources */,
 				2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */,
 				288038F02B3734DF00691E0E /* OnboardingView.swift in Sources */,
 				288039022B37358F00691E0E /* SearchView.swift in Sources */,
