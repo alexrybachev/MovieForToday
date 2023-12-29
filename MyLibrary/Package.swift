@@ -5,11 +5,17 @@ import PackageDescription
 
 let package = Package(
     name: "MyLibrary",
+    platforms: [
+        .macOS(.v10_15),
+        .iOS(.v15)
+    ],
     products: [
-        .library(name: "Networking", targets: ["Networking"])
+        .library(name: "Networking", targets: ["Networking"]),
+        .library(name: "RemoteImage", targets: ["RemoteImage"]),
     ],
     targets: [
         .target(name: "Networking"),
+        .target(name: "RemoteImage"),
         .testTarget(name: "NetworkingTests", dependencies: ["Networking"]),
     ]
 )

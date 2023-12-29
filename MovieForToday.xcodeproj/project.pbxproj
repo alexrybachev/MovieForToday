@@ -29,6 +29,7 @@
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
 		865F18EE2B3895A100168F52 /* MyLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 865F18ED2B3895A100168F52 /* MyLibrary */; };
+		867EA83E2B3F5F450039EB19 /* RemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = 867EA83D2B3F5F450039EB19 /* RemoteImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867EA83E2B3F5F450039EB19 /* RemoteImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,7 @@
 				865F18ED2B3895A100168F52 /* MyLibrary */,
 				288038DD2B3729A500691E0E /* MovieForToday */,
 				288038DC2B3729A500691E0E /* Products */,
+				867EA83C2B3F5F450039EB19 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +222,13 @@
 			path = StorageManager;
 			sourceTree = "<group>";
 		};
+		867EA83C2B3F5F450039EB19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,6 +245,9 @@
 			dependencies = (
 			);
 			name = MovieForToday;
+			packageProductDependencies = (
+				867EA83D2B3F5F450039EB19 /* RemoteImage */,
+			);
 			productName = MovieForToday;
 			productReference = 288038DB2B3729A500691E0E /* MovieForToday.app */;
 			productType = "com.apple.product-type.application";
@@ -527,6 +540,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		867EA83D2B3F5F450039EB19 /* RemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RemoteImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 288038D32B3729A500691E0E /* Project object */;
 }

@@ -8,10 +8,6 @@
 import Foundation
 
 struct Endpoint {
-    private static let list = "list"
-    private static let movie = "movie"
-    private static let fieldValue = "possible-values-by-field"
-    
     let path: String
     let queryItems: [URLQueryItem]
     
@@ -40,10 +36,17 @@ struct Endpoint {
     }
     
     //MARK: - Constructers
+    static let genres: Self = .init(
+        path: [Subpath.movie.rawValue, Field.value].joined(separator: "/"),
+        queryItems: {
+            URLQueryItem(name: "field", value: "genres.name")
+        })
+    
+    //MARK: - Movies
     @inlinable
     @inline(__always)
     static func movieList(page: Int = 1, limit: Int = 10) -> Self {
-        .init(path: list) {
+        .init(path: Subpath.list.rawValue) {
             paginated(page: page, limit: limit)
         }
     }
@@ -51,9 +54,7 @@ struct Endpoint {
     @inlinable
     @inline(__always)
     static func movieList(for slug: String, page: Int = 1, limit: Int = 10) -> Self {
-        .init(
-            path: [list, slug].joined(separator: "/")
-        ) {
+        .init(path: [Subpath.list.rawValue, slug].joined(separator: "/")) {
             paginated(page: page, limit: limit)
         }
     }
@@ -61,23 +62,56 @@ struct Endpoint {
     @inlinable
     @inline(__always)
     static func movie(withId id: Int) -> Self {
-        .init(path: [movie, id.description].joined(separator: "/"))
+        .init(path: [Subpath.movie.rawValue, id.description].joined(separator: "/"))
+    }
+    
+    static let top10: Self = .init(path: Subpath.movie.rawValue) {
+        paginated(page: 1, limit: 10)
+        URLQueryItem(name: Field.required, value: "top10")
     }
     
     @inlinable
     @inline(__always)
-    static func movie(withName name: String, page: Int = 1, limit: Int = 10) -> Self {
-        .init(
-            path: [movie, name].joined(separator: "/")
-        ) {
+    static func top250(page: Int = 1, limit: Int = 10) -> Self {
+        .init(path: Subpath.movie.rawValue) {
             paginated(page: page, limit: limit)
+            URLQueryItem(name: Field.required, value: "top250")
         }
     }
     
-    static let genres: Self = .init(
-        path: [movie, fieldValue].joined(separator: "/")
-    ) {
-        URLQueryItem(name: "field", value: "genres.name")
+    @inlinable
+    @inline(__always)
+    static func searchMovie(byName name: String, page: Int = 1, limit: Int = 10) -> Self {
+        .init(path: Subpath.movie.rawValue.appending("/search")) {
+            paginated(page: page, limit: limit)
+            URLQueryItem(name: Field.query, value: name)
+        }
+    }
+    
+    @inlinable
+    @inline(__always)
+    static func topRatedMovies(page: Int, limit: Int = 10) -> Self {
+        .init(path: Subpath.movie.rawValue) {
+            paginated(page: page, limit: limit)
+            URLQueryItem(name: Field.sortion, value: "rating.kp")
+            URLQueryItem(name: "sortType", value: 1.description)
+        }
+    }
+    
+    //MARK: - Person
+    @inlinable
+    @inline(__always)
+    static func person(withId id: Int) -> Self {
+        .init(path: [Subpath.person.rawValue, id.description].joined(separator: "/"))
+    }
+    
+    @inlinable
+    @inline(__always)
+    static func searchPerson(byName name: String, page: Int = 1, limit: Int = 10) -> Self {
+        .init(path: Subpath.person.rawValue.appending("/search")) {
+            paginated(page: page, limit: limit)
+            URLQueryItem(name: Field.query, value: name)
+        }
     }
     
 }
@@ -91,13 +125,22 @@ extension Endpoint {
         URLQueryItem(name: "page", value: page.description)
         URLQueryItem(name: "limit", value: limit.description)
     }
+    
+//    static var
 }
 
 extension Endpoint {
-    enum HTTPMethod: String {
-        case GET
-        case PUT
-        case POST
-        case DELETE
+    private struct Field {
+        static let value = "possible-values-by-field"
+        static let required = "notNullFields"
+        static let sortion = "sortField"
+        static let query = "query"
+    }
+    
+    private enum Subpath: String {
+        case list
+        case movie
+        case image
+        case person
     }
 }
