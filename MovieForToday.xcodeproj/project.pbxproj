@@ -36,7 +36,11 @@
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390B2B373E1F00691E0E /* NetworkManager.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
+		FA1C011D2B3C5A880047D1EB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */; };
+		FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */; };
 		FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */; };
+		FADC05D22B3DB2ED0031FD57 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC05D12B3DB2ED0031FD57 /* ErrorView.swift */; };
+		FADC05D42B3DBCBF0031FD57 /* WishListImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC05D32B3DBCBF0031FD57 /* WishListImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +75,11 @@
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
 		2880390B2B373E1F00691E0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewCell.swift; sourceTree = "<group>"; };
 		FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		FADC05D12B3DB2ED0031FD57 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		FADC05D32B3DBCBF0031FD57 /* WishListImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				288038FE2B37357600691E0E /* WishListView.swift */,
+				FA1C011E2B3C602E0047D1EB /* Components */,
 			);
 			path = WishListScreen;
 			sourceTree = "<group>";
@@ -273,6 +282,17 @@
 				2880390D2B373E2900691E0E /* StorageManager.swift */,
 			);
 			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		FA1C011E2B3C602E0047D1EB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */,
+				FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */,
+				FADC05D12B3DB2ED0031FD57 /* ErrorView.swift */,
+				FADC05D32B3DBCBF0031FD57 /* WishListImageView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		FAC3CE792B3B0C510090EB66 /* TabBar */ = {
@@ -368,14 +388,18 @@
 				FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */,
 				287C8E382B38B8E600C687E7 /* CachedAsyncImage.swift in Sources */,
 				287C8E2D2B388A2C00C687E7 /* MovieModel.swift in Sources */,
+				FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */,
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
+				FADC05D22B3DB2ED0031FD57 /* ErrorView.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				287C8E2F2B388A4100C687E7 /* PopularMovieViewModel.swift in Sources */,
 				288038F92B37353F00691E0E /* PopularMovieView.swift in Sources */,
 				287C8E132B38537900C687E7 /* Font+ext.swift in Sources */,
+				FA1C011D2B3C5A880047D1EB /* PlaceholderView.swift in Sources */,
 				287C8E342B38A0B900C687E7 /* RatingView.swift in Sources */,
 				288038E12B3729A500691E0E /* ContentView.swift in Sources */,
 				287C8E362B38AD9E00C687E7 /* View+Ext.swift in Sources */,
+				FADC05D42B3DBCBF0031FD57 /* WishListImageView.swift in Sources */,
 				287C8E322B38A02500C687E7 /* ImageText.swift in Sources */,
 				288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */,
 				288038FC2B37355D00691E0E /* MovieDetailView.swift in Sources */,

@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct WishListView: View {
+    @StateObject var viewModel = PopularMovieViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                Color.primaryColor(.mainDark)
+                    .ignoresSafeArea()
+                
+                if viewModel.movieModels.isEmpty {
+                    PlaceholderView()
+                } else {
+                    ScrollView(showsIndicators: false) {
+                        // TODO: временное решение
+                        ForEach(viewModel.movieModels, id: \.name) { movie in
+                            NavigationLink {
+                                // MovieDetailView()
+                            } label: {
+                                WishListViewCell(movieModel: movie)
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Wishlist")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
