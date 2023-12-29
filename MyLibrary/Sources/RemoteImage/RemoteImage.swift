@@ -31,7 +31,7 @@ public struct RemoteImage<I: View, P: View, E: View>: View {
     }
     
     //MARK: - init*_:)
-    init(
+    public init(
         url: URL,
         configure: @escaping (Image) -> I = { $0 },
         placeholder: @escaping () -> P = ProgressView.init,
