@@ -17,7 +17,11 @@ struct WishListView: View {
                     .ignoresSafeArea()
                 
                 if viewModel.movieModels.isEmpty {
-                    PlaceholderView()
+                    PlaceholderView(
+                        name: .box,
+                        title: "There Is No Movie Yet!",
+                        subtitle: "Find your movie by Type title, categories, years, etc"
+                    )
                 } else {
                     ScrollView(showsIndicators: false) {
                         // TODO: временное решение

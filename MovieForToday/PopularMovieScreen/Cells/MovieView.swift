@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RemoteImage
 
 struct MovieView: View {
     
@@ -13,24 +14,28 @@ struct MovieView: View {
     
     var body: some View {
         HStack(spacing: Constants.horizontalSpacing) {
-            
-            CachedAsyncImage(url: URL(string: movieModel.urlPoster)!) { phase in
-                if case .success(let image) = phase {
-                    ZStack {
-                        image
-                            .resizable()
-                            .frame(width: Constants.widthImage, height: Constants.heightImage)
-                            .aspectRatio(contentMode: .fill)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                        
-                        RatingView(rating: movieModel.rating,
-                                   isBackground: true)
+            RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+                ZStack {
+                    MovieImageView(
+                        image: image,
+                        width: Constants.widthImage,
+                        height: Constants.heightImage,
+                        cornerRadius: 8
+                    )
+                    
+                    RatingView(rating: movieModel.rating, isBackground: true)
                         .offset(x: Constants.xPosition, y: Constants.yPosition)
-                    }
-                } else {
-                    ProgressView()
-                        .frame(width: Constants.widthImage, height: Constants.heightImage)
                 }
+            } placeholder: {
+                ProgressView()
+                    .frame(width: Constants.widthImage, height: Constants.heightImage)
+                    .padding([.leading, .trailing])
+            } errorHandler: { _ in
+                ErrorImageView(
+                    systemName: "photo",
+                    width: Constants.widthImage,
+                    height: Constants.heightImage
+                )
             }
             
             VStack(alignment: .leading, spacing: Constants.verticalSpacing) {

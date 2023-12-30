@@ -20,7 +20,6 @@ struct PopularMovieView: View {
                 ForEach(0..<20) { _ in
                     MovieView(movieModel: viewModel.movieModels.first!)
                 }
-                .padding()
             }
             .navigationTitle("popular_movie")
         }
