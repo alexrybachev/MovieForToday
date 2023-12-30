@@ -7,10 +7,12 @@
 
 import Foundation
 
+@usableFromInline
 struct Endpoint {
     let path: String
     let queryItems: [URLQueryItem]
     
+    @usableFromInline
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -27,7 +29,8 @@ struct Endpoint {
     }
     
     //MARK: - init(_:)
-    private init(
+    @usableFromInline
+    init(
         path: String,
         @QueryBuilder queryItems: () -> [URLQueryItem] = { .init() }
     ) {
@@ -36,6 +39,7 @@ struct Endpoint {
     }
     
     //MARK: - Constructers
+    @usableFromInline
     static let genres: Self = .init(
         path: [Subpath.movie.rawValue, Field.value].joined(separator: "/"),
         queryItems: {
@@ -45,7 +49,7 @@ struct Endpoint {
     //MARK: - Movies
     @inlinable
     @inline(__always)
-    static func movieList(page: Int = 1, limit: Int = 10) -> Self {
+    static func movieList(page: Int, limit: Int) -> Self {
         .init(path: Subpath.list.rawValue) {
             paginated(page: page, limit: limit)
         }
@@ -53,7 +57,7 @@ struct Endpoint {
     
     @inlinable
     @inline(__always)
-    static func movieList(for slug: String, page: Int = 1, limit: Int = 10) -> Self {
+    static func movieList(for slug: String, page: Int, limit: Int) -> Self {
         .init(path: [Subpath.list.rawValue, slug].joined(separator: "/")) {
             paginated(page: page, limit: limit)
         }
@@ -65,6 +69,7 @@ struct Endpoint {
         .init(path: [Subpath.movie.rawValue, id.description].joined(separator: "/"))
     }
     
+    @usableFromInline
     static let top10: Self = .init(path: Subpath.movie.rawValue) {
         paginated(page: 1, limit: 10)
         URLQueryItem(name: Field.required, value: "top10")
@@ -72,7 +77,7 @@ struct Endpoint {
     
     @inlinable
     @inline(__always)
-    static func top250(page: Int = 1, limit: Int = 10) -> Self {
+    static func top250(page: Int, limit: Int) -> Self {
         .init(path: Subpath.movie.rawValue) {
             paginated(page: page, limit: limit)
             URLQueryItem(name: Field.required, value: "top250")
@@ -81,7 +86,7 @@ struct Endpoint {
     
     @inlinable
     @inline(__always)
-    static func searchMovie(byName name: String, page: Int = 1, limit: Int = 10) -> Self {
+    static func searchMovie(byName name: String, page: Int, limit: Int) -> Self {
         .init(path: Subpath.movie.rawValue.appending("/search")) {
             paginated(page: page, limit: limit)
             URLQueryItem(name: Field.query, value: name)
@@ -90,7 +95,7 @@ struct Endpoint {
     
     @inlinable
     @inline(__always)
-    static func topRatedMovies(page: Int, limit: Int = 10) -> Self {
+    static func topRatedMovies(page: Int, limit: Int) -> Self {
         .init(path: Subpath.movie.rawValue) {
             paginated(page: page, limit: limit)
             URLQueryItem(name: Field.sortion, value: "rating.kp")
@@ -107,7 +112,7 @@ struct Endpoint {
     
     @inlinable
     @inline(__always)
-    static func searchPerson(byName name: String, page: Int = 1, limit: Int = 10) -> Self {
+    static func searchPerson(byName name: String, page: Int, limit: Int) -> Self {
         .init(path: Subpath.person.rawValue.appending("/search")) {
             paginated(page: page, limit: limit)
             URLQueryItem(name: Field.query, value: name)
@@ -126,18 +131,23 @@ extension Endpoint {
         URLQueryItem(name: "limit", value: limit.description)
     }
     
-//    static var
 }
 
 extension Endpoint {
-    private struct Field {
+    @usableFromInline
+    struct Field {
+        @usableFromInline
         static let value = "possible-values-by-field"
+        @usableFromInline
         static let required = "notNullFields"
+        @usableFromInline
         static let sortion = "sortField"
+        @usableFromInline
         static let query = "query"
     }
     
-    private enum Subpath: String {
+    @usableFromInline
+    enum Subpath: String {
         case list
         case movie
         case image
