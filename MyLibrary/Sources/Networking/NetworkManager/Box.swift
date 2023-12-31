@@ -46,15 +46,5 @@ struct Box<Wrapped> {
     func asyncFlatMap<T>(_ transform: @escaping (Wrapped) async throws -> T) async rethrows -> T {
         try await transform(value)
     }
-}
 
-//extension Box where Wrapped: T? {
-//    func replaceNill<T>(
-//        _ alternative: () throws -> T
-//    ) rethrows -> Box<T> {
-//        switch value {
-//        case .some(let wrapped): return Box(wrapped)
-//        case .none: return try Box(alternative())
-//        }
-//    }
-//}
+}

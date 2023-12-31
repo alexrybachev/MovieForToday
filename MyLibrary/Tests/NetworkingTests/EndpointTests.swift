@@ -10,7 +10,7 @@ import XCTest
 
 final class EndpointTests: XCTestCase {
     func test_movieList() {
-        let sut = Endpoint.movieList()
+        let sut = Endpoint.movieList(page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
@@ -28,7 +28,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_movieListWithSlug() {
-        let sut = Endpoint.movieList(for: "Baz")
+        let sut = Endpoint.movieList(for: "Baz", page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
@@ -64,7 +64,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_top250Movies() {
-        let sut = Endpoint.top250()
+        let sut = Endpoint.top250(page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
@@ -73,7 +73,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_searchMovieByName() {
-        let sut = Endpoint.searchMovie(byName: "Baz")
+        let sut = Endpoint.searchMovie(byName: "Baz", page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
@@ -82,7 +82,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_topRatedMovies() {
-        let sut = Endpoint.topRatedMovies(page: 1)
+        let sut = Endpoint.topRatedMovies(page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
@@ -100,7 +100,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_searchPersonByName() {
-        let sut = Endpoint.searchPerson(byName: "Baz")
+        let sut = Endpoint.searchPerson(byName: "Baz", page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,

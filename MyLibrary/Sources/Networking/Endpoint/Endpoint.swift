@@ -69,10 +69,11 @@ struct Endpoint {
         .init(path: [Subpath.movie.rawValue, id.description].joined(separator: "/"))
     }
     
+    
     @usableFromInline
     static let top10: Self = .init(path: Subpath.movie.rawValue) {
         paginated(page: 1, limit: 10)
-        URLQueryItem(name: Field.required, value: "top10")
+        URLQueryItem(name: Field.required, value: SelectFields.top10.rawValue)
     }
     
     @inlinable
@@ -80,7 +81,7 @@ struct Endpoint {
     static func top250(page: Int, limit: Int) -> Self {
         .init(path: Subpath.movie.rawValue) {
             paginated(page: page, limit: limit)
-            URLQueryItem(name: Field.required, value: "top250")
+            URLQueryItem(name: Field.required, value: SelectFields.top250.rawValue)
         }
     }
     
@@ -131,6 +132,26 @@ extension Endpoint {
         URLQueryItem(name: "limit", value: limit.description)
     }
     
+    @usableFromInline
+    @QueryBuilder
+    var movieRequiredFields: [URLQueryItem] {
+        URLQueryItem(name: Field.required, value: "name")
+        URLQueryItem(name: Field.required, value: "description")
+        URLQueryItem(name: Field.required, value: "year")
+        URLQueryItem(name: Field.required, value: "rating.kp")
+        URLQueryItem(name: Field.required, value: "poster.url")
+        URLQueryItem(name: Field.required, value: "backdrop.url")
+        URLQueryItem(name: Field.required, value: "logo.url")
+        URLQueryItem(name: Field.required, value: "person.id")
+        URLQueryItem(name: Field.required, value: "person.name")
+        URLQueryItem(name: Field.required, value: "person.photo")
+        URLQueryItem(name: Field.required, value: "person.description")
+        URLQueryItem(name: Field.required, value: "person.profession")
+        URLQueryItem(name: Field.required, value: "videos.trailers.url")
+        URLQueryItem(name: Field.required, value: "videos.trailers.site")
+        URLQueryItem(name: Field.required, value: "videos.trailers.name")
+    }
+    
 }
 
 extension Endpoint {
@@ -153,4 +174,54 @@ extension Endpoint {
         case image
         case person
     }
+    
+    @usableFromInline
+    enum SelectFields: String {
+        case id
+        case externalId
+        case name
+        case enName
+        case alternativeName
+        case names
+        case description
+        case shortDescription
+        case slogan
+        case type
+        case typeNumber
+        case isSeries
+        case status
+        case year
+        case releaseYears
+        case rating
+        case ratingMpaa
+        case ageRating
+        case votes
+        case seasonsInfo
+        case budget
+        case audience
+        case movieLength
+        case seriesLength
+        case totalSeriesLength
+        case genres
+        case countries
+        case poster
+        case backdrop
+        case logo
+        case ticketsOnSale
+        case videos
+        case networks
+        case persons
+        case facts
+        case fees
+        case premiere
+        case similarMovies
+        case sequelsAndPrequels
+        case watchability
+        case lists
+        case top10
+        case top250
+        case updatedAt
+        case createdAt
+    }
+    
 }

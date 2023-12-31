@@ -35,56 +35,57 @@ public final class NetworkManager {
     
     //MARK: - Public methods
     @inlinable
-    public func getAllGenres() async -> Result<[FieldValue], Error> {
-        await performRequest(.genres, model: [FieldValue].self)
+    public func getAllGenres() async throws -> [FieldValue] {
+        try await performRequest(.genres, model: [FieldValue].self)
     }
     
     @inlinable
-    public func getTop10Movies() async -> Result<MovieList, Error> {
-        await performRequest(.top10, model: MovieList.self)
+    public func getTop10Movies() async throws -> MovieList {
+        try await performRequest(.top10, model: MovieList.self)
     }
     
     @inlinable
-    public func getTop250Movies(page: Int = 1, limit: Int = 10) async -> Result<MovieList, Error> {
-        await performRequest(.top250(page: page, limit: limit), model: MovieList.self)
+    public func getTop250Movies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.top250(page: page, limit: limit), model: MovieList.self)
     }
     
     @inlinable
-    public func getMovieList(page: Int = 1, limit: Int = 10) async -> Result<CollectionList, Error> {
-        await performRequest(.movieList(page: page, limit: limit), model: CollectionList.self)
+    public func getMovieList(page: Int = 1, limit: Int = 10) async throws -> CollectionList {
+        try await performRequest(.movieList(page: page, limit: limit), model: CollectionList.self)
     }
     
     @inlinable
-    public func getMovies(for slug: String, page: Int = 1, limit: Int = 10) async -> Result<Collection, Error> {
-        await performRequest(.movieList(for: slug, page: page, limit: limit), model: Collection.self)
+    public func getMovies(for slug: String, page: Int = 1, limit: Int = 10) async throws -> Collection {
+        try await performRequest(.movieList(for: slug, page: page, limit: limit), model: Collection.self)
     }
     
     @inlinable
-    public func getMovie(withId id: Int) async -> Result<Movie, Error> {
-        await performRequest(.movie(withId: id), model: Movie.self)
+    public func getMovie(withId id: Int) async throws -> Movie {
+        try await performRequest(.movie(withId: id), model: Movie.self)
     }
     
     @inlinable
-    public func searchMovie(named name: String, page: Int = 1, limit: Int = 10) async -> Result<MovieList, Error> {
-        await performRequest(.searchMovie(byName: name, page: page, limit: limit), model: MovieList.self)
+    public func searchMovie(named name: String, page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.searchMovie(byName: name, page: page, limit: limit), model: MovieList.self)
     }
     
     @inlinable
-    public func getTopRatedMovies(page: Int = 1, limit: Int = 10) async -> Result<MovieList, Error> {
-        await performRequest(.topRatedMovies(page: page, limit: limit), model: MovieList.self)
+    public func getTopRatedMovies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.topRatedMovies(page: page, limit: limit), model: MovieList.self)
     }
     
     //MARK: - Internal methods
     @inlinable
     @inline(__always)
-    func performRequest<T: Decodable>(_ endpoint: Endpoint, model type: T.Type) async -> Result<T, Error> {
-        await Box(endpoint)
+    func performRequest<T: Decodable>(_ endpoint: Endpoint, model type: T.Type) async throws -> T {
+        try await Box(endpoint)
             .map(\.url)
             .map { URLRequest(url: $0) }
             .map(addKey(apiKey))
-            .asyncFlatMap(fetch(session))
-            .map(\.data)
-            .flatMap(decode(type.self, decoder: JSONDecoder()))
+            .asyncMap(session.data(for:))
+            .map(\.0)
+            .map(decode(type.self, decoder: JSONDecoder()))
+            .value
     }
     
     @inlinable
@@ -99,24 +100,8 @@ public final class NetworkManager {
     
     @inlinable
     @inline(__always)
-    func decode<T: Decodable>(_ type: T.Type, decoder: JSONDecoder) -> (Data) -> Result<T, Error> {
-        { data in
-            Result {
-                try decoder.decode(type.self, from: data)
-            }
-        }
+    func decode<T: Decodable>(_ type: T.Type, decoder: JSONDecoder) -> (Data) throws -> T {
+        { try decoder.decode(type.self, from: $0) }
     }
     
-    @inlinable
-    @inline(__always)
-    func fetch(_ session: URLSession) -> (URLRequest) async -> Result<Response, Error> {
-        { request in
-            do {
-                let response: Response = try await session.data(for: request)
-                return .success(response)
-            } catch {
-                return .failure(error)
-            }
-        }
-    }
 }
