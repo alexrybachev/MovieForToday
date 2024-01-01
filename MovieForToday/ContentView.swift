@@ -8,19 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: Tab = .home
+    private let tabBarHeight: CGFloat = 72
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-                .font(.custom(.montMedium, size: 16))
-                .background(Color.primaryColor(.mint))
+        ZStack(alignment: .bottom) {
+            VStack {
+                switch selectedTab {
+                case .home:
+//                    HomeView()
+                    PopularMovieView() // test
+                case .search:
+                    SearchView()
+                case .download:
+                    WishListView()
+                case .profile:
+                    ProfileView()
+                }
+            }
+            .padding(.bottom, tabBarHeight)
+            
+            CustomTabBarView(selectedTab: $selectedTab)
         }
-        .padding()
+        .ignoresSafeArea(.keyboard)
     }
 }
 
-#Preview {
+#Preview("English") {
     ContentView()
+        .environment(\.locale, .init(identifier: "en"))
+}
+
+#Preview("Russian") {
+    ContentView()
+        .environment(\.locale, .init(identifier: "ru"))
 }

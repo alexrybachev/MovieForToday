@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct PopularMovieView: View {
+    
+    @StateObject var viewModel = PopularMovieViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.customMain
+                .ignoresSafeArea()
+            
+            ScrollView {
+                ForEach(0..<20) { _ in
+                    MovieView(movieModel: viewModel.movieModels.first!)
+                }
+                .padding()
+            }
+            .navigationTitle("popular_movie")
+        }
     }
 }
 
