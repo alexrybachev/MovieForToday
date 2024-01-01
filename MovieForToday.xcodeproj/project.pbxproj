@@ -17,19 +17,17 @@
 		0D4AF8592B3C31890033017D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8582B3C31890033017D /* CustomTextField.swift */; };
 		0D4AF85D2B3C37750033017D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF85C2B3C37750033017D /* CustomButton.swift */; };
 		0D4AF86E2B3D80330033017D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF86D2B3D80330033017D /* FirebaseAuth */; };
-		0D4AF8702B3D80330033017D /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF86F2B3D80330033017D /* FirebaseAuthCombine-Community */; };
 		0D4AF8742B3D80330033017D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF8732B3D80330033017D /* FirebaseDatabase */; };
 		0D4AF8762B3D80330033017D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF8752B3D80330033017D /* FirebaseDatabaseSwift */; };
 		0D4AF87A2B3D80330033017D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF8792B3D80330033017D /* FirebaseFirestore */; };
-		0D4AF87C2B3D80330033017D /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF87B2B3D80330033017D /* FirebaseFirestoreCombine-Community */; };
 		0D4AF87E2B3D80330033017D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF87D2B3D80330033017D /* FirebaseFirestoreSwift */; };
 		0D4AF8882B3D80330033017D /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF8872B3D80330033017D /* FirebaseInstallations */; };
 		0D4AF8902B3D80330033017D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF88F2B3D80330033017D /* FirebaseStorage */; };
-		0D4AF8922B3D80330033017D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF8912B3D80330033017D /* FirebaseStorageCombine-Community */; };
 		0D4AF8942B3D831E0033017D /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8932B3D831E0033017D /* Registration.swift */; };
 		0D4AF8972B3D85D10033017D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8962B3D85D10033017D /* FirebaseManager.swift */; };
 		0D4AF8992B3D94C60033017D /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8982B3D94C60033017D /* CustomSecureField.swift */; };
 		0D4AF89B2B3DA2AE0033017D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D4AF89A2B3DA2AD0033017D /* GoogleService-Info.plist */; };
+		0D4AF89D2B4026D20033017D /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF89C2B4026D20033017D /* SignInViewModel.swift */; };
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
@@ -75,6 +73,7 @@
 		0D4AF8962B3D85D10033017D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		0D4AF8982B3D94C60033017D /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		0D4AF89A2B3DA2AD0033017D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D4AF89C2B4026D20033017D /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -119,9 +118,6 @@
 				0D4AF87E2B3D80330033017D /* FirebaseFirestoreSwift in Frameworks */,
 				0D4AF86E2B3D80330033017D /* FirebaseAuth in Frameworks */,
 				0D4AF8762B3D80330033017D /* FirebaseDatabaseSwift in Frameworks */,
-				0D4AF8702B3D80330033017D /* FirebaseAuthCombine-Community in Frameworks */,
-				0D4AF8922B3D80330033017D /* FirebaseStorageCombine-Community in Frameworks */,
-				0D4AF87C2B3D80330033017D /* FirebaseFirestoreCombine-Community in Frameworks */,
 				0D4AF8882B3D80330033017D /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +145,7 @@
 				0D4AF8562B3C307F0033017D /* LogIn View.swift */,
 				0D4AF8932B3D831E0033017D /* Registration.swift */,
 				0D4AF8962B3D85D10033017D /* FirebaseManager.swift */,
+				0D4AF89C2B4026D20033017D /* SignInViewModel.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -365,15 +362,12 @@
 			name = MovieForToday;
 			packageProductDependencies = (
 				0D4AF86D2B3D80330033017D /* FirebaseAuth */,
-				0D4AF86F2B3D80330033017D /* FirebaseAuthCombine-Community */,
 				0D4AF8732B3D80330033017D /* FirebaseDatabase */,
 				0D4AF8752B3D80330033017D /* FirebaseDatabaseSwift */,
 				0D4AF8792B3D80330033017D /* FirebaseFirestore */,
-				0D4AF87B2B3D80330033017D /* FirebaseFirestoreCombine-Community */,
 				0D4AF87D2B3D80330033017D /* FirebaseFirestoreSwift */,
 				0D4AF8872B3D80330033017D /* FirebaseInstallations */,
 				0D4AF88F2B3D80330033017D /* FirebaseStorage */,
-				0D4AF8912B3D80330033017D /* FirebaseStorageCombine-Community */,
 			);
 			productName = MovieForToday;
 			productReference = 288038DB2B3729A500691E0E /* MovieForToday.app */;
@@ -468,6 +462,7 @@
 				287C8E322B38A02500C687E7 /* ImageText.swift in Sources */,
 				288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */,
 				0D4AF84F2B39B3AF0033017D /* NavigationSettings.swift in Sources */,
+				0D4AF89D2B4026D20033017D /* SignInViewModel.swift in Sources */,
 				288038FC2B37355D00691E0E /* MovieDetailView.swift in Sources */,
 				287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */,
 				288038FF2B37357600691E0E /* WishListView.swift in Sources */,
@@ -708,11 +703,6 @@
 			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		0D4AF86F2B3D80330033017D /* FirebaseAuthCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseAuthCombine-Community";
-		};
 		0D4AF8732B3D80330033017D /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -728,11 +718,6 @@
 			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		0D4AF87B2B3D80330033017D /* FirebaseFirestoreCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreCombine-Community";
-		};
 		0D4AF87D2B3D80330033017D /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -747,11 +732,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
-		};
-		0D4AF8912B3D80330033017D /* FirebaseStorageCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0D4AF8602B3D80330033017D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct LogIn_View: View {
-    @State var login: String
-    @State var password: String
-    @State var mail: String
+struct LogInView: View {
+    @StateObject var viewModel = SignInViewModel()
+    @Binding var showSignInView : Bool
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -18,13 +18,14 @@ struct LogIn_View: View {
                     .ignoresSafeArea()
                 VStack(alignment: .center, spacing: 20) {
                     Spacer()
-                    CustomTextField(value: $login, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your login")
-                    CustomTextField(value: $password, titleBorder: "Password", offsetNameX: -118, offsetNameY: -28, placeHolder: "Enter your password")
+                    
+                    CustomTextField(value: $viewModel.email, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your login")
+                    CustomTextField(value: $viewModel.password, titleBorder: "Password", offsetNameX: -118, offsetNameY: -28, placeHolder: "Enter your password")
                     
                     Spacer().frame(height: 170)
                     
                     NavigationLink(destination: {
-                        Registration(fullName: "", login: "", password: "", mail: "")
+                        Registration(fullName: "", login: "", password: "", showSignInView: $showSignInView, mail: "")
                     }, label: {
                         Text("Registration")
                             .foregroundStyle(.white)
@@ -36,15 +37,35 @@ struct LogIn_View: View {
                             .padding(.horizontal, 16)
                     })
                     
-                    CustomButton(text: "Login", color: Color(PrimaryColor.mint.rawValue), action: {print(#function)})
-                        .padding(.horizontal, 16)
+                    Button(action: {
+                        Task {
+                            do {
+                                try await viewModel.signIn()
+                                self.showSignInView = false
+                                return
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }) {
+                        Text("LogIn")
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 20)
+                            .font(.custom(.montMedium, size: 16))
+                            .background(Color(PrimaryColor.mint.rawValue))
+                            .cornerRadius(32)
+                    }
+                    .padding(.horizontal, 16)
                 }
                 .padding()
             }
+            .navigationTitle("Sign In")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
 
 #Preview {
-    LogIn_View(login: "", password: "", mail: "")
+    LogInView(showSignInView: .constant(false))
 }

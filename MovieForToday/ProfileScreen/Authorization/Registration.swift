@@ -11,8 +11,9 @@ struct Registration: View {
     @State var fullName: String
     @State var login: String
     @State var password: String
+    @StateObject var signInViewModel = SignInViewModel()
+    @Binding var showSignInView: Bool
     @State var mail: String
-    let firebase = FirebaseManager()
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,24 +24,36 @@ struct Registration: View {
                     
                     CustomTextField(value: $login, titleBorder: "Login", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your login")
                     
-                    CustomTextField(value: $mail, titleBorder: "@mail", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your @mail")
+                    CustomTextField(value: $signInViewModel.email, titleBorder: "@mail", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your @mail")
                     
-                    CustomSecureField(value: $password, titleBorder: "Password", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your password")
+                    CustomSecureField(value: $signInViewModel.password, titleBorder: "Password", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your password")
                     
                     Spacer()
                 
                     CustomButton(text: "Create account", color: Color.black, action: {
-                        firebase.registrationUser(user: UserData(login: login, password: password, name: fullName, email: mail))
+                        Task {
+                            do {
+                                try await signInViewModel.signUp()
+                                self.showSignInView = false
+                                return
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
                     })
                     .padding(.horizontal, 16)
                     .padding(.bottom, 10)
                 }
-                .padding(.top, 200)
+                .padding(.top, 140)
             }
         }
+        .navigationTitle("Sign Up")
+        .navigationBarTitleDisplayMode(.large)
+        
     }
 }
 
 #Preview {
-    Registration(fullName: "", login: "", password: "", mail: "")
+    Registration(fullName: "", login: "", password: "", showSignInView: .constant(false), mail: "")
 }
