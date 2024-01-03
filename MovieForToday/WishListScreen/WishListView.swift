@@ -13,9 +13,6 @@ struct WishListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.primaryColor(.mainDark)
-                    .ignoresSafeArea()
-                
                 if viewModel.movieModels.isEmpty {
                     PlaceholderView(
                         name: .box,
@@ -27,7 +24,7 @@ struct WishListView: View {
                         // TODO: временное решение
                         ForEach(viewModel.movieModels, id: \.name) { movie in
                             NavigationLink {
-                                // MovieDetailView()
+                                MovieDetailView(movieModel: movie)
                             } label: {
                                 WishListViewCell(movieModel: movie)
                             }
@@ -35,8 +32,9 @@ struct WishListView: View {
                     }
                 }
             }
-            .navigationTitle("Wishlist")
+            .navigationTitle("wishlist")
             .navigationBarTitleDisplayMode(.inline)
+            .background(Color.primaryColor(.mainDark))
         }
     }
 }

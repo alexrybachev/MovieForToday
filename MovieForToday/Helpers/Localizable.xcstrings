@@ -35,6 +35,22 @@
         }
       }
     },
+    "cast_and_crew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cast and Crew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Актерский состав и команда"
+          }
+        }
+      }
+    },
     "duration" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -86,6 +102,9 @@
         }
       }
     },
+    "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero's identity is revealed, bringing his Super Hero responsibilities into conflict with his normal life and putting those he cares about most at risk. More" : {
+
+    },
     "full_name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -99,6 +118,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Полное имя"
+          }
+        }
+      }
+    },
+    "galery" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Galery"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Галерея"
           }
         }
       }
@@ -121,6 +156,7 @@
       }
     },
     "Hello, world!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -428,6 +464,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать уведомления"
+          }
+        }
+      }
+    },
+    "story_line" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Story Line"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сюжет"
           }
         }
       }
