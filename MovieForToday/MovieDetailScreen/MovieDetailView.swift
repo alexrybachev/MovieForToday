@@ -10,6 +10,7 @@ import RemoteImage
 
 struct MovieDetailView: View {
     @State private var isSharing = false
+    @State private var isFullScreen = false
     @State private var gradient = [
         Color.primaryColor(.mainDark),
         Color.primaryColor(.mainDark).opacity(0),
@@ -143,22 +144,29 @@ struct MovieDetailView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(0..<5) { _ in
-                                RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
-                                    MovieImageView(
-                                        image: image,
-                                        width: Constants.movieImageWidth,
-                                        height: Constants.movieImageHeight,
-                                        cornerRadius: Constants.movieImageCornerRadius
-                                    )
-                                } placeholder: {
-                                    ProgressView()
-                                        .frame(
+                                Button {
+                                    isFullScreen = true
+                                } label: {
+                                    RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+                                        MovieImageView(
+                                            image: image,
                                             width: Constants.movieImageWidth,
-                                            height: Constants.movieImageHeight
+                                            height: Constants.movieImageHeight,
+                                            cornerRadius: Constants.movieImageCornerRadius
                                         )
+                                    } placeholder: {
+                                        ProgressView()
+                                            .frame(
+                                                width: Constants.movieImageWidth,
+                                                height: Constants.movieImageHeight
+                                            )
+                                    }
                                 }
                             }
                         }
+                    }
+                    .sheet(isPresented: $isFullScreen) {
+                        FullScreenImageView(movieModel: movieModel)
                     }
                 }
                 .padding(.bottom, Constants.tabBarHeight)

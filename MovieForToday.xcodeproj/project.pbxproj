@@ -39,6 +39,7 @@
 		867EA8432B3F60C70039EB19 /* RemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = 867EA8422B3F60C70039EB19 /* RemoteImage */; };
 		FA1C011D2B3C5A880047D1EB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */; };
 		FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */; };
+		FA7B26172B45CC7A00B13C6D /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B26162B45CC7A00B13C6D /* FullScreenImageView.swift */; };
 		FA83840B2B443F50004B7A13 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83840A2B443F50004B7A13 /* BackgroundImageView.swift */; };
 		FA8384102B4473D0004B7A13 /* TrailerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83840F2B4473D0004B7A13 /* TrailerButtonView.swift */; };
 		FA8384122B44755F004B7A13 /* ShareButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8384112B44755F004B7A13 /* ShareButtonView.swift */; };
@@ -82,6 +83,7 @@
 		867EA83F2B3F60BF0039EB19 /* MyLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyLibrary; sourceTree = "<group>"; };
 		FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewCell.swift; sourceTree = "<group>"; };
+		FA7B26162B45CC7A00B13C6D /* FullScreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
 		FA83840A2B443F50004B7A13 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		FA83840F2B4473D0004B7A13 /* TrailerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerButtonView.swift; sourceTree = "<group>"; };
 		FA8384112B44755F004B7A13 /* ShareButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				FA83840F2B4473D0004B7A13 /* TrailerButtonView.swift */,
 				FA8384112B44755F004B7A13 /* ShareButtonView.swift */,
 				FA8384132B447A9B004B7A13 /* CrewLabelView.swift */,
+				FA7B26162B45CC7A00B13C6D /* FullScreenImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				FADC05D22B3DB2ED0031FD57 /* ErrorImageView.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				FA83840B2B443F50004B7A13 /* BackgroundImageView.swift in Sources */,
+				FA7B26172B45CC7A00B13C6D /* FullScreenImageView.swift in Sources */,
 				287C8E2F2B388A4100C687E7 /* PopularMovieViewModel.swift in Sources */,
 				288038F92B37353F00691E0E /* PopularMovieView.swift in Sources */,
 				287C8E132B38537900C687E7 /* Font+ext.swift in Sources */,
