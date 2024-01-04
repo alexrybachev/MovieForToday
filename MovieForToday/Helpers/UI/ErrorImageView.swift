@@ -1,5 +1,5 @@
 //
-//  ErrorView.swift
+//  ErrorImageView.swift
 //  MovieForToday
 //
 //  Created by Alex on 28.12.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ErrorView: View {
+struct ErrorImageView: View {
     let systemName: String
     let width: CGFloat
     let height: CGFloat
@@ -24,5 +24,5 @@ struct ErrorView: View {
 }
 
 #Preview {
-    ErrorView(systemName: "photo", width: 50, height: 50)
+    ErrorImageView(systemName: "photo", width: 50, height: 50)
 }

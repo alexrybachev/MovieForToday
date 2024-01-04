@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RemoteImage
 
 struct WishListViewCell: View {
     let movieModel: MovieModel
@@ -16,31 +17,24 @@ struct WishListViewCell: View {
                 .foregroundStyle(Color.primaryColor(.softDark))
             
             HStack {
-                CachedAsyncImage(url: URL(string: movieModel.urlPoster)!) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .frame(width: Constants.imageWidth, height: Constants.imageHeight)
-                            .padding([.leading, .trailing])
-                    case .success(let image):
-                        WishListImageView(
-                            image: image,
-                            width: Constants.imageWidth,
-                            height: Constants.imageHeight
-                        )
-                    case .failure(_):
-                        ErrorView(
-                            systemName: "photo",
-                            width: Constants.imageWidth,
-                            height: Constants.imageHeight
-                        )
-                    @unknown default:
-                        ErrorView(
-                            systemName: "questionmark.app",
-                            width: Constants.imageWidth,
-                            height: Constants.imageHeight
-                        )
-                    }
+                RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+                    MovieImageView(
+                        image: image,
+                        width: Constants.imageWidth,
+                        height: Constants.imageHeight, 
+                        cornerRadius: 8,
+                        showPlayButton: true
+                    )
+                } placeholder: {
+                    ProgressView()
+                        .frame(width: Constants.imageWidth, height: Constants.imageHeight)
+                        .padding([.leading, .trailing])
+                } errorHandler: { _ in
+                    ErrorImageView(
+                        systemName: "photo",
+                        width: Constants.imageWidth,
+                        height: Constants.imageHeight
+                    )
                 }
                 
                 VStack(alignment: .leading, spacing: Constants.verticalPaddings) {
@@ -61,19 +55,14 @@ struct WishListViewCell: View {
                         
                         Spacer()
 
-                        Button {
-                            // TODO: delete from favourites action
-                        } label: {
-                            Image(.heart)
-                                .colorMultiply(.red)
-                        }
-                        .padding(.trailing, 16)
+                        AddToFavoritesButton(action: {})
+                            .padding(.trailing, 16)
                     }
                 }
             }
         }
         .frame(width: .infinity, height: Constants.rowHeight)
-        .padding([.leading, .trailing])
+        .padding([.leading, .trailing, .bottom])
     }
 }
 

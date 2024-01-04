@@ -13,17 +13,18 @@ struct WishListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.primaryColor(.mainDark)
-                    .ignoresSafeArea()
-                
                 if viewModel.movieModels.isEmpty {
-                    PlaceholderView()
+                    PlaceholderView(
+                        name: .box,
+                        title: "There Is No Movie Yet!",
+                        subtitle: "Find your movie by Type title, categories, years, etc"
+                    )
                 } else {
                     ScrollView(showsIndicators: false) {
                         // TODO: временное решение
                         ForEach(viewModel.movieModels, id: \.name) { movie in
                             NavigationLink {
-                                // MovieDetailView()
+                                MovieDetailView(movieModel: movie)
                             } label: {
                                 WishListViewCell(movieModel: movie)
                             }
@@ -31,8 +32,9 @@ struct WishListView: View {
                     }
                 }
             }
-            .navigationTitle("Wishlist")
+            .navigationTitle("wishlist")
             .navigationBarTitleDisplayMode(.inline)
+            .background(Color.primaryColor(.mainDark))
         }
     }
 }

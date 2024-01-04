@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct PlaceholderView: View {
+    let name: ImageResource
+    let title: String
+    let subtitle: String
+    
     var body: some View {
         VStack(spacing: 16) {
-            Image(.box)
+            Image(name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 76)
             
-            Text("There Is No Movie Yet!")
+            Text(title)
                 .font(.custom(.montSemiBold, size: 16))
                 .foregroundStyle(.textWhiteGrey)
             
-            Text("Find your movie by Type title, categories, years, etc")
+            Text(subtitle)
                 .font(.custom(.montRegular, size: 12))
                 .foregroundStyle(.textGrey)
         }
@@ -29,6 +33,6 @@ struct PlaceholderView: View {
 }
 
 #Preview {
-    PlaceholderView()
+    PlaceholderView(name: .box, title: "There Is No Movie Yet!", subtitle: "Find your movie by Type title, categories, years, etc")
         .background(.customMain)
 }
