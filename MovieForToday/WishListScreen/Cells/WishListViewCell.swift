@@ -55,13 +55,8 @@ struct WishListViewCell: View {
                         
                         Spacer()
 
-                        Button {
-                            // TODO: delete from favourites action
-                        } label: {
-                            Image(.heart)
-                                .colorMultiply(.red)
-                        }
-                        .padding(.trailing, 16)
+                        AddToFavoritesButton(action: {})
+                            .padding(.trailing, 16)
                     }
                 }
             }

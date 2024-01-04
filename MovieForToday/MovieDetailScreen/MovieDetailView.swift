@@ -175,6 +175,16 @@ struct MovieDetailView: View {
         .navigationTitle(movieModel.name)
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.primaryColor(.mainDark))
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                AddToFavoritesButton(action: {})
+            }
+        }
     }
 }
 
