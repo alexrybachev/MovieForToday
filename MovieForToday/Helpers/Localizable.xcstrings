@@ -92,6 +92,9 @@
         }
       }
     },
+    "forgot password?" : {
+
+    },
     "full_name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -260,6 +263,9 @@
         }
       }
     },
+    "Ok" : {
+
+    },
     "PG-13" : {
 
     },
@@ -425,6 +431,9 @@
         }
       }
     },
+    "Send" : {
+
+    },
     "share_to" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -466,6 +475,9 @@
 
     },
     "Tearms" : {
+
+    },
+    "The recover message was send to %@" : {
 
     },
     "trailer" : {

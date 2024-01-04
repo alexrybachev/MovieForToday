@@ -13,7 +13,7 @@
 		0D4AF8512B39BE930033017D /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8502B39BE930033017D /* More.swift */; };
 		0D4AF8532B3ADA030033017D /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8522B3ADA030033017D /* EditProfile.swift */; };
 		0D4AF8552B3B3C340033017D /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8542B3B3C340033017D /* PrivacyPolicy.swift */; };
-		0D4AF8572B3C307F0033017D /* LogIn View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8562B3C307F0033017D /* LogIn View.swift */; };
+		0D4AF8572B3C307F0033017D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8562B3C307F0033017D /* LogInView.swift */; };
 		0D4AF8592B3C31890033017D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8582B3C31890033017D /* CustomTextField.swift */; };
 		0D4AF85D2B3C37750033017D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF85C2B3C37750033017D /* CustomButton.swift */; };
 		0D4AF86E2B3D80330033017D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF86D2B3D80330033017D /* FirebaseAuth */; };
@@ -23,11 +23,12 @@
 		0D4AF87E2B3D80330033017D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF87D2B3D80330033017D /* FirebaseFirestoreSwift */; };
 		0D4AF8882B3D80330033017D /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF8872B3D80330033017D /* FirebaseInstallations */; };
 		0D4AF8902B3D80330033017D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0D4AF88F2B3D80330033017D /* FirebaseStorage */; };
-		0D4AF8942B3D831E0033017D /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8932B3D831E0033017D /* Registration.swift */; };
+		0D4AF8942B3D831E0033017D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8932B3D831E0033017D /* RegistrationView.swift */; };
 		0D4AF8972B3D85D10033017D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8962B3D85D10033017D /* FirebaseManager.swift */; };
 		0D4AF8992B3D94C60033017D /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF8982B3D94C60033017D /* CustomSecureField.swift */; };
 		0D4AF89B2B3DA2AE0033017D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D4AF89A2B3DA2AD0033017D /* GoogleService-Info.plist */; };
 		0D4AF89D2B4026D20033017D /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AF89C2B4026D20033017D /* SignInViewModel.swift */; };
+		0DDFAEA82B47009300BAE6C0 /* ReturnPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDFAEA72B47009300BAE6C0 /* ReturnPassword.swift */; };
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
@@ -66,14 +67,15 @@
 		0D4AF8502B39BE930033017D /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
 		0D4AF8522B3ADA030033017D /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0D4AF8542B3B3C340033017D /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
-		0D4AF8562B3C307F0033017D /* LogIn View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogIn View.swift"; sourceTree = "<group>"; };
+		0D4AF8562B3C307F0033017D /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		0D4AF8582B3C31890033017D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0D4AF85C2B3C37750033017D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		0D4AF8932B3D831E0033017D /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		0D4AF8932B3D831E0033017D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		0D4AF8962B3D85D10033017D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		0D4AF8982B3D94C60033017D /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		0D4AF89A2B3DA2AD0033017D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D4AF89C2B4026D20033017D /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		0DDFAEA72B47009300BAE6C0 /* ReturnPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnPassword.swift; sourceTree = "<group>"; };
 		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -142,8 +144,9 @@
 		0D4AF8952B3D83480033017D /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				0D4AF8562B3C307F0033017D /* LogIn View.swift */,
-				0D4AF8932B3D831E0033017D /* Registration.swift */,
+				0D4AF8562B3C307F0033017D /* LogInView.swift */,
+				0D4AF8932B3D831E0033017D /* RegistrationView.swift */,
+				0DDFAEA72B47009300BAE6C0 /* ReturnPassword.swift */,
 				0D4AF8962B3D85D10033017D /* FirebaseManager.swift */,
 				0D4AF89C2B4026D20033017D /* SignInViewModel.swift */,
 			);
@@ -434,7 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2880390C2B373E1F00691E0E /* NetworkManager.swift in Sources */,
-				0D4AF8942B3D831E0033017D /* Registration.swift in Sources */,
+				0D4AF8942B3D831E0033017D /* RegistrationView.swift in Sources */,
 				288038F02B3734DF00691E0E /* OnboardingView.swift in Sources */,
 				288039022B37358F00691E0E /* SearchView.swift in Sources */,
 				0D4AF85D2B3C37750033017D /* CustomButton.swift in Sources */,
@@ -455,7 +458,7 @@
 				0D4AF8592B3C31890033017D /* CustomTextField.swift in Sources */,
 				287C8E132B38537900C687E7 /* Font+ext.swift in Sources */,
 				0D4AF8552B3B3C340033017D /* PrivacyPolicy.swift in Sources */,
-				0D4AF8572B3C307F0033017D /* LogIn View.swift in Sources */,
+				0D4AF8572B3C307F0033017D /* LogInView.swift in Sources */,
 				287C8E342B38A0B900C687E7 /* RatingView.swift in Sources */,
 				288038E12B3729A500691E0E /* ContentView.swift in Sources */,
 				287C8E362B38AD9E00C687E7 /* View+Ext.swift in Sources */,
@@ -467,6 +470,7 @@
 				287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */,
 				288038FF2B37357600691E0E /* WishListView.swift in Sources */,
 				0D4AF84A2B39A2360033017D /* HeaderView.swift in Sources */,
+				0DDFAEA82B47009300BAE6C0 /* ReturnPassword.swift in Sources */,
 				2880390E2B373E2900691E0E /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

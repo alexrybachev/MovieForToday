@@ -54,6 +54,10 @@ final class FirebaseManager {
        try Auth.auth().signOut()
     }
     
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
     //    func registrationUser(user: UserData) {
     //        Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
     //            guard error == nil else {

@@ -34,5 +34,13 @@ final class SignInViewModel: ObservableObject {
         print(uderData)
     }
     
+//    func resetPassword() async throws {
+//        let authUser = try FirebaseManager.shared.getAuthenticatedUser()
+//        guard let email = authUser.email else {
+//            throw URLError(.fileDoesNotExist)
+//        }
+//        try await FirebaseManager.shared.resetPassword(email: email)
+//    }
+    
     
 }

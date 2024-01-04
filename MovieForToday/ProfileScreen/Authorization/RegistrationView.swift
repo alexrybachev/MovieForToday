@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Registration: View {
+    @Environment(\.presentationMode) var rootView
     @State var fullName: String
     @State var login: String
     @State var password: String
@@ -20,13 +21,16 @@ struct Registration: View {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
                 VStack(spacing: 30) {
+                    Spacer()
                     CustomTextField(value: $fullName, titleBorder: "Full Name", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your full name")
-                    
-                    CustomTextField(value: $login, titleBorder: "Login", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your login")
+                        .autocapitalization(.words)
                     
                     CustomTextField(value: $signInViewModel.email, titleBorder: "@mail", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your @mail")
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
                     
                     CustomSecureField(value: $signInViewModel.password, titleBorder: "Password", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your password")
+                        .autocapitalization(.none)
                     
                     Spacer()
                 
@@ -35,6 +39,7 @@ struct Registration: View {
                             do {
                                 try await signInViewModel.signUp()
                                 self.showSignInView = false
+                                rootView.wrappedValue.dismiss()
                                 return
                             } catch {
                                 print(error.localizedDescription)
@@ -45,7 +50,7 @@ struct Registration: View {
                     .padding(.horizontal, 16)
                     .padding(.bottom, 10)
                 }
-                .padding(.top, 140)
+               
             }
         }
         .navigationTitle("Sign Up")

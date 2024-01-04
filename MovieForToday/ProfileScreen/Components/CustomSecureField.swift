@@ -20,6 +20,8 @@ struct CustomSecureField: View {
                 .padding(.leading, 16)
                 .foregroundStyle(.white)
                 .padding(.vertical, 16)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
                 .overlay {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(value.isEmpty ? Color(PrimaryColor.mint.rawValue) : Color.gray, lineWidth: 1.0)

@@ -19,10 +19,23 @@ struct LogInView: View {
                 VStack(alignment: .center, spacing: 20) {
                     Spacer()
                     
-                    CustomTextField(value: $viewModel.email, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your login")
+                    CustomTextField(value: $viewModel.email, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your mail")
                     CustomTextField(value: $viewModel.password, titleBorder: "Password", offsetNameX: -118, offsetNameY: -28, placeHolder: "Enter your password")
                     
-                    Spacer().frame(height: 170)
+                    HStack {
+                        Spacer()
+                        NavigationLink {
+                            ReturnPassword(mail: "")
+                        } label: {
+                            Text("forgot password?")
+                                .font(.custom(.montMedium, size: 14))
+                        }
+                        .offset(y: -10)
+                        .padding(.top, 0)
+                        .padding(.trailing, 20)
+                    }
+                    
+                    Spacer()
                     
                     NavigationLink(destination: {
                         Registration(fullName: "", login: "", password: "", showSignInView: $showSignInView, mail: "")
