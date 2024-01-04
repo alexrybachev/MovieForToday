@@ -44,6 +44,8 @@
 		FA8384102B4473D0004B7A13 /* TrailerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83840F2B4473D0004B7A13 /* TrailerButtonView.swift */; };
 		FA8384122B44755F004B7A13 /* ShareButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8384112B44755F004B7A13 /* ShareButtonView.swift */; };
 		FA8384142B447A9B004B7A13 /* CrewLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8384132B447A9B004B7A13 /* CrewLabelView.swift */; };
+		FA8F78F82B46E1FC006AC799 /* AddToFavoritesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F78F72B46E1FC006AC799 /* AddToFavoritesButton.swift */; };
+		FAA5805E2B46DB4C0004BF89 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5805D2B46DB4C0004BF89 /* CustomBackButton.swift */; };
 		FAC3CE782B3B0C4C0090EB66 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */; };
 		FADC05D22B3DB2ED0031FD57 /* ErrorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC05D12B3DB2ED0031FD57 /* ErrorImageView.swift */; };
 		FADC05D42B3DBCBF0031FD57 /* MovieImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC05D32B3DBCBF0031FD57 /* MovieImageView.swift */; };
@@ -88,6 +90,8 @@
 		FA83840F2B4473D0004B7A13 /* TrailerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerButtonView.swift; sourceTree = "<group>"; };
 		FA8384112B44755F004B7A13 /* ShareButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonView.swift; sourceTree = "<group>"; };
 		FA8384132B447A9B004B7A13 /* CrewLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewLabelView.swift; sourceTree = "<group>"; };
+		FA8F78F72B46E1FC006AC799 /* AddToFavoritesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToFavoritesButton.swift; sourceTree = "<group>"; };
+		FAA5805D2B46DB4C0004BF89 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		FAC3CE772B3B0C4C0090EB66 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		FADC05D12B3DB2ED0031FD57 /* ErrorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorImageView.swift; sourceTree = "<group>"; };
 		FADC05D32B3DBCBF0031FD57 /* MovieImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImageView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				FADC05D32B3DBCBF0031FD57 /* MovieImageView.swift */,
 				FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */,
 				FADC05D12B3DB2ED0031FD57 /* ErrorImageView.swift */,
+				FAA5805D2B46DB4C0004BF89 /* CustomBackButton.swift */,
+				FA8F78F72B46E1FC006AC799 /* AddToFavoritesButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				FADC05D22B3DB2ED0031FD57 /* ErrorImageView.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				FA83840B2B443F50004B7A13 /* BackgroundImageView.swift in Sources */,
+				FA8F78F82B46E1FC006AC799 /* AddToFavoritesButton.swift in Sources */,
 				FA7B26172B45CC7A00B13C6D /* FullScreenImageView.swift in Sources */,
 				287C8E2F2B388A4100C687E7 /* PopularMovieViewModel.swift in Sources */,
 				288038F92B37353F00691E0E /* PopularMovieView.swift in Sources */,
@@ -433,6 +440,7 @@
 				288038E12B3729A500691E0E /* ContentView.swift in Sources */,
 				287C8E362B38AD9E00C687E7 /* View+Ext.swift in Sources */,
 				FADC05D42B3DBCBF0031FD57 /* MovieImageView.swift in Sources */,
+				FAA5805E2B46DB4C0004BF89 /* CustomBackButton.swift in Sources */,
 				287C8E322B38A02500C687E7 /* ImageText.swift in Sources */,
 				288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */,
 				288038FC2B37355D00691E0E /* MovieDetailView.swift in Sources */,
