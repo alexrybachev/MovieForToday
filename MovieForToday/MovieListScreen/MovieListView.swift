@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct MovieListView: View {
+    let movieModel: MovieModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack {
+                // Buttons
+                GenreButtonsScrollView(genre: movieModel.genre)
+                
+                // Posters
+                NavigationLink {
+                    // TODO: PopularMovieView()?
+                } label: {
+                    PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
+                }
+
+            }
+        }
+        .navigationTitle("movie_lists")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color.primaryColor(.mainDark))
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
 }
 
 #Preview {
-    MovieListView()
+    MovieListView(movieModel: MovieModel.getMocData())
 }

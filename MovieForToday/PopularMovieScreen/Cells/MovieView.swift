@@ -58,7 +58,7 @@ struct MovieView: View {
                 HStack(spacing: 8) {
                     
                     ImageText(image: .film,
-                              text: movieModel.genre)
+                              text: movieModel.genre.first!.name.capitalized)
                     
                     Divider()
                         .background(Color.white)
