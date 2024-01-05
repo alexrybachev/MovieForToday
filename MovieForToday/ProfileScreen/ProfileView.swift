@@ -19,30 +19,35 @@ struct ProfileView: View {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
                 VStack(spacing: 14)  {
-                    HeaderView(
-                        profileImage: $profileImage, name: $name,
-                                mail: $mail)
-                    General()
-                    More()
-                    Spacer()
-                    CustomButton(text: "Log Out", color: Color.black, action: {
-                        Task {
-                            do {
-                                try FirebaseManager.shared.signOut()
-                                 self.showSignInView = true
-                            } catch {
-                                print(error.localizedDescription)
+                    if !showSignInView {
+                        HeaderView(
+                            profileImage: $profileImage, name: $name,
+                            mail: $viewModel.email)
+                        
+                        General()
+                        More()
+                        Spacer()
+                        CustomButton(text: "Log Out", color: Color.black, action: {
+                            Task {
+                                do {
+                                    try FirebaseManager.shared.signOut()
+                                    self.showSignInView = true
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
                             }
+                        })
+                        .padding(.horizontal, 16)
+                    } else {
+                            EmptyProfileView()
                         }
-                    })
-                    .padding(.horizontal, 16)
                 }
             }
         }
         .background(Color(PrimaryColor.softDark.rawValue))
         .navigationTitle("Profile")
         .onAppear() {
-            let authUser = try?  FirebaseManager.shared.getAuthenticatedUser()
+            let authUser = try? FirebaseManager.shared.getAuthenticatedUser()
             self.showSignInView = (authUser == nil) ? true : false
         }
         .fullScreenCover(isPresented: $showSignInView)  {

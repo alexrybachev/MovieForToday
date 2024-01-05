@@ -10,11 +10,9 @@ import SwiftUI
 struct Registration: View {
     @Environment(\.presentationMode) var rootView
     @State var fullName: String
-    @State var login: String
-    @State var password: String
     @StateObject var signInViewModel = SignInViewModel()
     @Binding var showSignInView: Bool
-    @State var mail: String
+    @State var showAlert = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -29,28 +27,32 @@ struct Registration: View {
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                     
-                    CustomSecureField(value: $signInViewModel.password, titleBorder: "Password", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your password")
+                    CustomTextField(value: $signInViewModel.password, titleBorder: "Password", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your password")
                         .autocapitalization(.none)
                     
                     Spacer()
-                
+                    
                     CustomButton(text: "Create account", color: Color.black, action: {
                         Task {
                             do {
                                 try await signInViewModel.signUp()
-                                self.showSignInView = false
-                                rootView.wrappedValue.dismiss()
+                                showAlert = true
                                 return
                             } catch {
                                 print(error.localizedDescription)
                             }
                         }
-                        
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        Alert(title: Text("The account has been created. Please enter your username and password"),  dismissButton: .default(Text("Ok")) {
+                            rootView.wrappedValue.dismiss()
+                            showAlert = false
+                              })
                     })
                     .padding(.horizontal, 16)
                     .padding(.bottom, 10)
                 }
-               
+                
             }
         }
         .navigationTitle("Sign Up")
@@ -60,5 +62,5 @@ struct Registration: View {
 }
 
 #Preview {
-    Registration(fullName: "", login: "", password: "", showSignInView: .constant(false), mail: "")
+    Registration(fullName: "", showSignInView: .constant(false))
 }

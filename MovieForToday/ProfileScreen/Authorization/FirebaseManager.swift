@@ -58,6 +58,13 @@ final class FirebaseManager {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
     
+//    func saveFiresore(user: UserData) {
+//        if let uid = result?.user.uid {
+//        Firestore.firestore()
+//            .collection("Users")
+//            .document()
+//    }
+    
     //    func registrationUser(user: UserData) {
     //        Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
     //            guard error == nil else {

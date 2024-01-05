@@ -20,10 +20,10 @@ struct ReturnPassword: View {
                 VStack {
                     Spacer()
                     CustomTextField(value: $mail, titleBorder: "@mail", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your mail")
-                        .padding(.bottom, 16)
+                        .padding(.horizontal, 16)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
-                    Spacer()
+                    Spacer().frame(maxHeight: 300)
                     
                     Button(action: {
                         Task {
