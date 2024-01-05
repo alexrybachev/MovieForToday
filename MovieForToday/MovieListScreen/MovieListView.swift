@@ -15,8 +15,14 @@ struct MovieListView: View {
             VStack {
                 // Buttons
                 GenreButtonsScrollView(genre: movieModel.genre)
+                
                 // Posters
-                PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
+                NavigationLink {
+                    // TODO: PopularMovieView()?
+                } label: {
+                    PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
+                }
+
             }
         }
         .navigationTitle("movie_lists")
