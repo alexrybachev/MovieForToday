@@ -13,7 +13,7 @@ struct MovieModel {
     let name: String
     let year: String
     let duration: String
-    let genre: String
+    let genre: [Genre]
     let category: String
     
     static func getMocData() -> MovieModel {
@@ -22,7 +22,21 @@ struct MovieModel {
                    name: "Spider-Man",
                    year: "2021",
                    duration: "148",
-                   genre: "Action",
+                   genre: Genre.getMockData(),
                    category: "Movie")
+    }
+}
+
+struct Genre: Hashable {
+    let name: String
+    
+    static func getMockData() -> [Genre] {
+        return [
+            Genre(name: "action"),
+            Genre(name: "fantasy"),
+            Genre(name: "comedy"),
+            Genre(name: "documental"),  
+            Genre(name: "animation")
+        ]
     }
 }
