@@ -15,36 +15,40 @@ struct PosterScrollView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             ForEach(genre, id: \.self) { genre in
-                LazyVStack {
-                    RemoteImage(url: URL(string: urlPoster)!) { image in
-                        MovieImageView(
-                            image: image,
-                            width: Constants.posterWidth,
-                            height: Constants.posterHeight,
-                            cornerRadius: Constants.posterRadius,
-                            showPlayButton: true
-                        )
-                    } placeholder: {
-                        ProgressView()
-                            .frame(
+                NavigationLink {
+                    // TODO: PopularMovieView()?
+                } label: {
+                    LazyVStack {
+                        RemoteImage(url: URL(string: urlPoster)!) { image in
+                            MovieImageView(
+                                image: image,
+                                width: Constants.posterWidth,
+                                height: Constants.posterHeight,
+                                cornerRadius: Constants.posterRadius,
+                                showPlayButton: true
+                            )
+                        } placeholder: {
+                            ProgressView()
+                                .frame(
+                                    width: Constants.posterWidth,
+                                    height: Constants.posterHeight
+                                )
+                        } errorHandler: { _ in
+                            ErrorImageView(
+                                systemName: "photo",
                                 width: Constants.posterWidth,
                                 height: Constants.posterHeight
                             )
-                    } errorHandler: { _ in
-                        ErrorImageView(
-                            systemName: "photo",
-                            width: Constants.posterWidth,
-                            height: Constants.posterHeight
-                        )
-                    }
-                    
-                    HStack {
-                        Text(genre.name.capitalized)
-                            .foregroundStyle(Color.textColor(.whiteGrey))
-                            .font(.custom(.montSemiBold, size: Constants.titleSize))
-                            .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 0))
+                        }
                         
-                        Spacer()
+                        HStack {
+                            Text(genre.name.capitalized)
+                                .foregroundStyle(Color.textColor(.whiteGrey))
+                                .font(.custom(.montSemiBold, size: Constants.titleSize))
+                                .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 0))
+                            
+                            Spacer()
+                        }
                     }
                 }
             }

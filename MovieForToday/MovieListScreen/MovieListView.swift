@@ -17,12 +17,7 @@ struct MovieListView: View {
                 GenreButtonsScrollView(genre: movieModel.genre)
                 
                 // Posters
-                NavigationLink {
-                    // TODO: PopularMovieView()?
-                } label: {
-                    PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
-                }
-
+                PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
             }
         }
         .navigationTitle("movie_lists")
