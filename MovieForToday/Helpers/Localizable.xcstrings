@@ -158,6 +158,9 @@
         }
       }
     },
+    "Hello, Smith" : {
+
+    },
     "Hello, world!" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -432,6 +435,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск"
+          }
+        }
+      }
+    },
+    "search_a_title.." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search a title.."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск по названию.."
           }
         }
       }
