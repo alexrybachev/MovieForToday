@@ -50,7 +50,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie/possible-values-by-field?field=genres.name")
+            URL(string: "https://api.kinopoisk.dev/v1/movie/possible-values-by-field?field=genres.name")
         )
     }
     
@@ -59,7 +59,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=top10")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=top10")
         )
     }
     
@@ -68,7 +68,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=top250")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=top250&notNullFields=id&notNullFields=name&notNullFields=poster.url")
         )
     }
     
@@ -77,7 +77,16 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Baz")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Baz&notNullFields=id&notNullFields=name&notNullFields=poster.url")
+        )
+    }
+    
+    func test_searchMovieByKirilicName() {
+        let sut = Endpoint.searchMovie(byName: "Баз", page: 1, limit: 10)
+        
+        XCTAssertEqual(
+            sut.url,
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Баз&notNullFields=id&notNullFields=name&notNullFields=poster.url")
         )
     }
     
@@ -86,7 +95,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&sortField=rating.kp&sortType=1")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&sortField=rating.kp&sortType=1&notNullFields=id&notNullFields=name&notNullFields=poster.url")
         )
     }
     
@@ -105,6 +114,15 @@ final class EndpointTests: XCTestCase {
         XCTAssertEqual(
             sut.url,
             URL(string: "https://api.kinopoisk.dev/v1.4/person/search?page=1&limit=10&query=Baz")
+        )
+    }
+    
+    func test_searchPersonByKirilicName() {
+        let sut = Endpoint.searchPerson(byName: "Баз", page: 1, limit: 10)
+        
+        XCTAssertEqual(
+            sut.url,
+            URL(string: "https://api.kinopoisk.dev/v1.4/person/search?page=1&limit=10&query=Баз")
         )
     }
     // Отдельный эндпоинт для просмотра фильма

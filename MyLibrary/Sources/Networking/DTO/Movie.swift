@@ -76,21 +76,21 @@ public struct ImageContent: Decodable {
 
 public struct Movie: Decodable, Identifiable {
     public let id: Int
-    public let externalId: ExternalId
+    public let externalId: ExternalId?
     public let name: String?
     public let year: Int?
     public let description: String?
     public let slogan: String?
     public let movieLength: Int?
     public let ageRating: Int?
-    public let logo: Logo
+    public let logo: Logo?
     public let poster: ImageContent
     public let backdrop: ImageContent
     public let top10: Int?
     public let top250: Int?
-    public let persons: [Person]
+    public let persons: [Person]?
     public let rating: Rating
-    public let videos: VideoContent
+    public let videos: VideoContent?
 }
 
 public extension Movie {
@@ -113,11 +113,11 @@ public extension Movie {
 public extension Movie {
     struct Rating: Decodable {
         public let kp: Double
-        public let imdb: Double
-        public let tmdb: Double
-        public let filmCritics: Double
-        public let russianFilmCritics: Double
-        public let await: Double
+        public let imdb: Double?
+        public let tmdb: Double?
+        public let filmCritics: Double?
+        public let russianFilmCritics: Double?
+        public let await: Double?
     }
 }
 

@@ -14,6 +14,8 @@ public final class NetworkManager {
     let session: URLSession
     @usableFromInline
     let apiKey: String
+    @usableFromInline
+    let decoder = JSONDecoder()
     
     private let cache: URLCache
     
@@ -81,11 +83,31 @@ public final class NetworkManager {
         try await Box(endpoint)
             .map(\.url)
             .map { URLRequest(url: $0) }
+            .map(setHTTPMethod("GET"))
             .map(addKey(apiKey))
+            .map(addCommonHeaders(_:))
             .asyncMap(session.data(for:))
             .map(\.0)
-            .map(decode(type.self, decoder: JSONDecoder()))
+            .map(decode(type.self, decoder: decoder))
             .value
+    }
+    
+    @inlinable
+    @inline(__always)
+    func setHTTPMethod(_ method: String) -> (URLRequest) -> URLRequest {
+        { request in
+            var request = request
+            request.httpMethod = method
+            return request
+        }
+    }
+    
+    @inlinable
+    @inline(__always)
+    func addCommonHeaders(_ request: URLRequest) -> URLRequest {
+        var request = request
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        return request
     }
     
     @inlinable
