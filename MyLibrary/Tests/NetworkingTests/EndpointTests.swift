@@ -14,7 +14,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/list?page=1&limit=10")
+            URL(string: "https://api.kinopoisk.dev/v1.4/list?page=1&limit=10&notNullFields=cover.url&notNullFields=cover.previewUrl")
         )
     }
     
@@ -23,7 +23,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/list?page=2&limit=1")
+            URL(string: "https://api.kinopoisk.dev/v1.4/list?page=2&limit=1&notNullFields=cover.url&notNullFields=cover.previewUrl")
         )
     }
     
@@ -32,7 +32,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/list/Baz?page=1&limit=10")
+            URL(string: "https://api.kinopoisk.dev/v1.4/list/Baz?page=1&limit=10&notNullFields=cover.url&notNullFields=cover.previewUrl")
         )
     }
     
@@ -55,11 +55,11 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_top10Movies() {
-        let sut = Endpoint.top10
+        let sut = Endpoint.top10(page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=top10")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=genres.name&notNullFields=top10")
         )
     }
     
@@ -68,7 +68,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=top250&notNullFields=id&notNullFields=name&notNullFields=poster.url")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=top250&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=genres.name")
         )
     }
     
@@ -77,7 +77,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Baz&notNullFields=id&notNullFields=name&notNullFields=poster.url")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Baz&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=genres.name")
         )
     }
     
@@ -86,7 +86,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Баз&notNullFields=id&notNullFields=name&notNullFields=poster.url")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Баз&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=genres.name")
         )
     }
     
@@ -95,7 +95,7 @@ final class EndpointTests: XCTestCase {
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&sortField=rating.kp&sortType=1&notNullFields=id&notNullFields=name&notNullFields=poster.url")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&sortField=rating.kp&sortType=1&notNullFields=id&notNullFields=name&notNullFields=poster.url&notNullFields=genres.name")
         )
     }
     

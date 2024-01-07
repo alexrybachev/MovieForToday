@@ -42,8 +42,8 @@ public final class NetworkManager {
     }
     
     @inlinable
-    public func getTop10Movies() async throws -> MovieList {
-        try await performRequest(.top10, model: MovieList.self)
+    public func getTop10Movies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.top10(page: page, limit: limit), model: MovieList.self)
     }
     
     @inlinable

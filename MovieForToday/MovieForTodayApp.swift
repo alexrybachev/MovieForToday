@@ -16,14 +16,6 @@ struct MovieForTodayApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .task {
-                    do {
-                        let result = try await networking.getTop10Movies()
-                        print(result.docs.count)
-                    } catch {
-                        print(error)
-                    }
-                }
         }
     }
 }

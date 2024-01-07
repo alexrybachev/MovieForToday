@@ -85,7 +85,7 @@ public struct Movie: Decodable, Identifiable {
     public let ageRating: Int?
     public let logo: Logo?
     public let poster: ImageContent
-    public let backdrop: ImageContent
+    public let backdrop: ImageContent?
     public let top10: Int?
     public let top250: Int?
     public let persons: [Person]?

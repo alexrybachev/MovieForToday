@@ -54,6 +54,8 @@ struct Endpoint {
             path: [APIVersion.new, Subpath.list.rawValue].joined(separator: "/"),
             queryItems: {
                 paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "cover.url")
+                URLQueryItem(name: Field.required, value: "cover.previewUrl")
             })
     }
     
@@ -64,6 +66,8 @@ struct Endpoint {
             path: [APIVersion.new, Subpath.list.rawValue, slug].joined(separator: "/"),
             queryItems: {
                 paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "cover.url")
+                URLQueryItem(name: Field.required, value: "cover.previewUrl")
             })
     }
     
@@ -75,15 +79,17 @@ struct Endpoint {
         )
     }
     
-    
-    @usableFromInline
-    static let top10: Self = .init(
-        path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),
-        queryItems: {
-            paginated(page: 1, limit: 10)
-            baseFields
-            URLQueryItem(name: Field.required, value: SelectFields.top10.rawValue)
-        })
+    @inlinable
+    @inline(__always)
+    static func top10(page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: 1, limit: 10)
+                baseFields
+                URLQueryItem(name: Field.required, value: SelectFields.top10.rawValue)
+            })
+    }
     
     @inlinable
     @inline(__always)
@@ -159,9 +165,7 @@ extension Endpoint {
     static var baseFields: [URLQueryItem] {
         URLQueryItem(name: Field.required, value: "id")
         URLQueryItem(name: Field.required, value: "name")
-        URLQueryItem(name: Field.required, value: "year")
-        URLQueryItem(name: Field.required, value: "ageRating")
-        URLQueryItem(name: Field.required, value: "movieLength")
+        URLQueryItem(name: Field.required, value: "rating.kp")
         URLQueryItem(name: Field.required, value: "poster.url")
         URLQueryItem(name: Field.required, value: "genres.name")
     }
@@ -169,8 +173,11 @@ extension Endpoint {
     @usableFromInline
     @QueryBuilder
     static var detailFields: [URLQueryItem] {
-        URLQueryItem(name: Field.required, value: "description")
-        URLQueryItem(name: Field.required, value: "rating.kp")
+        URLQueryItem(name: Field.selectField, value: "year")
+        URLQueryItem(name: Field.selectField, value: "ageRating")
+        URLQueryItem(name: Field.selectField, value: "movieLength")
+        URLQueryItem(name: Field.selectField, value: "description")
+//        URLQueryItem(name: Field.required, value: "rating.kp")
         URLQueryItem(name: Field.required, value: "backdrop.url")
         URLQueryItem(name: Field.required, value: "logo.url")
         URLQueryItem(name: Field.required, value: "videos.trailers.url")
@@ -180,7 +187,9 @@ extension Endpoint {
 
 extension Endpoint {
     @usableFromInline
-    struct Field {
+    enum Field {
+        @usableFromInline
+        static let selectField = "selectFields"
         @usableFromInline
         static let value = "possible-values-by-field"
         @usableFromInline
