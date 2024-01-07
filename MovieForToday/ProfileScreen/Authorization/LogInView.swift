@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LogInView: View {
     @StateObject var viewModel = SignInViewModel()
-    @Binding var showSignInView : Bool
+    @Binding var showSignInView: Bool
+    init(showSignInView: Binding<Bool>) {
+        self._showSignInView = showSignInView
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mint.rawValue) ?? .white]
+    }
     
     var body: some View {
         ZStack {
             Color((PrimaryColor.softDark.rawValue))
                 .ignoresSafeArea()
+            
             VStack(alignment: .center, spacing: 20) {
                 Spacer()
                 
@@ -28,7 +34,7 @@ struct LogInView: View {
                 HStack {
                     Spacer()
                     NavigationLink {
-                        ReturnPassword(mail: "")
+                        ReturnPassword()
                     } label: {
                         Text("forgot password?")
                             .font(.custom(.montMedium, size: 14))
@@ -41,7 +47,7 @@ struct LogInView: View {
                 Spacer()
                 
                 NavigationLink(destination: {
-                    Registration( fullName: "", showSignInView: $showSignInView)
+                    Registration()
                 }, label: {
                     Text("Registration")
                         .foregroundStyle(.white)
@@ -57,7 +63,9 @@ struct LogInView: View {
                     Task {
                         do {
                             try await viewModel.signIn()
-                            self.showSignInView = false
+                            if Auth.auth().currentUser != nil {
+                                self.showSignInView = false
+                            }
                             return
                         } catch {
                             print(error)
@@ -78,6 +86,7 @@ struct LogInView: View {
         }
         .navigationTitle("Sign In")
         .navigationBarTitleDisplayMode(.large)
+        
     }
 }
 

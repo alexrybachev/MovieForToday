@@ -9,18 +9,21 @@ import SwiftUI
 
 struct Registration: View {
     @Environment(\.presentationMode) var rootView
-    @State var fullName: String
+    @State var fullName: String = ""
     @StateObject var signInViewModel = SignInViewModel()
-    @Binding var showSignInView: Bool
     @State var showAlert = false
+    init() {
+            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mint.rawValue) ?? .white]
+            }
     var body: some View {
         NavigationView {
             ZStack {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
+                
                 VStack(spacing: 30) {
                     Spacer()
-                    CustomTextField(value: $fullName, titleBorder: "Full Name", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your full name")
+                    CustomTextField(value: $fullName , titleBorder: "Full Name", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your full name")
                         .autocapitalization(.words)
                     
                     CustomTextField(value: $signInViewModel.email, titleBorder: "@mail", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your @mail")
@@ -47,7 +50,7 @@ struct Registration: View {
                         Alert(title: Text("The account has been created. Please enter your username and password"),  dismissButton: .default(Text("Ok")) {
                             rootView.wrappedValue.dismiss()
                             showAlert = false
-                              })
+                        })
                     })
                     .padding(.horizontal, 16)
                     .padding(.bottom, 10)
@@ -62,5 +65,5 @@ struct Registration: View {
 }
 
 #Preview {
-    Registration(fullName: "", showSignInView: .constant(false))
+    Registration()
 }

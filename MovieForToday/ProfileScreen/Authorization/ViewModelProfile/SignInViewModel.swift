@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 final class SignInViewModel: ObservableObject {
@@ -35,13 +36,12 @@ final class SignInViewModel: ObservableObject {
         print(uderData)
     }
     
-//    func resetPassword() async throws {
-//        let authUser = try FirebaseManager.shared.getAuthenticatedUser()
-//        guard let email = authUser.email else {
-//            throw URLError(.fileDoesNotExist)
+//    func signInListener() -> Bool {
+//        FirebaseManager.shared.signInListener { auth, user in
+//            if user != nil {
+//              showSignInView = false
+//            }
 //        }
-//        try await FirebaseManager.shared.resetPassword(email: email)
 //    }
-    
-    
+ 
 }

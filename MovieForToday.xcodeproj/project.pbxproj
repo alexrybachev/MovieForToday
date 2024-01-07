@@ -139,6 +139,7 @@
 				0D4AF8582B3C31890033017D /* CustomTextField.swift */,
 				0D4AF8982B3D94C60033017D /* CustomSecureField.swift */,
 				0D4AF85C2B3C37750033017D /* CustomButton.swift */,
+				0DDFAEA92B48693D00BAE6C0 /* EmptyProfileView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -146,14 +147,21 @@
 		0D4AF8952B3D83480033017D /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				0DDFAEAD2B49EC5800BAE6C0 /* ViewModelProfile */,
 				0D4AF8562B3C307F0033017D /* LogInView.swift */,
 				0D4AF8932B3D831E0033017D /* RegistrationView.swift */,
 				0DDFAEA72B47009300BAE6C0 /* ReturnPassword.swift */,
-				0D4AF8962B3D85D10033017D /* FirebaseManager.swift */,
-				0D4AF89C2B4026D20033017D /* SignInViewModel.swift */,
-				0DDFAEA92B48693D00BAE6C0 /* EmptyProfileView.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		0DDFAEAD2B49EC5800BAE6C0 /* ViewModelProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0D4AF89C2B4026D20033017D /* SignInViewModel.swift */,
+				0D4AF8962B3D85D10033017D /* FirebaseManager.swift */,
+			);
+			path = ViewModelProfile;
 			sourceTree = "<group>";
 		};
 		287C8E072B384CFA00C687E7 /* Fonts */ = {

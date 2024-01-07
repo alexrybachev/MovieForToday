@@ -11,7 +11,10 @@ struct ReturnPassword: View {
     @Environment(\.presentationMode) var rootView
     @State private var showAlert = false
     @StateObject var signInViewModel = SignInViewModel()
-    @State var mail: String
+    @State var mail: String = ""
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mint.rawValue) ?? .white]
+    }
     var body: some View {
         NavigationView {
             ZStack {
@@ -55,9 +58,12 @@ struct ReturnPassword: View {
                 }
             }
         }
+        .navigationTitle("Change Password")
     }
 }
 
 #Preview {
-    ReturnPassword(mail: "")
+    NavigationView {
+        ReturnPassword()
+    }
 }

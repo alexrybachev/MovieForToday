@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProfileView: View {
     @State var profileImage: String?
     @State var name: String?
     @State var mail: String
-    @State var showSignInView: Bool = false
+    @AppStorage("showSignIn") var showSignInView = false
+    
     @StateObject private var viewModel = SignInViewModel()
     var body: some View {
         NavigationView {
@@ -39,16 +41,19 @@ struct ProfileView: View {
                         })
                         .padding(.horizontal, 16)
                     } else {
-                            EmptyProfileView()
-                        }
+                        EmptyProfileView()
+                    }
                 }
             }
         }
         .background(Color(PrimaryColor.softDark.rawValue))
         .navigationTitle("Profile")
         .onAppear() {
-            let authUser = try? FirebaseManager.shared.getAuthenticatedUser()
-            self.showSignInView = (authUser == nil) ? true : false
+            if Auth.auth().currentUser != nil {
+                self.showSignInView = false
+            }
+//                        let authUser = try? FirebaseManager.shared.getAuthenticatedUser()
+//                                   self.showSignInView = (authUser == nil) ? true : false
         }
         .fullScreenCover(isPresented: $showSignInView)  {
             NavigationView {

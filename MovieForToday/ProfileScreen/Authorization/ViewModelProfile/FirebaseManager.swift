@@ -12,7 +12,7 @@ struct UserData {
     let uid: String
     let login: String
     let name: String?
-    let email: String?
+    let email: String
     let photoUrl: String?
     //    let date: Date
     
@@ -20,7 +20,7 @@ struct UserData {
         self.uid = user.uid
         self.login = user.uid
         self.name = user.displayName
-        self.email = user.email
+        self.email = user.email ?? "no mail"
         self.photoUrl = user.photoURL?.absoluteString
         //        self.date = Date()
     }
@@ -51,19 +51,25 @@ final class FirebaseManager {
     }
     
     func signOut() throws {
-       try Auth.auth().signOut()
+        try Auth.auth().signOut()
     }
     
     func resetPassword(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
     
-//    func saveFiresore(user: UserData) {
-//        if let uid = result?.user.uid {
-//        Firestore.firestore()
-//            .collection("Users")
-//            .document()
-//    }
+    func signInListener(_ listener: @escaping (Auth, User?) -> Void) {
+        Auth.auth().addStateDidChangeListener { auth, user in
+        }
+    }
+
+    
+    //    func saveFiresore(user: UserData) {
+    //        if let uid = result?.user.uid {
+    //        Firestore.firestore()
+    //            .collection("Users")
+    //            .document()
+    //    }
     
     //    func registrationUser(user: UserData) {
     //        Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
