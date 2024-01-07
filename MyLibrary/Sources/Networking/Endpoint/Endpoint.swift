@@ -7,15 +7,17 @@
 
 import Foundation
 
+@usableFromInline
 struct Endpoint {
     let path: String
     let queryItems: [URLQueryItem]
     
+    @usableFromInline
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.kinopoisk.dev"
-        components.path = "/v1.4/".appending(path)
+        components.path = path
         
         if !queryItems.isEmpty {
             components.queryItems = queryItems
@@ -27,7 +29,8 @@ struct Endpoint {
     }
     
     //MARK: - init(_:)
-    private init(
+    @usableFromInline
+    init(
         path: String,
         @QueryBuilder queryItems: () -> [URLQueryItem] = { .init() }
     ) {
@@ -36,8 +39,9 @@ struct Endpoint {
     }
     
     //MARK: - Constructers
+    @usableFromInline
     static let genres: Self = .init(
-        path: [Subpath.movie.rawValue, Field.value].joined(separator: "/"),
+        path: [APIVersion.old, Subpath.movie.rawValue, Field.value].joined(separator: "/"),
         queryItems: {
             URLQueryItem(name: "field", value: "genres.name")
         })
@@ -45,73 +49,103 @@ struct Endpoint {
     //MARK: - Movies
     @inlinable
     @inline(__always)
-    static func movieList(page: Int = 1, limit: Int = 10) -> Self {
-        .init(path: Subpath.list.rawValue) {
-            paginated(page: page, limit: limit)
-        }
+    static func movieList(page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.list.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "cover.url")
+                URLQueryItem(name: Field.required, value: "cover.previewUrl")
+            })
     }
     
     @inlinable
     @inline(__always)
-    static func movieList(for slug: String, page: Int = 1, limit: Int = 10) -> Self {
-        .init(path: [Subpath.list.rawValue, slug].joined(separator: "/")) {
-            paginated(page: page, limit: limit)
-        }
+    static func movieList(for slug: String, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.list.rawValue, slug].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "cover.url")
+                URLQueryItem(name: Field.required, value: "cover.previewUrl")
+            })
     }
     
     @inlinable
     @inline(__always)
     static func movie(withId id: Int) -> Self {
-        .init(path: [Subpath.movie.rawValue, id.description].joined(separator: "/"))
-    }
-    
-    static let top10: Self = .init(path: Subpath.movie.rawValue) {
-        paginated(page: 1, limit: 10)
-        URLQueryItem(name: Field.required, value: "top10")
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue, id.description].joined(separator: "/")
+        )
     }
     
     @inlinable
     @inline(__always)
-    static func top250(page: Int = 1, limit: Int = 10) -> Self {
-        .init(path: Subpath.movie.rawValue) {
-            paginated(page: page, limit: limit)
-            URLQueryItem(name: Field.required, value: "top250")
-        }
+    static func top10(page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: 1, limit: 10)
+                baseFields
+                URLQueryItem(name: Field.required, value: SelectFields.top10.rawValue)
+            })
     }
     
     @inlinable
     @inline(__always)
-    static func searchMovie(byName name: String, page: Int = 1, limit: Int = 10) -> Self {
-        .init(path: Subpath.movie.rawValue.appending("/search")) {
-            paginated(page: page, limit: limit)
-            URLQueryItem(name: Field.query, value: name)
-        }
+    static func top250(page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: SelectFields.top250.rawValue)
+                baseFields
+            })
     }
     
     @inlinable
     @inline(__always)
-    static func topRatedMovies(page: Int, limit: Int = 10) -> Self {
-        .init(path: Subpath.movie.rawValue) {
-            paginated(page: page, limit: limit)
-            URLQueryItem(name: Field.sortion, value: "rating.kp")
-            URLQueryItem(name: "sortType", value: 1.description)
-        }
+    static func searchMovie(byName name: String, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue, "search"].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.query, value: name)
+                baseFields
+            })
+    }
+    
+    @inlinable
+    @inline(__always)
+    static func topRatedMovies(page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.sortion, value: "rating.kp")
+                URLQueryItem(name: "sortType", value: 1.description)
+                baseFields
+            })
     }
     
     //MARK: - Person
     @inlinable
     @inline(__always)
     static func person(withId id: Int) -> Self {
-        .init(path: [Subpath.person.rawValue, id.description].joined(separator: "/"))
+        .init(
+            path: [APIVersion.new, Subpath.person.rawValue, id.description].joined(separator: "/")
+        )
     }
     
     @inlinable
     @inline(__always)
-    static func searchPerson(byName name: String, page: Int = 1, limit: Int = 10) -> Self {
-        .init(path: Subpath.person.rawValue.appending("/search")) {
-            paginated(page: page, limit: limit)
-            URLQueryItem(name: Field.query, value: name)
-        }
+    static func searchPerson(byName name: String, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.person.rawValue, "search"].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.query, value: name)
+            })
     }
     
 }
@@ -126,21 +160,109 @@ extension Endpoint {
         URLQueryItem(name: "limit", value: limit.description)
     }
     
-//    static var
+    @usableFromInline
+    @QueryBuilder
+    static var baseFields: [URLQueryItem] {
+        URLQueryItem(name: Field.required, value: "id")
+        URLQueryItem(name: Field.required, value: "name")
+        URLQueryItem(name: Field.required, value: "rating.kp")
+        URLQueryItem(name: Field.required, value: "poster.url")
+        URLQueryItem(name: Field.required, value: "genres.name")
+    }
+    
+    @usableFromInline
+    @QueryBuilder
+    static var detailFields: [URLQueryItem] {
+        URLQueryItem(name: Field.selectField, value: "year")
+        URLQueryItem(name: Field.selectField, value: "ageRating")
+        URLQueryItem(name: Field.selectField, value: "movieLength")
+        URLQueryItem(name: Field.selectField, value: "description")
+//        URLQueryItem(name: Field.required, value: "rating.kp")
+        URLQueryItem(name: Field.required, value: "backdrop.url")
+        URLQueryItem(name: Field.required, value: "logo.url")
+        URLQueryItem(name: Field.required, value: "videos.trailers.url")
+    }
+    
 }
 
 extension Endpoint {
-    private struct Field {
+    @usableFromInline
+    enum Field {
+        @usableFromInline
+        static let selectField = "selectFields"
+        @usableFromInline
         static let value = "possible-values-by-field"
+        @usableFromInline
         static let required = "notNullFields"
+        @usableFromInline
         static let sortion = "sortField"
+        @usableFromInline
         static let query = "query"
     }
     
-    private enum Subpath: String {
+    @usableFromInline
+    enum APIVersion {
+        @usableFromInline
+        static let old = "/v1"
+        @usableFromInline
+        static let new = "/v1.4"
+    }
+    
+    @usableFromInline
+    enum Subpath: String {
         case list
         case movie
         case image
         case person
     }
+    
+    @usableFromInline
+    enum SelectFields: String {
+        case id
+        case externalId
+        case name
+        case enName
+        case alternativeName
+        case names
+        case description
+        case shortDescription
+        case slogan
+        case type
+        case typeNumber
+        case isSeries
+        case status
+        case year
+        case releaseYears
+        case rating
+        case ratingMpaa
+        case ageRating
+        case votes
+        case seasonsInfo
+        case budget
+        case audience
+        case movieLength
+        case seriesLength
+        case totalSeriesLength
+        case genres
+        case countries
+        case poster
+        case backdrop
+        case logo
+        case ticketsOnSale
+        case videos
+        case networks
+        case persons
+        case facts
+        case fees
+        case premiere
+        case similarMovies
+        case sequelsAndPrequels
+        case watchability
+        case lists
+        case top10
+        case top250
+        case updatedAt
+        case createdAt
+    }
+    
 }
