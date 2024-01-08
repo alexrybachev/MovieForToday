@@ -34,10 +34,10 @@
 		288039052B3735CD00691E0E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039042B3735CD00691E0E /* ProfileView.swift */; };
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
-		3BE3396F2B4B364400A479DB /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3396B2B4B364400A479DB /* OnboardingStepModel.swift */; };
-		3BE339702B4B364400A479DB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3396C2B4B364400A479DB /* OnboardingView.swift */; };
-		3BE339712B4B364400A479DB /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3396D2B4B364400A479DB /* OnboardingViewModel.swift */; };
-		3BE339722B4B364400A479DB /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE3396E2B4B364400A479DB /* OnboardingScreenView.swift */; };
+		3B319A3D2B4C42B70056DF68 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A392B4C42B70056DF68 /* OnboardingViewModel.swift */; };
+		3B319A3E2B4C42B70056DF68 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A3A2B4C42B70056DF68 /* OnboardingView.swift */; };
+		3B319A3F2B4C42B70056DF68 /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A3B2B4C42B70056DF68 /* OnboardingStepModel.swift */; };
+		3B319A402B4C42B70056DF68 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A3C2B4C42B70056DF68 /* OnboardingScreenView.swift */; };
 		867EA8402B3F60BF0039EB19 /* MyLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 867EA83F2B3F60BF0039EB19 /* MyLibrary */; };
 		867EA8432B3F60C70039EB19 /* RemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = 867EA8422B3F60C70039EB19 /* RemoteImage */; };
 		86F236E72B488077000CF45A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 86F236E62B488077000CF45A /* Networking */; };
@@ -88,10 +88,10 @@
 		288039042B3735CD00691E0E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		3BE3396B2B4B364400A479DB /* OnboardingStepModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingStepModel.swift; path = ../../../../../../Desktop/OnboardingStepModel.swift; sourceTree = "<group>"; };
-		3BE3396C2B4B364400A479DB /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = ../../../../../../Desktop/OnboardingView.swift; sourceTree = "<group>"; };
-		3BE3396D2B4B364400A479DB /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewModel.swift; path = ../../../../../../Desktop/OnboardingViewModel.swift; sourceTree = "<group>"; };
-		3BE3396E2B4B364400A479DB /* OnboardingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingScreenView.swift; path = ../../../../../../Desktop/OnboardingScreenView.swift; sourceTree = "<group>"; };
+		3B319A392B4C42B70056DF68 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		3B319A3A2B4C42B70056DF68 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		3B319A3B2B4C42B70056DF68 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
+		3B319A3C2B4C42B70056DF68 /* OnboardingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		867EA83F2B3F60BF0039EB19 /* MyLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyLibrary; sourceTree = "<group>"; };
 		FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewCell.swift; sourceTree = "<group>"; };
@@ -232,10 +232,10 @@
 		288038EE2B3734C600691E0E /* OnboardingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				3BE3396E2B4B364400A479DB /* OnboardingScreenView.swift */,
-				3BE3396B2B4B364400A479DB /* OnboardingStepModel.swift */,
-				3BE3396C2B4B364400A479DB /* OnboardingView.swift */,
-				3BE3396D2B4B364400A479DB /* OnboardingViewModel.swift */,
+				3B319A3C2B4C42B70056DF68 /* OnboardingScreenView.swift */,
+				3B319A3B2B4C42B70056DF68 /* OnboardingStepModel.swift */,
+				3B319A3A2B4C42B70056DF68 /* OnboardingView.swift */,
+				3B319A392B4C42B70056DF68 /* OnboardingViewModel.swift */,
 			);
 			path = OnboardingScreen;
 			sourceTree = "<group>";
@@ -453,16 +453,14 @@
 				FAEA37002B489F0F00D7DBFB /* GenreButtonsScrollView.swift in Sources */,
 				287C8E382B38B8E600C687E7 /* CachedAsyncImage.swift in Sources */,
 				287C8E2D2B388A2C00C687E7 /* MovieModel.swift in Sources */,
-				3BE339702B4B364400A479DB /* OnboardingView.swift in Sources */,
 				FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */,
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
 				FADC05D22B3DB2ED0031FD57 /* ErrorImageView.swift in Sources */,
+				3B319A402B4C42B70056DF68 /* OnboardingScreenView.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				FA83840B2B443F50004B7A13 /* BackgroundImageView.swift in Sources */,
 				FA8F78F82B46E1FC006AC799 /* AddToFavoritesButton.swift in Sources */,
 				FA7B26172B45CC7A00B13C6D /* FullScreenImageView.swift in Sources */,
-				3BE339722B4B364400A479DB /* OnboardingScreenView.swift in Sources */,
-				3BE339712B4B364400A479DB /* OnboardingViewModel.swift in Sources */,
 				287C8E2F2B388A4100C687E7 /* PopularMovieViewModel.swift in Sources */,
 				288038F92B37353F00691E0E /* PopularMovieView.swift in Sources */,
 				287C8E132B38537900C687E7 /* Font+ext.swift in Sources */,
@@ -472,13 +470,15 @@
 				FA8384122B44755F004B7A13 /* ShareButtonView.swift in Sources */,
 				287C8E342B38A0B900C687E7 /* RatingView.swift in Sources */,
 				288038E12B3729A500691E0E /* ContentView.swift in Sources */,
+				3B319A3E2B4C42B70056DF68 /* OnboardingView.swift in Sources */,
 				287C8E362B38AD9E00C687E7 /* View+Ext.swift in Sources */,
 				FADC05D42B3DBCBF0031FD57 /* MovieImageView.swift in Sources */,
 				FAA5805E2B46DB4C0004BF89 /* CustomBackButton.swift in Sources */,
 				287C8E322B38A02500C687E7 /* ImageText.swift in Sources */,
 				288038DF2B3729A500691E0E /* MovieForTodayApp.swift in Sources */,
+				3B319A3F2B4C42B70056DF68 /* OnboardingStepModel.swift in Sources */,
+				3B319A3D2B4C42B70056DF68 /* OnboardingViewModel.swift in Sources */,
 				288038FC2B37355D00691E0E /* MovieDetailView.swift in Sources */,
-				3BE3396F2B4B364400A479DB /* OnboardingStepModel.swift in Sources */,
 				287C8E112B384F4800C687E7 /* Color+Ext.swift in Sources */,
 				288038FF2B37357600691E0E /* WishListView.swift in Sources */,
 				2880390E2B373E2900691E0E /* StorageManager.swift in Sources */,
