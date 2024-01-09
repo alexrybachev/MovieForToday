@@ -16,8 +16,7 @@ struct ContentView: View {
             VStack {
                 switch selectedTab {
                 case .home:
-//                    HomeView()
-                    PopularMovieView() // test
+                    HomeView()
                 case .search:
                     SearchView()
                 case .download:
