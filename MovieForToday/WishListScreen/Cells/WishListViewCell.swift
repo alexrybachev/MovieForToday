@@ -38,7 +38,7 @@ struct WishListViewCell: View {
                 }
                 
                 VStack(alignment: .leading, spacing: Constants.verticalPaddings) {
-                    Text(movieModel.genre)
+                    Text(movieModel.genre.first!.name.capitalized)
                         .font(.custom(.montMedium, size: Constants.smallTextSize))
                         .foregroundStyle(.textWhiteGrey)
                     

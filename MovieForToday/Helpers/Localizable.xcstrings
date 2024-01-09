@@ -264,6 +264,22 @@
         }
       }
     },
+    "movie_lists" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Movie Lists"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Списки фильмов"
+          }
+        }
+      }
+    },
     "notification" : {
       "extractionState" : "manual",
       "localizations" : {
