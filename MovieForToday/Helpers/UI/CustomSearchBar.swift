@@ -11,7 +11,7 @@ struct CustomSearchBar: View {
     @FocusState private var isFocused: Bool
     @Binding var searchText: String
     @Binding var isSearch: Bool
-    let placeholderText: String
+    let placeholderText: LocalizedStringKey
     let action: () -> Void
     
     var body: some View {
@@ -52,5 +52,5 @@ struct CustomSearchBar: View {
 }
 
 #Preview {
-    CustomSearchBar(searchText: .constant(""), isSearch: .constant(true), placeholderText: "Search a title..", action: {})
+    CustomSearchBar(searchText: .constant(""), isSearch: .constant(true), placeholderText: "search_a_title..", action: {})
 }

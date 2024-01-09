@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeadlineView: View {
-    let headline: String
+    let headline: LocalizedStringKey
     let action: () -> Void
     
     var body: some View {
@@ -28,6 +28,6 @@ struct HeadlineView: View {
 }
 
 #Preview {
-    HeadlineView(headline: "Categories", action: {})
+    HeadlineView(headline: "categories", action: {})
         .background(Color.customMain)
 }
