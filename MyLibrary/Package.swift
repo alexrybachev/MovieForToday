@@ -12,10 +12,12 @@ let package = Package(
     products: [
         .library(name: "Networking", targets: ["Networking"]),
         .library(name: "RemoteImage", targets: ["RemoteImage"]),
+        .library(name: "WebPlayer", targets: ["WebPlayer"]),
     ],
     targets: [
         .target(name: "Networking"),
         .target(name: "RemoteImage"),
+        .target(name: "WebPlayer"),
         .testTarget(name: "NetworkingTests", dependencies: ["Networking"]),
     ]
 )
