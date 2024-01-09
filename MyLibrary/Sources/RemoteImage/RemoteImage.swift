@@ -45,6 +45,7 @@ public struct RemoteImage<I: View, P: View, E: View>: View {
     
     //MARK: - Private methods
     @Sendable
+    @MainActor
     func performRequest() async {
         switch cache.library[url] {
         case .some(let image):

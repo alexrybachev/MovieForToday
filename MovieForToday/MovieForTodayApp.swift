@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Networking
 
 @main
 struct MovieForTodayApp: App {
+    @AppStorage("isOnboarding") var isOnboarding = false
+    @Environment(\.scenePhase) var scenePhase
+    let networking = NetworkManager(apiKey: "91FNPYK-28Z4N08-K3AEZFE-G1204N7")
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboarding {
+                ContentView()
+            } else {
+                OnboardingView()
+            }
         }
     }
 }
