@@ -62,7 +62,7 @@ struct WishListViewCell: View {
             }
         }
         .frame(width: .infinity, height: Constants.rowHeight)
-        .padding([.leading, .trailing, .bottom])
+        .padding([.leading, .trailing, .top])
     }
 }
 

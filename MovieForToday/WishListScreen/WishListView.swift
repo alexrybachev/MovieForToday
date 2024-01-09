@@ -11,30 +11,35 @@ struct WishListView: View {
     @StateObject var viewModel = PopularMovieViewModel()
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                if viewModel.movieModels.isEmpty {
-                    PlaceholderView(
-                        name: .box,
-                        title: "There Is No Movie Yet!",
-                        subtitle: "Find your movie by Type title, categories, years, etc"
-                    )
-                } else {
-                    ScrollView(showsIndicators: false) {
-                        // TODO: временное решение
-                        ForEach(viewModel.movieModels, id: \.name) { movie in
-                            NavigationLink {
-                                MovieDetailView(movieModel: movie)
-                            } label: {
-                                WishListViewCell(movieModel: movie)
-                            }
+        ZStack {
+            if viewModel.movieModels.isEmpty {
+                PlaceholderView(
+                    name: .box,
+                    title: "There Is No Movie Yet!",
+                    subtitle: "Find your movie by Type title, categories, years, etc"
+                )
+            } else {
+                ScrollView(showsIndicators: false) {
+                    // TODO: временное решение
+                    ForEach(viewModel.movieModels, id: \.name) { movie in
+                        NavigationLink {
+                            MovieDetailView(movieModel: movie)
+                        } label: {
+                            WishListViewCell(movieModel: movie)
                         }
                     }
                 }
             }
-            .navigationTitle("wishlist")
-            .navigationBarTitleDisplayMode(.inline)
-            .background(Color.primaryColor(.mainDark))
+        }
+        .padding(.bottom, 72)
+        .navigationTitle("wishlist")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color.primaryColor(.mainDark))
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
         }
     }
 }

@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = PopularMovieViewModel()
     @State private var searchText = ""
-    @State private var isSearch = false        
+    @State private var isSearch = false   
+    @State private var showWishList = false
     
     var body: some View {
         NavigationView {
@@ -42,12 +43,19 @@ struct HomeView: View {
                     }
                 }
                 .padding(.bottom, 72)
+                                
+                // MARK: Link to WishListView
+                NavigationLink(destination: WishListView(), isActive: $showWishList) {
+                    Color.clear
+                }
             }
             .background(Color.primaryColor(.mainDark))
             .toolbar {
                 // Open WishListView
                 ToolbarItem(placement: .topBarTrailing) {
-                    AddToFavoritesButton(action: {})
+                    AddToFavoritesButton {
+                        showWishList = true
+                    }
                 }
                 
                 // User label
@@ -62,7 +70,7 @@ struct HomeView: View {
                             .font(.custom(.montSemiBold, size: 16))
                             .foregroundStyle(Color.textColor(.whiteGrey))
                     }
-                }
+                }                                
             }
         }
     }
