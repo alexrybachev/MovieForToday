@@ -34,6 +34,7 @@
 		288039052B3735CD00691E0E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039042B3735CD00691E0E /* ProfileView.swift */; };
 		288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288039072B37361200691E0E /* ChristmasTreeView.swift */; };
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
+		28C829972B4D3488007EFF52 /* advice.json in Resources */ = {isa = PBXBuildFile; fileRef = 28C829962B4D3488007EFF52 /* advice.json */; };
 		3B319A3D2B4C42B70056DF68 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A392B4C42B70056DF68 /* OnboardingViewModel.swift */; };
 		3B319A3E2B4C42B70056DF68 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A3A2B4C42B70056DF68 /* OnboardingView.swift */; };
 		3B319A3F2B4C42B70056DF68 /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A3B2B4C42B70056DF68 /* OnboardingStepModel.swift */; };
@@ -88,6 +89,7 @@
 		288039042B3735CD00691E0E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		288039072B37361200691E0E /* ChristmasTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasTreeView.swift; sourceTree = "<group>"; };
 		2880390D2B373E2900691E0E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		28C829962B4D3488007EFF52 /* advice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = advice.json; sourceTree = "<group>"; };
 		3B319A392B4C42B70056DF68 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		3B319A3A2B4C42B70056DF68 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		3B319A3B2B4C42B70056DF68 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				288038E22B3729A800691E0E /* Assets.xcassets */,
 				287C8E072B384CFA00C687E7 /* Fonts */,
 				288038E42B3729A800691E0E /* Preview Content */,
+				28C829962B4D3488007EFF52 /* advice.json */,
 			);
 			path = MovieForToday;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				288038E62B3729A800691E0E /* Preview Assets.xcassets in Resources */,
 				287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */,
 				867EA8402B3F60BF0039EB19 /* MyLibrary in Resources */,
+				28C829972B4D3488007EFF52 /* advice.json in Resources */,
 				287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */,
 				287C8E272B38707400C687E7 /* Localizable.xcstrings in Resources */,
 				288038E32B3729A800691E0E /* Assets.xcassets in Resources */,
