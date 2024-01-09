@@ -35,7 +35,7 @@ public struct WebPlayerView: UIViewRepresentable {
     
     public func updateUIView(_ uiView: WKWebView, context: Context) {
         guard let demoURL = URL(string: link) else {
-            assertionFailure("Invalid URL link")
+            assertionFailure("Invalid URL link: \(link)")
             return
         }
         uiView.scrollView.isScrollEnabled = false
