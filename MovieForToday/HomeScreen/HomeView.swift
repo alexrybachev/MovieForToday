@@ -21,7 +21,8 @@ struct HomeView: View {
                         CustomSearchBar(
                             searchText: $searchText,
                             isSearch: $isSearch,
-                            placeholderText: "search_a_title..", action: {}
+                            placeholderText: "search_a_title..", 
+                            action: {}
                         )
                         .padding(EdgeInsets(top: 26, leading: 16, bottom: 26, trailing: 16))
                         
@@ -47,7 +48,12 @@ struct HomeView: View {
             .toolbar {
                 // Open WishListView
                 ToolbarItem(placement: .topBarTrailing) {
-                    AddToFavoritesButton(action: {})
+                    NavigationLink {
+                        WishListView()
+                    } label: {
+                        AddToFavoritesLabel()
+                    }
+
                 }
                 
                 // User label
