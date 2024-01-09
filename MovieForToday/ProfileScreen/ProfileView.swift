@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import Firebase
+import FirebaseAuth
 
 struct ProfileView: View {
     @State var profileImage: String?
-    @State var name: String?
-    @State var mail: String
     @AppStorage("showSignIn") var showSignInView = false
     
     @StateObject private var viewModel = SignInViewModel()
@@ -20,15 +18,20 @@ struct ProfileView: View {
             ZStack {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
+                
                 VStack(spacing: 14)  {
                     if !showSignInView {
+                        
                         HeaderView(
-                            profileImage: $profileImage, name: $name,
-                            mail: $viewModel.email)
+                            profileImage: profileImage, name: viewModel.currentUser?.name ?? "",
+                            mail: viewModel.currentUser?.email ?? "")
                         
                         General()
+                        
                         More()
+                        
                         Spacer()
+                        
                         CustomButton(text: "Log Out", color: Color.black, action: {
                             Task {
                                 do {
@@ -50,10 +53,26 @@ struct ProfileView: View {
         .navigationTitle("Profile")
         .onAppear() {
             if Auth.auth().currentUser != nil {
-                self.showSignInView = false
+                Task {
+                    do {
+                        try await viewModel.fetchUser()
+                        self.showSignInView = false
+                    } catch {
+                        print("Error fetching user data: \(error.localizedDescription)")
+                    }
+                }
             }
-//                        let authUser = try? FirebaseManager.shared.getAuthenticatedUser()
-//                                   self.showSignInView = (authUser == nil) ? true : false
+        }
+        .onChange(of: showSignInView) { showSignInView in
+            if !showSignInView {
+                Task {
+                    do {
+                        try await viewModel.fetchUser()
+                    } catch {
+                        
+                    }
+                }
+            }
         }
         .fullScreenCover(isPresented: $showSignInView)  {
             NavigationView {
@@ -61,8 +80,10 @@ struct ProfileView: View {
             }
         }
     }
+    
+    
 }
 
 #Preview {
-    ProfileView(profileImage: "margot", name: "Margot", mail: "margo@gmail.com")
+    ProfileView(profileImage: "margot")
 }

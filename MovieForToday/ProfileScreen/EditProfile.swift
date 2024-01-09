@@ -11,12 +11,14 @@ struct EditProfile: View {
     var profileImage: String
     @State var name: String
     @State var mail: String
+    @StateObject private var viewModel = SignInViewModel()
     
     var body: some View {
         VStack {
             ZStack {
                 Color((PrimaryColor.softDark.rawValue))
                     .ignoresSafeArea()
+                
                 VStack(spacing: 16) {
                     Button {
                         print(#function)
@@ -43,12 +45,24 @@ struct EditProfile: View {
 
                     CustomTextField(value: $name, titleBorder: "Full Name", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your full name")
                         .padding(.top, 40)
+                    
                     CustomTextField(value: $mail, titleBorder: "@Mail", offsetNameX: -140, offsetNameY: -28, placeHolder: "Enter your @mail")
                         .padding(.top, 40)
                     
                     Spacer()
                     
-                    CustomButton(text: "Save changes", color: Color(PrimaryColor.mint.rawValue), action: {print(#function)})
+                    CustomButton(text: "Save changes", color: Color(PrimaryColor.mint.rawValue), action: {
+                        Task {
+                            do {
+                                try await FirebaseManager.shared.updateEmail(email: mail)
+                                try await FirebaseManager.shared.updateName(name: name)
+                                print("Change mail and password")
+                                return
+                            } catch let error {
+                                throw error
+                            }
+                        }
+                        })
                     .padding(.horizontal, 16)
                 }
                 .padding(.top, 20)

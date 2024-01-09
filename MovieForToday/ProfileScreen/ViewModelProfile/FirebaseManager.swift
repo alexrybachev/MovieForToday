@@ -14,7 +14,6 @@ struct UserData {
     let name: String?
     let email: String
     let photoUrl: String?
-    //    let date: Date
     
     init(user: User) {
         self.uid = user.uid
@@ -22,13 +21,11 @@ struct UserData {
         self.name = user.displayName
         self.email = user.email ?? "no mail"
         self.photoUrl = user.photoURL?.absoluteString
-        //        self.date = Date()
     }
 }
 
 final class FirebaseManager {
     static let shared = FirebaseManager()
-    var isUserAuthenticated = false
     private init() {}
     
     func getAuthenticatedUser() throws -> UserData  {
@@ -38,13 +35,11 @@ final class FirebaseManager {
         return UserData.init(user: user)
     }
     
-    @discardableResult
     func createUser(email: String, password: String) async throws -> UserData {
         let authData = try await Auth.auth().createUser(withEmail: email, password: password)
         return UserData(user: authData.user)
     }
     
-    @discardableResult
     func signInUser(email: String, password: String) async throws -> UserData {
         let authDataResults = try await Auth.auth().signIn(withEmail: email, password: password)
         return UserData(user: authDataResults.user)
@@ -58,11 +53,36 @@ final class FirebaseManager {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
     
+    func updateEmail(email: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        try await user.sendEmailVerification(beforeUpdatingEmail: email)
+    }
+    
+    func updateName(name: String) async throws {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        do {
+            try await changeRequest?.commitChanges()
+        } catch {
+            throw error
+        }
+    }
+    
+    //    func updateViewProfile(displayName: String) {
+    //        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+    //        changeRequest?.displayName = displayName
+    //        changeRequest?.commitChanges { error in
+    //          // ...
+    //        }
+    //    }
+    
     func signInListener(_ listener: @escaping (Auth, User?) -> Void) {
         Auth.auth().addStateDidChangeListener { auth, user in
         }
     }
-
+    
     
     //    func saveFiresore(user: UserData) {
     //        if let uid = result?.user.uid {

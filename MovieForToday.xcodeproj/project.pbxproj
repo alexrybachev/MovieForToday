@@ -147,7 +147,6 @@
 		0D4AF8952B3D83480033017D /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				0DDFAEAD2B49EC5800BAE6C0 /* ViewModelProfile */,
 				0D4AF8562B3C307F0033017D /* LogInView.swift */,
 				0D4AF8932B3D831E0033017D /* RegistrationView.swift */,
 				0DDFAEA72B47009300BAE6C0 /* ReturnPassword.swift */,
@@ -325,6 +324,7 @@
 		288039032B37359500691E0E /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				0DDFAEAD2B49EC5800BAE6C0 /* ViewModelProfile */,
 				288039042B3735CD00691E0E /* ProfileView.swift */,
 				0D4AF8522B3ADA030033017D /* EditProfile.swift */,
 				0D4AF8542B3B3C340033017D /* PrivacyPolicy.swift */,

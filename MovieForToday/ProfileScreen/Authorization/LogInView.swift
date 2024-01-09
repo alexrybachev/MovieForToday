@@ -84,6 +84,15 @@ struct LogInView: View {
             }
             .padding()
         }
+        .onChange(of: showSignInView) { showSignInView in
+            if !showSignInView {
+                Task {
+                    do {
+                        try? await viewModel.fetchUser()
+                    }
+                }
+            }
+        }
         .navigationTitle("Sign In")
         .navigationBarTitleDisplayMode(.large)
         

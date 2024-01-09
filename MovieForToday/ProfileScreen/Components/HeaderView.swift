@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var profileImage: String?
-    @Binding var name: String?
-    @Binding var mail: String
+    var profileImage: String?
+    var name: String?
+    var mail: String
     
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             Image(!profileImage!.isEmpty ? profileImage! : "margot")
                 .resizable()
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/, style: /*@START_MENU_TOKEN@*/FillStyle()/*@END_MENU_TOKEN@*/)
@@ -23,18 +23,20 @@ struct HeaderView: View {
                 Text(name ?? "User")
                     .font(Font.custom(CustomFont.montSemiBold, size: 16))
                     .foregroundStyle(.white)
+
                 Text(verbatim: mail)
                     .font(Font.custom(CustomFont.montMedium, size: 14))
                     .foregroundColor(Color(TextColors.grey.rawValue))
+                 
             }
             .padding(.leading, 8)
+            
+            Spacer()
             
             NavigationLink(destination: EditProfile(profileImage: profileImage ?? "margot", name: name ?? "User", mail: mail)) {  Image("editColor")
                     .scaledToFit()
                     .frame(width: 54, height: 54)
             }
-            .padding(.leading, 16)
-            Spacer()
         }
         .padding()
         .background(Color(PrimaryColor.softDark.rawValue))
@@ -49,5 +51,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(profileImage: .constant("margot"), name: .constant("Margot"), mail: .constant("margo@gmail.com"))
+    HeaderView(profileImage: "", name: "", mail: "")
 }

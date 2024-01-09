@@ -18,7 +18,7 @@ struct MovieForTodayApp: App {
             if testRegistration {
 //                Registration(fullName: "", login: "", password: "", mail: "")
 //                LogInView(login: "", password: "", mail: "")
-                ProfileView(profileImage: "", name: "", mail: "")
+                ProfileView(profileImage: "")
             } else {
                 ContentView()
             }

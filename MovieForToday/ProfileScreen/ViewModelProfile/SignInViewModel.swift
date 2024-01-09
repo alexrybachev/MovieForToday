@@ -13,6 +13,7 @@ final class SignInViewModel: ObservableObject {
     @Published var userName = ""
     @Published var email = ""
     @Published var password = ""
+    @Published var currentUser: UserData?
     
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
@@ -31,9 +32,16 @@ final class SignInViewModel: ObservableObject {
             return
         }
         
-        let uderData = try await FirebaseManager.shared.signInUser(email: email, password: password)
+        currentUser = try await FirebaseManager.shared.signInUser(email: email, password: password)
         print("Success")
-        print(uderData)
+    }
+    
+    func fetchUser() async throws  {
+        do {
+            currentUser = try FirebaseManager.shared.getAuthenticatedUser()
+        } catch let error {
+            throw error
+        }
     }
     
 //    func signInListener() -> Bool {
