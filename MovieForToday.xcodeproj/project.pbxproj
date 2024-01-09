@@ -37,6 +37,7 @@
 		2880390E2B373E2900691E0E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2880390D2B373E2900691E0E /* StorageManager.swift */; };
 		867EA8402B3F60BF0039EB19 /* MyLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 867EA83F2B3F60BF0039EB19 /* MyLibrary */; };
 		867EA8432B3F60C70039EB19 /* RemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = 867EA8422B3F60C70039EB19 /* RemoteImage */; };
+		86AE81C62B4DE79000DF6977 /* WebPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 86AE81C52B4DE79000DF6977 /* WebPlayer */; };
 		86F236E72B488077000CF45A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 86F236E62B488077000CF45A /* Networking */; };
 		FA1C011D2B3C5A880047D1EB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */; };
 		FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */; };
@@ -103,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AE81C62B4DE79000DF6977 /* WebPlayer in Frameworks */,
 				86F236E72B488077000CF45A /* Networking in Frameworks */,
 				867EA8432B3F60C70039EB19 /* RemoteImage in Frameworks */,
 			);
@@ -355,6 +357,7 @@
 			packageProductDependencies = (
 				867EA8422B3F60C70039EB19 /* RemoteImage */,
 				86F236E62B488077000CF45A /* Networking */,
+				86AE81C52B4DE79000DF6977 /* WebPlayer */,
 			);
 			productName = MovieForToday;
 			productReference = 288038DB2B3729A500691E0E /* MovieForToday.app */;
@@ -672,6 +675,10 @@
 		867EA8422B3F60C70039EB19 /* RemoteImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RemoteImage;
+		};
+		86AE81C52B4DE79000DF6977 /* WebPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WebPlayer;
 		};
 		86F236E62B488077000CF45A /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
