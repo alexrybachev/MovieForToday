@@ -10,8 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = PopularMovieViewModel()
     @State private var searchText = ""
-    @State private var isSearch = false   
-    @State private var showWishList = false
+    @State private var isSearch = false
     
     var body: some View {
         NavigationView {
@@ -43,19 +42,12 @@ struct HomeView: View {
                     }
                 }
                 .padding(.bottom, 72)
-                                
-                // MARK: Link to WishListView
-                NavigationLink(destination: WishListView(), isActive: $showWishList) {
-                    Color.clear
-                }
             }
             .background(Color.primaryColor(.mainDark))
             .toolbar {
                 // Open WishListView
                 ToolbarItem(placement: .topBarTrailing) {
-                    AddToFavoritesButton {
-                        showWishList = true
-                    }
+                    AddToFavoritesButton(action: {})
                 }
                 
                 // User label
