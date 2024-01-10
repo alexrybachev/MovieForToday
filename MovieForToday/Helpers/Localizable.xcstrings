@@ -51,6 +51,22 @@
         }
       }
     },
+    "categories" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categories"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Категории"
+          }
+        }
+      }
+    },
     "Close" : {
 
     },
@@ -158,6 +174,9 @@
         }
       }
     },
+    "Hello, " : {
+
+    },
     "Hello, world!" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -260,6 +279,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Больше"
+          }
+        }
+      }
+    },
+    "most_popular" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most popular"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Самые популярные"
           }
         }
       }
@@ -432,6 +467,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск"
+          }
+        }
+      }
+    },
+    "search_a_title.." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search a title.."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск по названию.."
           }
         }
       }

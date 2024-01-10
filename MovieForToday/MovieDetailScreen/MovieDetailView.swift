@@ -11,7 +11,7 @@ import RemoteImage
 struct MovieDetailView: View {
     @State private var isSharing = false
     @State private var isFullScreen = false
-    @State private var gradient = [
+    let gradient = [
         Color.primaryColor(.mainDark),
         Color.primaryColor(.mainDark).opacity(0),
         Color.primaryColor(.mainDark),
