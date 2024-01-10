@@ -10,7 +10,7 @@ import SwiftUI
 struct PrivacyPolicy: View {
     var body: some View {
         ZStack {
-            Color((PrimaryColor.softDark.rawValue))
+            Color((PrimaryColor.mainDark.rawValue))
                 .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading) {

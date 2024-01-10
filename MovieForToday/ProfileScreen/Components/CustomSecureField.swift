@@ -8,34 +8,33 @@
 import SwiftUI
 
 struct CustomSecureField: View {
+    
+    @Binding var value: String
+    var titleBorder: String
+    var offsetNameX: CGFloat
+    var offsetNameY: CGFloat
+    var placeHolder: String
+    var body: some View {
         
-        @Binding var value: String
-        var titleBorder: String
-        var offsetNameX: CGFloat
-        var offsetNameY: CGFloat
-        var placeHolder: String
-        var body: some View {
-
-            SecureField(placeHolder, text: $value)
-                .padding(.leading, 16)
-                .foregroundStyle(.white)
-                .padding(.vertical, 16)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(value.isEmpty ? Color(PrimaryColor.mint.rawValue) : Color.gray, lineWidth: 1.0)
-                        .opacity(0.3)
-                    Text(titleBorder)
-                        .foregroundStyle(.white)
-                        .font(.custom(.montMedium, size: 12))
-                        .offset(x: offsetNameX, y: offsetNameY)
-                    
-                }
-                .padding(.horizontal, 16)
-        }
-        
+        SecureField(placeHolder, text: $value)
+            .padding(.leading, 16)
+            .foregroundStyle(.white)
+            .padding(.vertical, 16)
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
+            .overlay {
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(value.isEmpty ? Color(PrimaryColor.mint.rawValue) : Color.gray, lineWidth: 1.0)
+                    .opacity(0.3)
+                Text(titleBorder)
+                    .foregroundStyle(.white)
+                    .font(.custom(.montMedium, size: 12))
+                    .offset(x: offsetNameX, y: offsetNameY)
+                
+            }
+            .padding(.horizontal, 16)
     }
+}
 
 
 

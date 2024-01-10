@@ -6,17 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct EditProfile: View {
+    @Environment(\.presentationMode) var rootView
     var profileImage: String
     @State var name: String
     @State var mail: String
     @StateObject private var viewModel = SignInViewModel()
+    @State private var isPresentAlert = false
     
     var body: some View {
         VStack {
             ZStack {
-                Color((PrimaryColor.softDark.rawValue))
+                Color((PrimaryColor.mainDark.rawValue))
                     .ignoresSafeArea()
                 
                 VStack(spacing: 16) {
@@ -42,7 +45,7 @@ struct EditProfile: View {
                         .foregroundStyle(.textGrey)
                         .font(.custom(.montMedium, size: 14))
                         .padding(.top, -8)
-
+                    
                     CustomTextField(value: $name, titleBorder: "Full Name", offsetNameX: -128, offsetNameY: -28, placeHolder: "Enter your full name")
                         .padding(.top, 40)
                     
@@ -54,17 +57,24 @@ struct EditProfile: View {
                     CustomButton(text: "Save changes", color: Color(PrimaryColor.mint.rawValue), action: {
                         Task {
                             do {
-                                try await FirebaseManager.shared.updateEmail(email: mail)
+                                //                                try await FirebaseManager.shared.updateEmail(email: mail)
+                                isPresentAlert = true
                                 try await FirebaseManager.shared.updateName(name: name)
                                 print("Change mail and password")
-                                return
                             } catch let error {
                                 throw error
                             }
                         }
-                        })
+                    })
                     .padding(.horizontal, 16)
+                    .alert(isPresented: $isPresentAlert, content: {
+                        Alert(title: Text("The user name was be changed to - \(name)"), dismissButton: .default(Text("Ok")) {
+                            isPresentAlert = false
+                            rootView.wrappedValue.dismiss()
+                        })
+                    })
                 }
+                
                 .padding(.top, 20)
             }
             .foregroundColor(.white)

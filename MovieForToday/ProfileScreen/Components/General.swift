@@ -19,14 +19,14 @@ struct General: View {
                 Spacer()
             }
             
-            NavigationSettings(imageIcon: "notification", textNavigation: "Navigation", destination: EmptyView())
+            NavigationSettings(imageIcon: "notification", textNavigation: "Notification", destination: NotificationVIew())
         
             Divider().background(.gray)
                 .padding(.horizontal, 16)
                 .opacity(0.3)
             NavigationSettings(imageIcon: "globe", textNavigation: "Language", destination: EmptyView())
         }
-        .background(Color(PrimaryColor.softDark.rawValue))
+        .background(Color((PrimaryColor.mainDark.rawValue)))
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)
