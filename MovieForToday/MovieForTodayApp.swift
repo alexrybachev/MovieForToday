@@ -6,21 +6,23 @@
 //
 
 import SwiftUI
+import Networking
 import FirebaseCore
-
 
 @main
 struct MovieForTodayApp: App {
-    private var testRegistration = true
+	private var testRegistration = true
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @AppStorage("isOnboarding") var isOnboarding = false
+    @Environment(\.scenePhase) var scenePhase
+    let networking = NetworkManager(apiKey: "91FNPYK-28Z4N08-K3AEZFE-G1204N7")
+    
     var body: some Scene {
         WindowGroup {
-            if testRegistration {
-//                Registration(fullName: "", login: "", password: "", mail: "")
-//                LogInView(login: "", password: "", mail: "")
-                ProfileView(profileImage: "")
-            } else {
+            if isOnboarding {
                 ContentView()
+            } else {
+                OnboardingView()
             }
         }
     }

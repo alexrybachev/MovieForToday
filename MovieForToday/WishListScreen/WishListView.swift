@@ -8,8 +8,39 @@
 import SwiftUI
 
 struct WishListView: View {
+    @StateObject var viewModel = PopularMovieViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if viewModel.movieModels.isEmpty {
+                PlaceholderView(
+                    name: .box,
+                    title: "There Is No Movie Yet!",
+                    subtitle: "Find your movie by Type title, categories, years, etc"
+                )
+            } else {
+                ScrollView(showsIndicators: false) {
+                    // TODO: временное решение
+                    ForEach(viewModel.movieModels, id: \.name) { movie in
+                        NavigationLink {
+                            MovieDetailView(movieModel: movie)
+                        } label: {
+                            WishListViewCell(movieModel: movie)
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.bottom, 72)
+        .navigationTitle("wishlist")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color.primaryColor(.mainDark))
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
 }
 

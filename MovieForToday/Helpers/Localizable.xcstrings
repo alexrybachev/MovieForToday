@@ -35,10 +35,39 @@
         }
       }
     },
-    "Change Password" : {
-
+    "cast_and_crew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cast and Crew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Актерский состав и команда"
+          }
+        }
+      }
     },
-    "Changes to the Service and/or Terms:" : {
+    "categories" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categories"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Категории"
+          }
+        }
+      }
+    },
+    "Close" : {
 
     },
     "duration" : {
@@ -57,9 +86,6 @@
           }
         }
       }
-    },
-    "Edit Profile" : {
-
     },
     "edit_profile" : {
       "extractionState" : "manual",
@@ -95,7 +121,7 @@
         }
       }
     },
-    "forgot password?" : {
+    "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero's identity is revealed, bringing his Super Hero responsibilities into conflict with his normal life and putting those he cares about most at risk. More" : {
 
     },
     "full_name" : {
@@ -111,6 +137,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Полное имя"
+          }
+        }
+      }
+    },
+    "galery" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Galery"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Галерея"
           }
         }
       }
@@ -132,10 +174,11 @@
         }
       }
     },
-    "General" : {
+    "Hello, " : {
 
     },
     "Hello, world!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -206,12 +249,6 @@
         }
       }
     },
-    "LogIn" : {
-
-    },
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames." : {
-
-    },
     "minutes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -246,8 +283,37 @@
         }
       }
     },
-    "More" : {
-
+    "most_popular" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most popular"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Самые популярные"
+          }
+        }
+      }
+    },
+    "movie_lists" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Movie Lists"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Списки фильмов"
+          }
+        }
+      }
     },
     "notification" : {
       "extractionState" : "manual",
@@ -265,9 +331,6 @@
           }
         }
       }
-    },
-    "Ok" : {
-
     },
     "PG-13" : {
 
@@ -323,9 +386,6 @@
         }
       }
     },
-    "Privcy Policy" : {
-
-    },
     "profile" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -343,9 +403,6 @@
         }
       }
     },
-    "Profile" : {
-
-    },
     "rating" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -362,9 +419,6 @@
           }
         }
       }
-    },
-    "Registration" : {
-
     },
     "release_date" : {
       "extractionState" : "manual",
@@ -417,6 +471,22 @@
         }
       }
     },
+    "search_a_title.." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search a title.."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск по названию.."
+          }
+        }
+      }
+    },
     "see_all" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -433,9 +503,6 @@
           }
         }
       }
-    },
-    "Send" : {
-
     },
     "share_to" : {
       "extractionState" : "manual",
@@ -471,20 +538,21 @@
         }
       }
     },
-    "Sign In" : {
-
-    },
-    "Sign Up" : {
-
-    },
-    "Tearms" : {
-
-    },
-    "The account has been created. Please enter your username and password" : {
-
-    },
-    "The recover message was send to %@" : {
-
+    "story_line" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Story Line"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сюжет"
+          }
+        }
+      }
     },
     "trailer" : {
       "extractionState" : "manual",
