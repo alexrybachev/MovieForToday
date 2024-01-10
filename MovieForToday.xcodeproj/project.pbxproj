@@ -41,6 +41,8 @@
 		3B319A402B4C42B70056DF68 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B319A3C2B4C42B70056DF68 /* OnboardingScreenView.swift */; };
 		867EA8402B3F60BF0039EB19 /* MyLibrary in Resources */ = {isa = PBXBuildFile; fileRef = 867EA83F2B3F60BF0039EB19 /* MyLibrary */; };
 		867EA8432B3F60C70039EB19 /* RemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = 867EA8422B3F60C70039EB19 /* RemoteImage */; };
+		86AE81C62B4DE79000DF6977 /* WebPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 86AE81C52B4DE79000DF6977 /* WebPlayer */; };
+		86F236E72B488077000CF45A /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 86F236E62B488077000CF45A /* Networking */; };
 		FA0ABB902B4D6D39000F30DB /* PosterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ABB8F2B4D6D39000F30DB /* PosterLabelView.swift */; };
 		FA0ABB932B4D7369000F30DB /* MovieCategoryPosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ABB922B4D7369000F30DB /* MovieCategoryPosterCarouselView.swift */; };
 		FA0ABB952B4D7B03000F30DB /* MoviePosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ABB942B4D7B03000F30DB /* MoviePosterCarouselView.swift */; };
@@ -126,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AE81C62B4DE79000DF6977 /* WebPlayer in Frameworks */,
 				86F236E72B488077000CF45A /* Networking in Frameworks */,
 				867EA8432B3F60C70039EB19 /* RemoteImage in Frameworks */,
 			);
@@ -406,6 +409,7 @@
 			packageProductDependencies = (
 				867EA8422B3F60C70039EB19 /* RemoteImage */,
 				86F236E62B488077000CF45A /* Networking */,
+				86AE81C52B4DE79000DF6977 /* WebPlayer */,
 			);
 			productName = MovieForToday;
 			productReference = 288038DB2B3729A500691E0E /* MovieForToday.app */;
@@ -735,6 +739,10 @@
 		867EA8422B3F60C70039EB19 /* RemoteImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RemoteImage;
+		};
+		86AE81C52B4DE79000DF6977 /* WebPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WebPlayer;
 		};
 		86F236E62B488077000CF45A /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
