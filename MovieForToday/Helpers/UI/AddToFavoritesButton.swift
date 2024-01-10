@@ -12,13 +12,7 @@ struct AddToFavoritesButton: View {
     
     var body: some View {
         Button(action: action) {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color.primaryColor(.softDark))
-                .frame(width: 32, height: 32)
-                .overlay {
-                    Image(.heart)
-                        .colorMultiply(.red)
-                }
+            AddToFavoritesLabel()
         }
         
     }
@@ -26,4 +20,16 @@ struct AddToFavoritesButton: View {
 
 #Preview {
     AddToFavoritesButton(action: {})
+}
+
+struct AddToFavoritesLabel: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 12)
+            .foregroundStyle(Color.primaryColor(.softDark))
+            .frame(width: 32, height: 32)
+            .overlay {
+                Image(.heart)
+                    .colorMultiply(.red)
+            }
+    }
 }
