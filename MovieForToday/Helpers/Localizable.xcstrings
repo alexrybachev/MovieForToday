@@ -130,6 +130,9 @@
         }
       }
     },
+    "Exceptions" : {
+
+    },
     "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero's identity is revealed, bringing his Super Hero responsibilities into conflict with his normal life and putting those he cares about most at risk. More" : {
 
     },
@@ -270,6 +273,9 @@
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames." : {
 
     },
+    "Messages Notifications" : {
+
+    },
     "minutes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -355,6 +361,9 @@
           }
         }
       }
+    },
+    "Notification" : {
+
     },
     "Ok" : {
 
@@ -560,6 +569,9 @@
         }
       }
     },
+    "Show Notifications" : {
+
+    },
     "show_notifications" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -606,6 +618,9 @@
 
     },
     "The recover message was send to %@" : {
+
+    },
+    "The user name was be changed to - %@" : {
 
     },
     "trailer" : {

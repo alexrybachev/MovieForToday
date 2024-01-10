@@ -13,12 +13,12 @@ struct LogInView: View {
     @Binding var showSignInView: Bool
     init(showSignInView: Binding<Bool>) {
         self._showSignInView = showSignInView
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mint.rawValue) ?? .white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named:  PrimaryColor.mainDark.rawValue) ?? .white]
     }
     
     var body: some View {
         ZStack {
-            Color((PrimaryColor.softDark.rawValue))
+            Color((PrimaryColor.mainDark.rawValue))
                 .ignoresSafeArea()
             
             VStack(alignment: .center, spacing: 20) {

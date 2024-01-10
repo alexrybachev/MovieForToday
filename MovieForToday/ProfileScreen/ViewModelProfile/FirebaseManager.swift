@@ -57,7 +57,11 @@ final class FirebaseManager {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
         }
-        try await user.sendEmailVerification(beforeUpdatingEmail: email)
+        do {
+            try await updateEmail(email: "example@example.com")
+        } catch {
+            print("Error updating email: \(error.localizedDescription)")
+        }
     }
     
     func updateName(name: String) async throws {

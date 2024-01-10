@@ -45,6 +45,7 @@
 		0D2DB4952B4EEE60003D2414 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2DB4882B4EEE60003D2414 /* SignInViewModel.swift */; };
 		0D2DB4962B4EEE60003D2414 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2DB4892B4EEE60003D2414 /* FirebaseManager.swift */; };
 		0D2DB4982B4EEF1C003D2414 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D2DB4972B4EEF1B003D2414 /* GoogleService-Info.plist */; };
+		0D2DB49A2B4F1D15003D2414 /* NotificationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2DB4992B4F1D15003D2414 /* NotificationVIew.swift */; };
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
@@ -120,6 +121,7 @@
 		0D2DB4882B4EEE60003D2414 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		0D2DB4892B4EEE60003D2414 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		0D2DB4972B4EEF1B003D2414 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D2DB4992B4F1D15003D2414 /* NotificationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVIew.swift; sourceTree = "<group>"; };
 		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -214,13 +216,14 @@
 		0D2DB47A2B4EEE60003D2414 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0D2DB4812B4EEE60003D2414 /* HeaderView.swift */,
 				0D2DB47B2B4EEE60003D2414 /* NavigationSettings.swift */,
 				0D2DB47C2B4EEE60003D2414 /* General.swift */,
 				0D2DB47D2B4EEE60003D2414 /* CustomButton.swift */,
 				0D2DB47E2B4EEE60003D2414 /* CustomSecureField.swift */,
 				0D2DB47F2B4EEE60003D2414 /* More.swift */,
+				0D2DB4992B4F1D15003D2414 /* NotificationVIew.swift */,
 				0D2DB4802B4EEE60003D2414 /* CustomTextField.swift */,
-				0D2DB4812B4EEE60003D2414 /* HeaderView.swift */,
 				0D2DB4822B4EEE60003D2414 /* EmptyProfileView.swift */,
 			);
 			path = Components;
@@ -239,8 +242,8 @@
 		0D2DB4872B4EEE60003D2414 /* ViewModelProfile */ = {
 			isa = PBXGroup;
 			children = (
-				0D2DB4882B4EEE60003D2414 /* SignInViewModel.swift */,
 				0D2DB4892B4EEE60003D2414 /* FirebaseManager.swift */,
+				0D2DB4882B4EEE60003D2414 /* SignInViewModel.swift */,
 			);
 			path = ViewModelProfile;
 			sourceTree = "<group>";
@@ -423,12 +426,12 @@
 		288039032B37359500691E0E /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				0D2DB4872B4EEE60003D2414 /* ViewModelProfile */,
+				0D2DB46E2B4EEE17003D2414 /* ProfileView.swift */,
 				0D2DB4702B4EEE17003D2414 /* EditProfile.swift */,
+				0D2DB4732B4EEE17003D2414 /* PrivacyPolicy.swift */,
 				0D2DB4832B4EEE60003D2414 /* Authorization */,
 				0D2DB47A2B4EEE60003D2414 /* Components */,
-				0D2DB4872B4EEE60003D2414 /* ViewModelProfile */,
-				0D2DB4732B4EEE17003D2414 /* PrivacyPolicy.swift */,
-				0D2DB46E2B4EEE17003D2414 /* ProfileView.swift */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				FA44168B2B49D62C00AE536B /* CustomSearchBar.swift in Sources */,
 				287C8E342B38A0B900C687E7 /* RatingView.swift in Sources */,
 				288038E12B3729A500691E0E /* ContentView.swift in Sources */,
+				0D2DB49A2B4F1D15003D2414 /* NotificationVIew.swift in Sources */,
 				3B319A3E2B4C42B70056DF68 /* OnboardingView.swift in Sources */,
 				287C8E362B38AD9E00C687E7 /* View+Ext.swift in Sources */,
 				0D2DB48F2B4EEE60003D2414 /* CustomTextField.swift in Sources */,

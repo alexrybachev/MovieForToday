@@ -13,12 +13,12 @@ struct Registration: View {
     @StateObject var signInViewModel = SignInViewModel()
     @State var showAlert = false
     init() {
-            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mint.rawValue) ?? .white]
+            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mainDark.rawValue) ?? .white]
             }
     var body: some View {
         NavigationView {
             ZStack {
-                Color((PrimaryColor.softDark.rawValue))
+                Color((PrimaryColor.mainDark.rawValue))
                     .ignoresSafeArea()
                 
                 VStack(spacing: 30) {

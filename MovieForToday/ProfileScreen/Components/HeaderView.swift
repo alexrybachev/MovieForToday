@@ -14,11 +14,11 @@ struct HeaderView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-//            Image(!profileImage!.isEmpty ? profileImage! : "margot")
-//                .resizable()
-//                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/, style: /*@START_MENU_TOKEN@*/FillStyle()/*@END_MENU_TOKEN@*/)
-//                .frame(width: 54, height: 54)
-//                .padding(.leading, 16)
+            Image(profileImage != nil && !profileImage!.isEmpty ? profileImage! : "margot")
+                .resizable()
+                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/, style: /*@START_MENU_TOKEN@*/FillStyle()/*@END_MENU_TOKEN@*/)
+                .frame(width: 54, height: 54)
+                .padding(.leading, 16)
             VStack(alignment: .leading, spacing: 8)  {
                 Text(name ?? "User")
                     .font(Font.custom(CustomFont.montSemiBold, size: 16))
@@ -39,7 +39,7 @@ struct HeaderView: View {
             }
         }
         .padding()
-        .background(Color(PrimaryColor.softDark.rawValue))
+        .background(Color((PrimaryColor.mainDark.rawValue)))
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)
