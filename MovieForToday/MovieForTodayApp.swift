@@ -7,9 +7,12 @@
 
 import SwiftUI
 import Networking
+import FirebaseCore
 
 @main
 struct MovieForTodayApp: App {
+	private var testRegistration = true
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @AppStorage("isOnboarding") var isOnboarding = false
     @Environment(\.scenePhase) var scenePhase
     let networking = NetworkManager(apiKey: "91FNPYK-28Z4N08-K3AEZFE-G1204N7")
@@ -23,4 +26,14 @@ struct MovieForTodayApp: App {
             }
         }
     }
+}
+
+
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
 }
