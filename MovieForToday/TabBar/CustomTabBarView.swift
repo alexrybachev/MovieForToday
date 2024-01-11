@@ -46,10 +46,10 @@ struct CustomTabBarView: View {
                     ImageText(
                         image: tab.icon,
                         text: selectedTab == tab ? tab.title : "",
-                        color: selectedTab == tab ? Color.primaryColor(.mint) : .textGrey
+                        color: selectedTab == tab ? .customMint : .textGrey
                     )
                         .padding()
-                        .if(selectedTab == tab) { $0.background(Color.primaryColor(.softDark)) }
+                        .if(selectedTab == tab) { $0.background(.customSoftDark) }
                         .clipShape(Capsule())
                 }
                 
@@ -57,7 +57,7 @@ struct CustomTabBarView: View {
             }
         }
         .frame(maxHeight: tabBarHeight)
-        .background(Color.primaryColor(.mainDark))
+        .background(.customMain)
     }
 }
 

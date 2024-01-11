@@ -15,11 +15,11 @@ struct PosterLabelView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: spacing) {
             Text(title)
-                .foregroundStyle(Color.textColor(.whiteGrey))
+                .foregroundStyle(.textWhiteGrey)
                 .font(.custom(.montSemiBold, size: 16))
             
             Text(subtitle)
-                .foregroundStyle(Color.textColor(.whiteGrey))
+                .foregroundStyle(.textWhiteGrey)
                 .font(.custom(.montMedium, size: 12))
         }
     }
@@ -27,5 +27,5 @@ struct PosterLabelView: View {
 
 #Preview {
     PosterLabelView(title: "Top Gun", subtitle: "Action", spacing: 16)
-        .background(Color.customMain)
+        .background(.customMain)
 }

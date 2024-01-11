@@ -25,7 +25,7 @@ struct AddToFavoritesButton: View {
 struct AddToFavoritesLabel: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
-            .foregroundStyle(Color.primaryColor(.softDark))
+            .foregroundStyle(.customSoftDark)
             .frame(width: 32, height: 32)
             .overlay {
                 Image(.heart)

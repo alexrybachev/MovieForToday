@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct SwitchCategoriesButton: View {
-    @State private var isSelected = false
     let genre: String
+    let isSelected: Bool
     let action: () -> Void
     
     var body: some View {
         Button {
-            isSelected.toggle()
             action()
         } label: {
             Text(genre.capitalized)
                 .padding()
-                .foregroundStyle(
-                    isSelected
-                        ? Color.primaryColor(.mint)
-                        : Color.textColor(.whiteGrey)
-                )
-                .if(isSelected) { $0.background(Color.primaryColor(.softDark)) }
+                .foregroundStyle(isSelected ? .customMint : .textWhiteGrey)
+                .if(isSelected) { $0.background(.customSoftDark) }
                 .clipShape(.rect(cornerRadius: 12))
                 .font(.custom(.montSemiBold, size: 12))
         }
@@ -33,6 +28,7 @@ struct SwitchCategoriesButton: View {
 }
 
 #Preview {
-    SwitchCategoriesButton(genre: "action", action: {})
-        .background(Color.customMain)
+    SwitchCategoriesButton(genre: "action", isSelected: true, action: {})
+        .frame(width: 150, height: 100)
+        .background(.customMain)
 }

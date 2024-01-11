@@ -40,7 +40,7 @@ struct PosterScrollView: View {
                     
                     HStack {
                         Text(genre.name.capitalized)
-                            .foregroundStyle(Color.textColor(.whiteGrey))
+                            .foregroundStyle(.textWhiteGrey)
                             .font(.custom(.montSemiBold, size: Constants.titleSize))
                             .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 0))
                         
@@ -69,5 +69,5 @@ private extension PosterScrollView {
         genre: MovieModel.getMocData().genre,
         urlPoster: MovieModel.getMocData().urlPoster
     )
-        .background(Color.customMain)
+        .background(.customMain)
 }
