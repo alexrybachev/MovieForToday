@@ -68,6 +68,7 @@ struct EditProfile: View {
                         }
                     })
                     .padding(.horizontal, 16)
+                    .padding(.bottom, 20)
                     .alert(isPresented: $isPresentAlert, content: {
                         Alert(title: Text("The user name was be changed to - \(name)"), dismissButton: .default(Text("Ok")) {
                             isPresentAlert = false

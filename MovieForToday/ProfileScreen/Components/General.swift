@@ -24,7 +24,7 @@ struct General: View {
             Divider().background(.gray)
                 .padding(.horizontal, 16)
                 .opacity(0.3)
-            NavigationSettings(imageIcon: "globe", textNavigation: "Language", destination: EmptyView())
+            NavigationSettings(imageIcon: "globe", textNavigation: "Language", destination: LanguageView())
         }
         .background(Color((PrimaryColor.mainDark.rawValue)))
         .cornerRadius(16)

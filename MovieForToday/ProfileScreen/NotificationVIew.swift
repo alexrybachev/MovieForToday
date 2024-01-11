@@ -31,7 +31,7 @@ struct NotificationVIew: View {
                            //add notification
                         }
                         .padding(.leading, 0)
-                        .toggleStyle(SwitchToggleStyle(tint: Color(PrimaryColor.mint.rawValue)))
+                        .toggleStyle(SwitchToggleStyle(tint: Color.mint))
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 18)
