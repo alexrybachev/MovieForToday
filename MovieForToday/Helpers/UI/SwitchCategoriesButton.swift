@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct SwitchCategoriesButton: View {
-    @State private var isSelected = false
     let genre: String
+    let isSelected: Bool
     let action: () -> Void
     
     var body: some View {
         Button {
-            isSelected.toggle()
             action()
         } label: {
             Text(genre.capitalized)
@@ -29,6 +28,7 @@ struct SwitchCategoriesButton: View {
 }
 
 #Preview {
-    SwitchCategoriesButton(genre: "action", action: {})
+    SwitchCategoriesButton(genre: "action", isSelected: true, action: {})
+        .frame(width: 150, height: 100)
         .background(.customMain)
 }

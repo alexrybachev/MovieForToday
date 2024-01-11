@@ -14,7 +14,7 @@ struct MovieListView: View {
         ZStack {
             VStack {
                 // Buttons
-                GenreButtonsScrollView(genre: movieModel.genre)
+                GenreButtonsScrollView(genres: movieModel.genre)
                 
                 // Posters
                 NavigationLink {

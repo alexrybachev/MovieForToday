@@ -32,7 +32,7 @@ struct HomeView: View {
                     // MARK: Headlines and Buttons
                     HeadlineView(headline: "categories", action: {})
                     
-                    GenreButtonsScrollView(genre: viewModel.movieModels.first!.genre)
+                    GenreButtonsScrollView(genres: viewModel.movieModels.first!.genre)
                     
                     HeadlineView(headline: "most_popular", action: {})
                     

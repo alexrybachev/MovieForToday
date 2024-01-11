@@ -201,6 +201,8 @@
 				FA8F78F72B46E1FC006AC799 /* AddToFavoritesButton.swift */,
 				FA44168A2B49D62C00AE536B /* CustomSearchBar.swift */,
 				FA44168C2B4A05F900AE536B /* HeadlineView.swift */,
+				FAEA36FF2B489F0F00D7DBFB /* GenreButtonsScrollView.swift */,
+				FAEA36FD2B48361700D7DBFB /* SwitchCategoriesButton.swift */,
 				FA9AE3522B4EDE1C00084286 /* PagingIndexView.swift */,
 			);
 			path = UI;
@@ -402,8 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				FAEA37012B48A07F00D7DBFB /* PosterScrollView.swift */,
-				FAEA36FF2B489F0F00D7DBFB /* GenreButtonsScrollView.swift */,
-				FAEA36FD2B48361700D7DBFB /* SwitchCategoriesButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
