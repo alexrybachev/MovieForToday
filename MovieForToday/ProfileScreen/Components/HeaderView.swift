@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HeaderView: View {
-    var profileImage: String?
+    @State var profileImage: UIImage?
     var name: String?
     var mail: String
     
     var body: some View {
         HStack(alignment: .center) {
-            Image(profileImage != nil && !profileImage!.isEmpty ? profileImage! : "margot")
+           image(image: profileImage)
                 .resizable()
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/, style: /*@START_MENU_TOKEN@*/FillStyle()/*@END_MENU_TOKEN@*/)
                 .frame(width: 54, height: 54)
@@ -33,7 +33,8 @@ struct HeaderView: View {
             
             Spacer()
             
-            NavigationLink(destination: EditProfile(profileImage: profileImage ?? "margot", name: name ?? "User", mail: mail)) {  Image("editColor")
+            NavigationLink(destination: EditProfile(profileImage: $profileImage, name: name ?? "User", mail: mail)) {
+                Image("editColor")
                     .scaledToFit()
                     .frame(width: 54, height: 54)
             }
@@ -48,8 +49,16 @@ struct HeaderView: View {
         }
         .padding(.horizontal, 24)
     }
+    
+    func image(image: UIImage?) -> Image {
+        if let profileImage = image {
+            return Image(uiImage: profileImage)
+        } else {
+            return  Image(uiImage: UIImage(named: "margot")!)
+        }
+    }
 }
 
 #Preview {
-    HeaderView(profileImage: "", name: "", mail: "")
+    HeaderView(profileImage: UIImage(named: "margo")!, name: "", mail: "")
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct ProfileView: View {
-    @State var profileImage: String?
+    @State var profileImage: UIImage?
     @AppStorage("showSignIn") var showSignInView = false
     
     @StateObject private var viewModel = SignInViewModel()
@@ -90,5 +90,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(profileImage: "margot")
+    ProfileView(profileImage: UIImage(named: "margot"))
 }
