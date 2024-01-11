@@ -9,11 +9,12 @@ import SwiftUI
 import RemoteImage
 
 struct MovieCategoryPosterCarouselView: View {
+    @State private var selected = 0
     let movieModel: MovieModel
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack {
+        VStack {
+            TabView(selection: $selected) {
                 ForEach(0..<3) { _ in
                     NavigationLink {
                         // TODO: PopularMovieView?
@@ -49,6 +50,10 @@ struct MovieCategoryPosterCarouselView: View {
                     }
                 }
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            
+            PagingIndexView(numberOfItems: 3, selectedTab: selected)
+                .animation(.default, value: selected)
         }
     }
 }
@@ -56,8 +61,8 @@ struct MovieCategoryPosterCarouselView: View {
 // MARK: - Drawing
 private extension MovieCategoryPosterCarouselView {
     struct Constants {
-        static let posterHeight: CGFloat = 154
-        static let posterWidth: CGFloat = 295
+        static let posterHeight: CGFloat = 174
+        static let posterWidth: CGFloat = .infinity
         static let posterRadius: CGFloat = 16
         static let labelXoffset: CGFloat = -90
         static let labelYoffset: CGFloat = 30
@@ -67,4 +72,5 @@ private extension MovieCategoryPosterCarouselView {
 
 #Preview {
     MovieCategoryPosterCarouselView(movieModel: MovieModel.getMocData())
+        .background(.customMain)
 }

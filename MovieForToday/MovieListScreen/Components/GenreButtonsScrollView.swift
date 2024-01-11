@@ -24,5 +24,5 @@ struct GenreButtonsScrollView: View {
 
 #Preview {
     GenreButtonsScrollView(genre: MovieModel.getMocData().genre)
-        .background(Color.customMain)
+        .background(.customMain)
 }

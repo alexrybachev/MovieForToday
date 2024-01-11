@@ -22,12 +22,11 @@ struct MovieListView: View {
                 } label: {
                     PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
                 }
-
             }
         }
         .navigationTitle("movie_lists")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color.primaryColor(.mainDark))
+        .background(.customMain)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

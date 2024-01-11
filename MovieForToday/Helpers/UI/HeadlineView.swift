@@ -14,13 +14,13 @@ struct HeadlineView: View {
     var body: some View {
         HStack() {
             Text(headline)
-                .foregroundStyle(Color.textColor(.whiteGrey))
+                .foregroundStyle(.textWhiteGrey)
                 .font(.custom(.montSemiBold, size: 16))
             
             Spacer()
             
             Button("see_all", action: action)
-                .foregroundStyle(Color.primaryColor(.mint))
+                .foregroundStyle(.customMint)
                 .font(.custom(.montMedium, size: 14))
         }
         .padding([.leading, .trailing])
@@ -29,5 +29,5 @@ struct HeadlineView: View {
 
 #Preview {
     HeadlineView(headline: "categories", action: {})
-        .background(Color.customMain)
+        .background(.customMain)
 }

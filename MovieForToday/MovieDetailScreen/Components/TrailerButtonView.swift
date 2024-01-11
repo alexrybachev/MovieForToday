@@ -14,8 +14,8 @@ struct TrailerButtonView: View {
     var body: some View {
         Label("trailer", systemImage: "play.fill")
             .frame(width: width, height: height)
-            .foregroundStyle(.white)
-            .background(Color.primaryColor(.orange))
+            .foregroundStyle(.textWhiteGrey)
+            .background(.customOrange)
             .clipShape(Capsule())
     }
 }

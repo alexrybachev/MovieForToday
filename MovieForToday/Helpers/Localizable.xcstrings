@@ -67,9 +67,6 @@
         }
       }
     },
-    "Close" : {
-
-    },
     "duration" : {
       "extractionState" : "manual",
       "localizations" : {

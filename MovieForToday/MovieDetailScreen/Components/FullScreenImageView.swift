@@ -10,22 +10,32 @@ import RemoteImage
 
 struct FullScreenImageView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var selected = 0
     let movieModel: MovieModel
     
     var body: some View {
         NavigationView {
-            ZStack {
-                TabView {
+            VStack {
+                TabView(selection: $selected) {
                     ForEach(0..<5) { _ in
-                        RemoteImage(url: URL(string: movieModel.urlPoster)!, configure: { $0.resizable().scaledToFit() })
+                        RemoteImage(
+                            url: URL(string: movieModel.urlPoster)!,
+                            configure: { $0.resizable().scaledToFit() }
+                        )
                     }
                 }
-                .tabViewStyle(PageTabViewStyle())
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                PagingIndexView(numberOfItems: 5, selectedTab: selected)
+                    .animation(.default, value: selected)
             }
-            .background(Color.primaryColor(.mainDark))
+            .background(.customMain)
             .toolbar {
-                Button("Close", systemImage: "xmark") {
+                Button {
                     dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.customMint)
                 }
             }
         }

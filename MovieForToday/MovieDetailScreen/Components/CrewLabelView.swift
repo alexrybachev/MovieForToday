@@ -22,12 +22,12 @@ struct CrewLabelView: View {
                         
             VStack(alignment: .leading) {
                 Text(name)
-                    .foregroundStyle(Color.textColor(.whiteGrey))
+                    .foregroundStyle(.textGrey)
                     .font(.custom(.montSemiBold, size: 14))
                     .padding(.bottom, 5)
                 
                 Text(role)
-                    .foregroundStyle(Color.textColor(.grey))
+                    .foregroundStyle(.textGrey)
                     .font(.custom(.montRegular, size: 10))
             }
         }
@@ -37,5 +37,5 @@ struct CrewLabelView: View {
 
 #Preview {
     CrewLabelView(image: Image(.topGunVert), name: "Matt Reeves", role: "Director")
-        .background(Color.customMain)
+        .background(.customMain)
 }
