@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct ShareButtonView: View {
+    let image: ImageResource
     let action: () -> Void
     
     var body: some View {
         Button(action: action) {
-            Image(.share)
+            Image(image)
                 .padding(5)
         }
         .buttonStyle(.bordered)
-        .colorMultiply(Color.primaryColor(.mint))
+        .colorMultiply(.customMint)
         .clipShape(Circle())
     }
 }
 
 #Preview {
-    ShareButtonView(action: {})
+    ShareButtonView(image: .share, action: {})
 }

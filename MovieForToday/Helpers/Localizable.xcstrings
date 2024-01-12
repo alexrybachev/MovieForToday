@@ -67,7 +67,10 @@
         }
       }
     },
-    "Close" : {
+    "Change Password" : {
+
+    },
+    "Changes to the Service and/or Terms:" : {
 
     },
     "duration" : {
@@ -86,6 +89,9 @@
           }
         }
       }
+    },
+    "Edit Profile" : {
+
     },
     "edit_profile" : {
       "extractionState" : "manual",
@@ -121,7 +127,13 @@
         }
       }
     },
+    "Exceptions" : {
+
+    },
     "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero's identity is revealed, bringing his Super Hero responsibilities into conflict with his normal life and putting those he cares about most at risk. More" : {
+
+    },
+    "forgot password?" : {
 
     },
     "full_name" : {
@@ -173,6 +185,9 @@
           }
         }
       }
+    },
+    "General" : {
+
     },
     "Hello, " : {
 
@@ -249,6 +264,15 @@
         }
       }
     },
+    "LogIn" : {
+
+    },
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames." : {
+
+    },
+    "Messages Notifications" : {
+
+    },
     "minutes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -282,6 +306,9 @@
           }
         }
       }
+    },
+    "More" : {
+
     },
     "most_popular" : {
       "localizations" : {
@@ -331,6 +358,12 @@
           }
         }
       }
+    },
+    "Notification" : {
+
+    },
+    "Ok" : {
+
     },
     "PG-13" : {
 
@@ -386,6 +419,9 @@
         }
       }
     },
+    "Privcy Policy" : {
+
+    },
     "profile" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -403,6 +439,9 @@
         }
       }
     },
+    "Profile" : {
+
+    },
     "rating" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -419,6 +458,9 @@
           }
         }
       }
+    },
+    "Registration" : {
+
     },
     "release_date" : {
       "extractionState" : "manual",
@@ -504,6 +546,9 @@
         }
       }
     },
+    "Send" : {
+
+    },
     "share_to" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -520,6 +565,9 @@
           }
         }
       }
+    },
+    "Show Notifications" : {
+
     },
     "show_notifications" : {
       "extractionState" : "manual",
@@ -538,6 +586,12 @@
         }
       }
     },
+    "Sign In" : {
+
+    },
+    "Sign Up" : {
+
+    },
     "story_line" : {
       "localizations" : {
         "en" : {
@@ -553,6 +607,18 @@
           }
         }
       }
+    },
+    "Tearms" : {
+
+    },
+    "The account has been created. Please enter your username and password" : {
+
+    },
+    "The recover message was send to %@" : {
+
+    },
+    "The user name was be changed to - %@" : {
+
     },
     "trailer" : {
       "extractionState" : "manual",

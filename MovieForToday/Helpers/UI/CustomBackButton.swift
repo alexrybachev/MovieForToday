@@ -15,7 +15,7 @@ struct CustomBackButton: View {
             dismiss()
         } label: {
             RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color.primaryColor(.softDark))
+                .foregroundStyle(.customSoftDark)
                 .frame(width: 32, height: 32)
                 .overlay {
                     Image(.arrowBack)
