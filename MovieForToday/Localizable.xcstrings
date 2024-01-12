@@ -68,13 +68,27 @@
       }
     },
     "Change Password" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменить пароль"
+          }
+        }
+      }
     },
     "Changes to the Service and/or Terms:" : {
 
     },
     "Close" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть"
+          }
+        }
+      }
     },
     "duration" : {
       "extractionState" : "manual",
@@ -94,7 +108,14 @@
       }
     },
     "Edit Profile" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редактировать профиль"
+          }
+        }
+      }
     },
     "edit_profile" : {
       "extractionState" : "manual",
@@ -134,7 +155,20 @@
 
     },
     "forgot password?" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot password?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Забыл пароль?"
+          }
+        }
+      }
     },
     "full_name" : {
       "extractionState" : "manual",
@@ -187,18 +221,21 @@
       }
     },
     "General" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основное"
+          }
+        }
+      }
     },
     "Hello, " : {
-
-    },
-    "Hello, world!" : {
-      "extractionState" : "stale",
       "localizations" : {
-        "en" : {
+        "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Hello, world!"
+            "state" : "translated",
+            "value" : "Привет,"
           }
         }
       }
@@ -229,6 +266,9 @@
           }
         }
       }
+    },
+    "index: %lld" : {
+
     },
     "language" : {
       "extractionState" : "manual",
@@ -265,7 +305,14 @@
       }
     },
     "LogIn" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Логин"
+          }
+        }
+      }
     },
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames." : {
 
@@ -305,7 +352,14 @@
       }
     },
     "More" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Больше"
+          }
+        }
+      }
     },
     "most_popular" : {
       "localizations" : {
@@ -416,8 +470,7 @@
     "Privcy Policy" : {
 
     },
-    "profile" : {
-      "extractionState" : "manual",
+    "Profile" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -432,9 +485,6 @@
           }
         }
       }
-    },
-    "Profile" : {
-
     },
     "rating" : {
       "extractionState" : "manual",
@@ -453,8 +503,32 @@
         }
       }
     },
+    "recent_movie" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Movie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавно просмотренные"
+          }
+        }
+      }
+    },
     "Registration" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регистрация"
+          }
+        }
+      }
     },
     "release_date" : {
       "extractionState" : "manual",
@@ -523,6 +597,23 @@
         }
       }
     },
+    "search_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type title, categories, years, etc"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите название, категорию, год и др."
+          }
+        }
+      }
+    },
     "see_all" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -541,7 +632,14 @@
       }
     },
     "Send" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отправить"
+          }
+        }
+      }
     },
     "share_to" : {
       "extractionState" : "manual",
@@ -600,7 +698,20 @@
       }
     },
     "Tearms" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Условия"
+          }
+        }
+      }
     },
     "The account has been created. Please enter your username and password" : {
 
@@ -638,6 +749,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ёлка"
+          }
+        }
+      }
+    },
+    "upcoming_movie" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming Movie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скоро выйдет"
           }
         }
       }

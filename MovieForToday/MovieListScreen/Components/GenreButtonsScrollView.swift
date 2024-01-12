@@ -8,21 +8,31 @@
 import SwiftUI
 
 struct GenreButtonsScrollView: View {
-    let genre: [Genre]
+    
+    @Binding var genres: [String]
+    @Binding var selectedTag: Int
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(genre, id: \.self) { genre in
-                    SwitchCategoriesButton(genre: genre.name, action: {})
+            HStack(spacing: 8) {
+                ForEach(0..<genres.count, id: \.self) { index in
+                    SwitchCategoriesButton(
+                        selectedTag: $selectedTag,
+                        id: index,
+                        genre: genres[index],
+                        action: {}
+                    )
                 }
             }
-            .padding([.top, .bottom])
+            .frame(height: 39)
         }
     }
 }
 
 #Preview {
-    GenreButtonsScrollView(genre: MovieModel.getMocData().genre)
-        .background(Color.customMain)
+    GenreButtonsScrollView(
+        genres: .constant(MovieModel.getMocData().genres),
+        selectedTag: .constant(1)
+    )
+    .background(Color.customMain)
 }

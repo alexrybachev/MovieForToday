@@ -65,7 +65,7 @@ struct MovieDetailView: View {
                         ImageText(image: .clock, text: movieModel.duration, isMinutes: true)
                         Divider()
                         
-                        ImageText(image: .film, text: movieModel.genre.first!.name.capitalized)
+                        ImageText(image: .film, text: movieModel.genres.first!.capitalized)
                     }
                     .padding(.top)
                     .frame(maxWidth: Constants.labelsWidth)
@@ -117,7 +117,7 @@ struct MovieDetailView: View {
                                     CrewLabelView(
                                         image: image,
                                         name: movieModel.name,
-                                        role: movieModel.genre.first!.name.capitalized
+                                        role: movieModel.genres.first!.capitalized
                                     )
                                 } placeholder: {
                                     ProgressView()

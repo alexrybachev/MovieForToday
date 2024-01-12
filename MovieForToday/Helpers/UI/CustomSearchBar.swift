@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct CustomSearchBar: View {
+    
     @FocusState private var isFocused: Bool
     @Binding var searchText: String
     @Binding var isSearch: Bool
+    
     let placeholderText: LocalizedStringKey
     let action: () -> Void
     
@@ -21,6 +23,7 @@ struct CustomSearchBar: View {
                     .colorMultiply(Color.textColor(.grey))
                 
                 TextField(placeholderText, text: $searchText)
+                    .foregroundStyle(Color.textWhiteGrey)
                     .focused($isFocused)
                     .onChange(of: isFocused) { newValue in
                         withAnimation {
@@ -52,5 +55,10 @@ struct CustomSearchBar: View {
 }
 
 #Preview {
-    CustomSearchBar(searchText: .constant(""), isSearch: .constant(true), placeholderText: "search_a_title..", action: {})
+    CustomSearchBar(
+        searchText: .constant(""),
+        isSearch: .constant(true),
+        placeholderText: "search_a_title..",
+        action: {}
+    )
 }
