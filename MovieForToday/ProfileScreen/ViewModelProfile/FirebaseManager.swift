@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct UserData {
     let uid: String
@@ -42,6 +44,7 @@ final class FirebaseManager {
     
     func signInUser(email: String, password: String) async throws -> UserData {
         let authDataResults = try await Auth.auth().signIn(withEmail: email, password: password)
+        try await saveUser(user: authDataResults.user)
         return UserData(user: authDataResults.user)
     }
     
@@ -64,6 +67,7 @@ final class FirebaseManager {
         }
     }
     
+    //MARK: Update user name
     func updateName(name: String) async throws {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
@@ -74,51 +78,35 @@ final class FirebaseManager {
         }
     }
     
-    //    func updateViewProfile(displayName: String) {
-    //        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-    //        changeRequest?.displayName = displayName
-    //        changeRequest?.commitChanges { error in
-    //          // ...
-    //        }
-    //    }
-    
     func signInListener(_ listener: @escaping (Auth, User?) -> Void) {
         Auth.auth().addStateDidChangeListener { auth, user in
         }
     }
     
-    
-    //    func saveFiresore(user: UserData) {
-    //        if let uid = result?.user.uid {
-    //        Firestore.firestore()
-    //            .collection("Users")
-    //            .document()
-    //    }
-    
-    //    func registrationUser(user: UserData) {
-    //        Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
-    //            guard error == nil else {
-    //                print(error!.localizedDescription)
-    //                return
-    //            }
-    //
-    //            if let uid = result?.user.uid {
-    //                Firestore.firestore()
-    //                    .collection("Users")
-    //                    .document(uid)
-    //                    .setData(["email" : user.email,
-    //                              "name" : user.name,
-    //                              "login" : user.login,
-    //                              "password" : user.password,
-    //                              "dateRegistration" : Date(),
-    //                             ], merge: true) { error in
-    //                        print("User was be created - \(uid)")
-    //                    }
-    //            }
-    // ...
-    //        }
-    //    }
-    
+    //MARK: - Save user in firestore
+    func saveUser(user: User) async throws  {
+        var userData: [String: Any] = [
+            "user_id" : user.uid,
+            "date_created" : Timestamp()
+        ]
+        
+        if let name = user.displayName {
+            userData["user_name"] = name
+        }
+        
+        if let userPhoto = user.photoURL {
+            userData["user_photo"] = userPhoto
+        }
+        
+        if let userMail = user.email {
+            userData["user_mail"] = userMail
+        }
+        
+        try await Firestore.firestore()
+            .collection("Users")
+            .document(user.uid)
+            .setData(userData, merge: true)
+    }
 }
 
 

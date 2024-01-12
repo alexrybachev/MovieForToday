@@ -27,6 +27,8 @@ struct ProfileView: View {
                                 profileImage: viewModel.profileImage, name: viewModel.currentUser?.name ?? "",
                                 mail: viewModel.currentUser?.email ?? "")
                             
+                            WishlistProfile()
+
                             General()
                             
                             More()

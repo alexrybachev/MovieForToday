@@ -11,6 +11,7 @@ import FirebaseAuth
 struct LogInView: View {
     @StateObject var viewModel = SignInViewModel()
     @Binding var showSignInView: Bool
+    @State var shake = false
     init(showSignInView: Binding<Bool>) {
         self._showSignInView = showSignInView
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named:  PrimaryColor.mainDark.rawValue) ?? .white]
@@ -27,9 +28,11 @@ struct LogInView: View {
                 CustomTextField(value: $viewModel.email, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your mail")
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
+                    .shake($shake) { }
                 
                 CustomSecureField(value: $viewModel.password, titleBorder: "Password", offsetNameX: -118, offsetNameY: -28, placeHolder: "Enter your password")
                     .autocapitalization(.none)
+                    .shake($shake) { }
                 
                 HStack {
                     Spacer()
@@ -69,6 +72,7 @@ struct LogInView: View {
                             return
                         } catch {
                             print(error)
+                            shake = true
                         }
                     }
                 }) {
@@ -95,7 +99,6 @@ struct LogInView: View {
         }
         .navigationTitle("Sign In")
         .navigationBarTitleDisplayMode(.large)
-        
     }
 }
 

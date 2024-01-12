@@ -33,7 +33,6 @@ final class SignInViewModel: ObservableObject {
             print("No email or password found.")
             return
         }
-        
         currentUser = try await FirebaseManager.shared.signInUser(email: email, password: password)
         print("Success")
     }

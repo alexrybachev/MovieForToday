@@ -8,10 +8,10 @@
 import SwiftUI
 import Networking
 import FirebaseCore
+import FirebaseFirestore
 
 @main
 struct MovieForTodayApp: App {
-	private var testRegistration = true
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @AppStorage("isOnboarding") var isOnboarding = false
     @Environment(\.scenePhase) var scenePhase
@@ -34,6 +34,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
+    let db = Firestore.firestore()
     return true
   }
 }
