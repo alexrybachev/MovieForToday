@@ -10,7 +10,7 @@ import Foundation
 extension Endpoint {
     @usableFromInline
     @resultBuilder
-    struct QueryBuilder {
+    enum QueryBuilder {
         @inlinable
         static func buildBlock(_ components: URLQueryItem...) -> [URLQueryItem] {
             components
