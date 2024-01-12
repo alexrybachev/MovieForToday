@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RemoteImage
+import WebPlayer
 
 /* TODO: - list
     1. Change Bg and FG to special view (DRY)
@@ -46,10 +47,12 @@ struct TrailerView: View {
                 Divider()
                 
                 ImageText(image: .film, text: movieModel.genre.first!.name.capitalized)
+                Spacer()
             }
             .padding(.top)
-            .frame(maxWidth: Constants.labelsWidth)
+            .frame(maxWidth: .infinity)
         }
+        .padding(.horizontal)
     }
     
     @ViewBuilder private var MovieSynopsis: some View {
@@ -140,10 +143,13 @@ struct TrailerView: View {
                 
                 ScrollView {
                     VStack {
+                        WebPlayerView(youtybeLink: "https://www.youtube.com/watch?v=xcE3MIHuuhg&themeRefresh=1")
+                            .frame(height: 250)
+                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
+                            .padding()
                         
-                        // TODO: Add trailer view itself
                         
-                        Trailer
+//                        Trailer
                         
                         MovieInfo
                         
