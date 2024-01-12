@@ -14,20 +14,19 @@ struct MovieListView: View {
         ZStack {
             VStack {
                 // Buttons
-//                GenreButtonsScrollView(genres: movieModel.genres)
+                GenreButtonsScrollView(genres: movieModel.genre)
                 
                 // Posters
                 NavigationLink {
                     // TODO: PopularMovieView()?
                 } label: {
-                    PosterScrollView(genres: movieModel.genres, urlPoster: movieModel.urlPoster)
+                    PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
                 }
-
             }
         }
         .navigationTitle("movie_lists")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color.primaryColor(.mainDark))
+        .background(.customMain)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

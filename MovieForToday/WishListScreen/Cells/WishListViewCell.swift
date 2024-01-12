@@ -14,7 +14,7 @@ struct WishListViewCell: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius)
-                .foregroundStyle(Color.primaryColor(.softDark))
+                .foregroundStyle(.customSoftDark)
             
             HStack {
                 RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
@@ -54,7 +54,8 @@ struct WishListViewCell: View {
                         RatingView(rating: movieModel.rating)
                         
                         Spacer()
-
+                        
+                        // TODO: Add to wishlist
                         AddToFavoritesButton(action: {})
                             .padding(.trailing, 16)
                     }
@@ -82,5 +83,5 @@ private extension WishListViewCell {
 // MARK: - Preview
 #Preview {
     WishListViewCell(movieModel: MovieModel.getMocData())
-        .background(Color.primaryColor(.mainDark))
+        .background(.customMain)
 }

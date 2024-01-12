@@ -9,12 +9,12 @@ import SwiftUI
 import RemoteImage
 
 struct PosterScrollView: View {
-    let genres: [String]
+    let genre: [Genre]
     let urlPoster: String
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            ForEach(genres, id: \.self) { genre in
+            ForEach(genre, id: \.self) { genre in
                 LazyVStack {
                     RemoteImage(url: URL(string: urlPoster)!) { image in
                         MovieImageView(
@@ -39,8 +39,8 @@ struct PosterScrollView: View {
                     }
                     
                     HStack {
-                        Text(genre.capitalized)
-                            .foregroundStyle(Color.textColor(.whiteGrey))
+                        Text(genre.name.capitalized)
+                            .foregroundStyle(.textWhiteGrey)
                             .font(.custom(.montSemiBold, size: Constants.titleSize))
                             .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 0))
                         
@@ -66,8 +66,8 @@ private extension PosterScrollView {
 
 #Preview {
     PosterScrollView(
-        genres: MovieModel.getMocData().genres,
+        genre: MovieModel.getMocData().genre,
         urlPoster: MovieModel.getMocData().urlPoster
     )
-        .background(Color.customMain)
+        .background(.customMain)
 }

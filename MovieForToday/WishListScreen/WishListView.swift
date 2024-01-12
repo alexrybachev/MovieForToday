@@ -31,10 +31,9 @@ struct WishListView: View {
                 }
             }
         }
-        .padding(.bottom, 72)
         .navigationTitle("wishlist")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color.primaryColor(.mainDark))
+        .background(.customMain)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

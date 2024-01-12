@@ -16,35 +16,32 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 ScrollView {
-                    VStack {
-                        // MARK: CustomSearchBar
-                        CustomSearchBar(
-                            searchText: $searchText,
-                            isSearch: $isSearch,
-                            placeholderText: "search_a_title..", 
-                            action: {}
-                        )
-                        .padding(EdgeInsets(top: 26, leading: 16, bottom: 26, trailing: 16))
-                        
-                        // MARK: Movie category poster carousel
-                        MovieCategoryPosterCarouselView(movieModel: viewModel.movieModels.first!)
-                            .padding(.bottom, 30)
-                        
-                        // MARK: Headlines and Buttons
-                        HeadlineView(headline: "categories", action: {})
-                        
-//                        GenreButtonsScrollView(genres: viewModel.movieModels.first!.genres)
-                        
-                        HeadlineView(headline: "most_popular", action: {})
-                        
-                        // MARK: Movie poster carousel
-                        MoviePosterCarouselView(movieModel: viewModel.movieModels.first!)
-                            .padding(.top)
-                    }
+                    // MARK: CustomSearchBar
+                    CustomSearchBar(
+                        searchText: $searchText,
+                        isSearch: $isSearch,
+                        placeholderText: "search_a_title..",
+                        action: {}
+                    )
+                    .padding(EdgeInsets(top: 26, leading: 16, bottom: 26, trailing: 16))
+                    
+                    // MARK: Movie category poster carousel
+                    MovieCategoryPosterCarouselView(movieModel: viewModel.movieModels.first!)
+                        .frame(height: 200)
+                    
+                    // MARK: Headlines and Buttons
+                    HeadlineView(headline: "categories", action: {})
+                    
+                    GenreButtonsScrollView(genres: viewModel.movieModels.first!.genre)
+                    
+                    HeadlineView(headline: "most_popular", action: {})
+                    
+                    // MARK: Movie poster carousel
+                    MoviePosterCarouselView(movieModel: viewModel.movieModels.first!)
+                        .padding(.top)
                 }
-                .padding(.bottom, 72)
             }
-            .background(Color.primaryColor(.mainDark))
+            .background(.customMain)
             .toolbar {
                 // Open WishListView
                 ToolbarItem(placement: .topBarTrailing) {
@@ -53,10 +50,9 @@ struct HomeView: View {
                     } label: {
                         AddToFavoritesLabel()
                     }
-
                 }
                 
-                // User label
+                // TODO: User label
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
                         Image(.topGunVert)
@@ -66,9 +62,9 @@ struct HomeView: View {
                         
                         Text("Hello, ")
                             .font(.custom(.montSemiBold, size: 16))
-                            .foregroundStyle(Color.textColor(.whiteGrey))
+                            .foregroundStyle(.textWhiteGrey)
                     }
-                }                                
+                }
             }
         }
     }

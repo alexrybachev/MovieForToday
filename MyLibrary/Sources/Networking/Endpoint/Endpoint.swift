@@ -128,6 +128,18 @@ struct Endpoint {
             })
     }
     
+    @inlinable
+    @inline(__always)
+    static func moviesReleasedAt(year: Int, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                baseFields
+                URLQueryItem(name: "releaseYears.start", value: year.description)
+            })
+    }
+    
     //MARK: - Person
     @inlinable
     @inline(__always)

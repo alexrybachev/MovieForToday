@@ -30,10 +30,10 @@ struct NavigationSettings<Destination: View>: View {
         }
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(PrimaryColor.softDark.rawValue))
+            .background(Color(PrimaryColor.mainDark.rawValue))
     }
 }
 
 #Preview {
-    NavigationSettings(imageIcon: "notification", textNavigation: "Navigation", destination: EmptyView())
+    NavigationSettings(imageIcon: "notification", textNavigation: "Notification", destination: EmptyView())
 }

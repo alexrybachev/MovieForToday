@@ -15,68 +15,73 @@ struct ProfileView: View {
     @StateObject private var viewModel = SignInViewModel()
     var body: some View {
         NavigationView {
-            ZStack {
-                Color((PrimaryColor.softDark.rawValue))
-                    .ignoresSafeArea()
-                
-                VStack(spacing: 14)  {
-                    if !showSignInView {
-                        
-                        HeaderView(
-                            profileImage: profileImage, name: viewModel.currentUser?.name ?? "",
-                            mail: viewModel.currentUser?.email ?? "")
-                        
-                        General()
-                        
-                        More()
-                        
-                        Spacer()
-                        
-                        CustomButton(text: "Log Out", color: Color.black, action: {
-                            Task {
-                                do {
-                                    try FirebaseManager.shared.signOut()
-                                    self.showSignInView = true
-                                } catch {
-                                    print(error.localizedDescription)
+            ScrollView {
+                ZStack {
+                    Color((PrimaryColor.mainDark.rawValue))
+                        .ignoresSafeArea()
+                    
+                    VStack(spacing: 14)  {
+                        if !showSignInView {
+                            
+                            HeaderView(
+                                profileImage: profileImage, name: viewModel.currentUser?.name ?? "",
+                                mail: viewModel.currentUser?.email ?? "")
+                            
+                            General()
+                            
+                            More()
+                            
+//                            Spacer()
+                            
+                            CustomButton(text: "Log Out", color: Color.black, action: {
+                                Task {
+                                    do {
+                                        try FirebaseManager.shared.signOut()
+                                        self.showSignInView = true
+                                    } catch {
+                                        print(error.localizedDescription)
+                                    }
                                 }
-                            }
-                        })
-                        .padding(.horizontal, 16)
-                    } else {
-                        EmptyProfileView()
+                            })
+                            .padding(.horizontal, 16)
+                           
+                        } else {
+                            EmptyProfileView()
+                        }
+                    }
+                    .padding(.bottom, 70)
+                }
+            }
+            .background(Color(PrimaryColor.mainDark.rawValue))
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear() {
+                if Auth.auth().currentUser != nil {
+                    Task {
+                        do {
+                            try await viewModel.fetchUser()
+                            self.showSignInView = false
+                        } catch {
+                            print("Error fetching user data: \(error.localizedDescription)")
+                        }
                     }
                 }
             }
-        }
-        .background(Color(PrimaryColor.softDark.rawValue))
-        .navigationTitle("Profile")
-        .onAppear() {
-            if Auth.auth().currentUser != nil {
-                Task {
-                    do {
-                        try await viewModel.fetchUser()
-                        self.showSignInView = false
-                    } catch {
-                        print("Error fetching user data: \(error.localizedDescription)")
+            .onChange(of: showSignInView) { showSignInView in
+                if !showSignInView {
+                    Task {
+                        do {
+                            try await viewModel.fetchUser()
+                        } catch {
+                            
+                        }
                     }
                 }
             }
-        }
-        .onChange(of: showSignInView) { showSignInView in
-            if !showSignInView {
-                Task {
-                    do {
-                        try await viewModel.fetchUser()
-                    } catch {
-                        
-                    }
+            .fullScreenCover(isPresented: $showSignInView)  {
+                NavigationView {
+                    LogInView(showSignInView: $showSignInView)
                 }
-            }
-        }
-        .fullScreenCover(isPresented: $showSignInView)  {
-            NavigationView {
-                LogInView(showSignInView: $showSignInView)
             }
         }
     }

@@ -11,15 +11,15 @@ import RemoteImage
 struct MoviePosterCarouselView: View {
     let movieModel: MovieModel
     
-    let gradient = [
-        Color.primaryColor(.softDark),
-        Color.primaryColor(.softDark),
-        Color.primaryColor(.softDark),
-        Color.primaryColor(.softDark),
-        Color.primaryColor(.softDark),
-        Color.primaryColor(.softDark).opacity(0.7),
-        Color.primaryColor(.softDark).opacity(0.5),
-        Color.primaryColor(.softDark).opacity(0.1)
+    let gradient: [Color] = [
+        .customSoftDark,
+        .customSoftDark,
+        .customSoftDark,
+        .customSoftDark,
+        .customSoftDark,
+        .customSoftDark.opacity(0.7),
+        .customSoftDark.opacity(0.5),
+        .customSoftDark.opacity(0.1)
     ]
     
     var body: some View {

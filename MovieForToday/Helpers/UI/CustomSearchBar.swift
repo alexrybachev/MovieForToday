@@ -20,7 +20,7 @@ struct CustomSearchBar: View {
         HStack {
             HStack {
                 Image(.search)
-                    .colorMultiply(Color.textColor(.grey))
+                    .colorMultiply(.textGrey)
                 
                 TextField(placeholderText, text: $searchText)
                     .foregroundStyle(Color.textWhiteGrey)
@@ -33,7 +33,7 @@ struct CustomSearchBar: View {
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             .font(.custom(.montMedium, size: 14))
-            .background(Color.primaryColor(.softDark))
+            .background(.customSoftDark)
             .clipShape(.rect(cornerRadius: 24))
             
             if isSearch && !searchText.isEmpty {
@@ -46,7 +46,7 @@ struct CustomSearchBar: View {
                 } label: {
                     Text("cancel")
                         .font(.custom(.montMedium, size: 14))
-                        .foregroundStyle(Color.textColor(.whiteGrey))
+                        .foregroundStyle(.textWhiteGrey)
                 }
                 .transition(.opacity)
             }

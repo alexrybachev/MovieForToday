@@ -14,6 +14,7 @@ final class SignInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var currentUser: UserData?
+    @Published var showNotification = false
     
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
