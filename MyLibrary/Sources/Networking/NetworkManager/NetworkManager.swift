@@ -77,6 +77,11 @@ public final class NetworkManager {
         try await performRequest(.topRatedMovies(page: page, limit: limit), model: MovieList.self)
     }
     
+    @inlinable
+    public func getMoviesReleasedAt(year: Int, page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.moviesReleasedAt(year: year, page: page, limit: limit), model: MovieList.self)
+    }
+    
     //MARK: - People
     @inlinable
     public func searchPerson(named name: String, page: Int = 1, limit: Int = 10) async throws -> PersonList {
