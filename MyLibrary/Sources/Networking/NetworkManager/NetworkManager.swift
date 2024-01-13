@@ -43,13 +43,13 @@ public final class NetworkManager {
     
     //MARK: - Movies
     @inlinable
-    public func getTop10Movies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
-        try await performRequest(.top10(page: page, limit: limit), model: MovieList.self)
+    public func getTop10Movies(page: Int = 1, limit: Int = 10) async throws -> List<Movie> {
+        try await performRequest(.top10(page: page, limit: limit), model: List.self)
     }
     
     @inlinable
-    public func getTop250Movies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
-        try await performRequest(.top250(page: page, limit: limit), model: MovieList.self)
+    public func getTop250Movies(page: Int = 1, limit: Int = 10) async throws -> List<Movie> {
+        try await performRequest(.top250(page: page, limit: limit), model: List.self)
     }
     
     @inlinable
@@ -58,8 +58,8 @@ public final class NetworkManager {
     }
     
     @inlinable
-    public func getMovies(for slug: String, page: Int = 1, limit: Int = 10) async throws -> MovieList {
-        try await performRequest(.movies(for: slug, page: page, limit: limit), model: MovieList.self)
+    public func getMovies(for slug: String, page: Int = 1, limit: Int = 10) async throws -> List<Movie> {
+        try await performRequest(.movies(for: slug, page: page, limit: limit), model: List.self)
     }
     
     @inlinable
@@ -73,18 +73,18 @@ public final class NetworkManager {
     }
     
     @inlinable
-    public func searchMovie(named name: String, page: Int = 1, limit: Int = 10) async throws -> MovieList {
-        try await performRequest(.searchMovie(byName: name, page: page, limit: limit), model: MovieList.self)
+    public func searchMovie(named name: String, page: Int = 1, limit: Int = 10) async throws -> List<Movie> {
+        try await performRequest(.searchMovie(byName: name, page: page, limit: limit), model: List.self)
     }
     
     @inlinable
-    public func getTopRatedMovies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
-        try await performRequest(.topRatedMovies(page: page, limit: limit), model: MovieList.self)
+    public func getTopRatedMovies(page: Int = 1, limit: Int = 10) async throws -> List<Movie> {
+        try await performRequest(.topRatedMovies(page: page, limit: limit), model: List.self)
     }
     
     @inlinable
-    public func getMoviesReleasedAt(year: Int, page: Int = 1, limit: Int = 10) async throws -> MovieList {
-        try await performRequest(.moviesReleasedAt(year: year, page: page, limit: limit), model: MovieList.self)
+    public func getMoviesReleasedAt(year: Int, page: Int = 1, limit: Int = 10) async throws -> List<Movie> {
+        try await performRequest(.moviesReleasedAt(year: year, page: page, limit: limit), model: List.self)
     }
     
     //MARK: - People
@@ -96,6 +96,12 @@ public final class NetworkManager {
     @inlinable
     public func getPerson(withId id: Int) async throws -> Person {
         try await performRequest(.person(withId: id), model: Person.self)
+    }
+    
+    //MARK: - Image
+    @inlinable
+    public func getImages(for movieId: Int, page: Int = 1, limit: Int = 10) async throws -> List<Image> {
+        try await performRequest(.getImages(for: movieId, page: page, limit: limit), model: List.self)
     }
     
     //MARK: - Internal methods

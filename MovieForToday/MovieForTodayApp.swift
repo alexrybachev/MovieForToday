@@ -8,10 +8,10 @@
 import SwiftUI
 import Networking
 import FirebaseCore
+import FirebaseFirestore
 
 @main
 struct MovieForTodayApp: App {
-    private var testRegistration = true
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @AppStorage("isOnboarding") var isOnboarding = false
     @Environment(\.scenePhase) var scenePhase

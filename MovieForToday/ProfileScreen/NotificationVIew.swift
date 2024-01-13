@@ -11,14 +11,14 @@ struct NotificationVIew: View {
     @StateObject private var viewModel = SignInViewModel()
     var body: some View {
         ZStack {
-            Color.customMain
+            Color((PrimaryColor.mainDark.rawValue))
                 .ignoresSafeArea()
             VStack {
                 VStack(spacing: 0) {
                     HStack {
                         Text("Messages Notifications")
                             .font(Font.custom(CustomFont.montSemiBold, size: 12))
-                            .foregroundColor(Color.textGrey)
+                            .foregroundColor(Color(TextColors.grey.rawValue))
                             .padding(.leading, 16)
                             .padding(.top, 24)
                         Spacer()
@@ -31,7 +31,7 @@ struct NotificationVIew: View {
                            //add notification
                         }
                         .padding(.leading, 0)
-                        .toggleStyle(SwitchToggleStyle(tint: Color.customMint))
+                        .toggleStyle(SwitchToggleStyle(tint: Color.mint))
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 18)
@@ -39,7 +39,7 @@ struct NotificationVIew: View {
                     
                     Divider().background(.gray)
                         .padding(.horizontal, 16)
-                        .opacity(0.3)
+                        .opacity(0.2)
                     
                     HStack {
                         Text("Exceptions")
@@ -54,7 +54,7 @@ struct NotificationVIew: View {
                 .overlay {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(Color.gray, lineWidth: 1.0)
-                        .opacity(0.3)
+                        .opacity(0.2)
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 24)

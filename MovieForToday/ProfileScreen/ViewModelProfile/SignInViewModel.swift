@@ -14,7 +14,9 @@ final class SignInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var currentUser: UserData?
+    @Published var savedUser: SaveUser?
     @Published var showNotification = false
+    @Published var profileImage: UIImage?
     
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
@@ -32,14 +34,14 @@ final class SignInViewModel: ObservableObject {
             print("No email or password found.")
             return
         }
-        
         currentUser = try await FirebaseManager.shared.signInUser(email: email, password: password)
         print("Success")
     }
     
     func fetchUser() async throws  {
         do {
-            currentUser = try FirebaseManager.shared.getAuthenticatedUser()
+            self.currentUser = try FirebaseManager.shared.getAuthenticatedUser()
+            try await FirebaseManager.shared.getUserData(userId: currentUser?.uid ?? "" )
         } catch let error {
             throw error
         }

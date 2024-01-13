@@ -21,8 +21,8 @@ struct ContentView: View {
                     HomeView(homeViewModel: homeViewModel)
                 case .search:
                     SearchView()
-                case .download:
-                    WishListView()
+                case .tree:
+                    ChristmasTreeView()
                 case .profile:
                     ProfileView()
                 }

@@ -9,50 +9,53 @@ import SwiftUI
 import FirebaseAuth
 
 struct ProfileView: View {
-    @State var profileImage: String?
     @AppStorage("showSignIn") var showSignInView = false
+    @AppStorage("isAuthorisation") var isAuthorisation = false
     
     @StateObject private var viewModel = SignInViewModel()
     var body: some View {
         NavigationView {
             ScrollView {
                 ZStack {
-                    Color.customMain
+                    Color((PrimaryColor.mainDark.rawValue))
                         .ignoresSafeArea()
                     
                     VStack(spacing: 14)  {
-                        if !showSignInView {
-                            
-                            HeaderView(
-                                profileImage: profileImage, name: viewModel.currentUser?.name ?? "",
-                                mail: viewModel.currentUser?.email ?? "")
-                            
-                            General()
-                            
-                            More()
-                            
-//                            Spacer()
-                            
-                            CustomButton(text: "Log Out", color: Color.black, action: {
-                                Task {
+                        
+                        HeaderView(
+                            profileImage: viewModel.profileImage, isAuthorisation: $isAuthorisation, name: viewModel.currentUser?.name ?? "",
+                            mail: viewModel.currentUser?.email ?? "")
+                        
+                        if isAuthorisation {
+                            WishlistProfile()
+                        }
+                        General()
+                        
+                        More()
+                        
+                        CustomButton(text: isAuthorisation ? "Log Out" : "LogIn", color: Color.black, action: {
+                            Task {
+                                if isAuthorisation {
                                     do {
                                         try FirebaseManager.shared.signOut()
-                                        self.showSignInView = true
+                                        
+                                        isAuthorisation = false
                                     } catch {
                                         print(error.localizedDescription)
                                     }
+                                } else {
+                                    self.showSignInView = true
+                                    viewModel.currentUser = nil
                                 }
-                            })
-                            .padding(.horizontal, 16)
-                           
-                        } else {
-                            EmptyProfileView()
-                        }
+                            }
+                        })
+                        .padding(.horizontal, 16)
                     }
+                    
                     .padding(.bottom, 70)
                 }
             }
-            .background(Color.customMain)
+            .background(Color(PrimaryColor.mainDark.rawValue))
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear() {
@@ -60,7 +63,7 @@ struct ProfileView: View {
                     Task {
                         do {
                             try await viewModel.fetchUser()
-                            self.showSignInView = false
+                            self.isAuthorisation = true
                         } catch {
                             print("Error fetching user data: \(error.localizedDescription)")
                         }
@@ -78,17 +81,14 @@ struct ProfileView: View {
                     }
                 }
             }
-//            .fullScreenCover(isPresented: $showSignInView)  {
-//                NavigationView {
-//                    LogInView(showSignInView: $showSignInView)
-//                }
-//            }
+            .fullScreenCover(isPresented: $showSignInView) {
+                LogInView(showSignInView: $showSignInView, isAuthorisation: $isAuthorisation)
+            }
         }
     }
-    
     
 }
 
 #Preview {
-    ProfileView(profileImage: "margot")
+    ProfileView()
 }

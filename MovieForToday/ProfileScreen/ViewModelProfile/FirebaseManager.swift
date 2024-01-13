@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct UserData {
     let uid: String
@@ -24,6 +26,13 @@ struct UserData {
     }
 }
 
+struct SaveUser {
+    let userId: String
+    let userName: String?
+    let userPhoto: URL
+    let userMail: String
+}
+
 final class FirebaseManager {
     static let shared = FirebaseManager()
     private init() {}
@@ -37,6 +46,7 @@ final class FirebaseManager {
     
     func createUser(email: String, password: String) async throws -> UserData {
         let authData = try await Auth.auth().createUser(withEmail: email, password: password)
+        try await saveUser(user: authData.user)
         return UserData(user: authData.user)
     }
     
@@ -64,6 +74,7 @@ final class FirebaseManager {
         }
     }
     
+    //MARK: Update user name
     func updateName(name: String) async throws {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
@@ -74,51 +85,51 @@ final class FirebaseManager {
         }
     }
     
-    //    func updateViewProfile(displayName: String) {
-    //        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-    //        changeRequest?.displayName = displayName
-    //        changeRequest?.commitChanges { error in
-    //          // ...
-    //        }
-    //    }
-    
     func signInListener(_ listener: @escaping (Auth, User?) -> Void) {
         Auth.auth().addStateDidChangeListener { auth, user in
         }
     }
     
+    //MARK: - Save user in firestore
+    func saveUser(user: User) async throws  {
+        var userData: [String: Any] = [
+            "user_id" : user.uid,
+            "date_created" : Timestamp()
+        ]
+        
+        if let name = user.displayName {
+            userData["user_name"] = name
+        }
+        
+        if let userPhoto = user.photoURL {
+            userData["user_photo"] = userPhoto
+        }
+        
+        if let userMail = user.email {
+            userData["user_mail"] = userMail
+        }
+        
+        try await Firestore.firestore()
+            .collection("Users")
+            .document(user.uid)
+            .setData(userData, merge: true)
+    }
     
-    //    func saveFiresore(user: UserData) {
-    //        if let uid = result?.user.uid {
-    //        Firestore.firestore()
-    //            .collection("Users")
-    //            .document()
-    //    }
-    
-    //    func registrationUser(user: UserData) {
-    //        Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
-    //            guard error == nil else {
-    //                print(error!.localizedDescription)
-    //                return
-    //            }
-    //
-    //            if let uid = result?.user.uid {
-    //                Firestore.firestore()
-    //                    .collection("Users")
-    //                    .document(uid)
-    //                    .setData(["email" : user.email,
-    //                              "name" : user.name,
-    //                              "login" : user.login,
-    //                              "password" : user.password,
-    //                              "dateRegistration" : Date(),
-    //                             ], merge: true) { error in
-    //                        print("User was be created - \(uid)")
-    //                    }
-    //            }
-    // ...
-    //        }
-    //    }
-    
+    //MARK: - Get user data from Firebase
+    func getUserData(userId: String) async throws -> SaveUser {
+       let saveData = try await Firestore.firestore()
+            .collection("Users")
+            .document(userId)
+            .getDocument()
+        
+        guard let data = saveData.data(), let userId = data["user_id"] as? String, let userPhoto = data["user_photo"] as! URL? else {
+            throw URLError(.badServerResponse)
+        }
+        
+        let userName = data["user_name"] as! String?
+        let userMail = data["user_mail"] as! String
+        return SaveUser(userId: userId, userName: userName, userPhoto: userPhoto, userMail: userMail)
+    }
 }
 
 

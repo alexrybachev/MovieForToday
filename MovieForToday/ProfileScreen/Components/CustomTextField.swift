@@ -23,19 +23,21 @@ struct CustomTextField: View {
             .padding(.vertical, 16)
             .disableAutocorrection(true)
             .overlay {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(value.isEmpty ? Color.customMint : Color.gray, lineWidth: 1.0)
-                    .opacity(0.3)
-                Text(titleBorder)
-                    .foregroundStyle(.white)
-                    .font(.custom(.montMedium, size: 12))
-                    .offset(x: offsetNameX, y: offsetNameY)
-                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(value.isEmpty ? Color(PrimaryColor.mint.rawValue) : Color.gray, lineWidth: 1.0)
+                        .opacity(0.3)
+                    Text(titleBorder)
+                        .foregroundStyle(.white)
+                        .font(.custom(.montMedium, size: 12))
+                        .offset(x: offsetNameX, y: offsetNameY)
+                }
             }
             .padding(.horizontal, 16)
     }
     
 }
+
 
 #Preview {
     CustomTextField(value: .constant("Value"), titleBorder: "Your name", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your name")
