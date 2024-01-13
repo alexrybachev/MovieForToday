@@ -106,7 +106,7 @@ public extension Movie {
 public extension Movie {
     struct VideoContent: Decodable {
         public let trailers: [MediaContent]
-        public let teasers: [MediaContent]
+        public let teasers: [MediaContent]?
     }
 }
 
