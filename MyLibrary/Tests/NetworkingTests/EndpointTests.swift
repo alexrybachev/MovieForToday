@@ -19,7 +19,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_movieListWithSlug() {
-        let sut = Endpoint.movieList(for: "Baz", page: 1, limit: 10)
+        let sut = Endpoint.movies(for: "Baz", page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
