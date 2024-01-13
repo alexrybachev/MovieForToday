@@ -23,14 +23,15 @@ struct CustomSecureField: View {
             .autocapitalization(.none)
             .disableAutocorrection(true)
             .overlay {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(value.isEmpty ? Color(PrimaryColor.mint.rawValue) : Color.gray, lineWidth: 1.0)
-                    .opacity(0.3)
-                Text(titleBorder)
-                    .foregroundStyle(.white)
-                    .font(.custom(.montMedium, size: 12))
-                    .offset(x: offsetNameX, y: offsetNameY)
-                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(value.isEmpty ? Color(PrimaryColor.mint.rawValue) : Color.gray, lineWidth: 1.0)
+                        .opacity(0.3)
+                    Text(titleBorder)
+                        .foregroundStyle(.white)
+                        .font(.custom(.montMedium, size: 12))
+                        .offset(x: offsetNameX, y: offsetNameY)
+                }
             }
             .padding(.horizontal, 16)
     }

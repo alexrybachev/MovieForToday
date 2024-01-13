@@ -9,10 +9,10 @@ import SwiftUI
 
 struct EmptyProfileView: View {
     var body: some View {
-        ZStack {
-            Color((PrimaryColor.mainDark.rawValue))
-                .ignoresSafeArea()
-        }
+            ZStack {
+                Color((PrimaryColor.mainDark.rawValue))
+                    .ignoresSafeArea()
+            }
     }
 }
 
