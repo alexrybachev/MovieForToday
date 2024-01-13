@@ -7,63 +7,6 @@
 
 import Foundation
 
-/*
- {
-   "id": 666,
-   "externalId": {},
-   "name": "Человек паук",
-   "alternativeName": "Spider man",
-   "enName": "Spider man",
-   "year": 2023,
-   "description": "string",
-   "shortDescription": "string",
-   "slogan": "string",
-   "rating": {},
-   "votes": {
-     "kp": "60000",
-     "imdb": 50000,
-     "tmdb": 10000,
-     "filmCritics": 10000,
-     "russianFilmCritics": 4000,
-     "await": 34000
-   },
-   "movieLength": 120,
-   "ratingMpaa": "pg13",
-   "ageRating": 16,
-   "logo": { },
-   "poster": {},
-   "backdrop": {},
-   "videos": { },
-   "genres": [
-     {
-       "name": "string"
-     }
-   ],
-   "persons": [],
-   "reviewInfo": {
-     "count": 0,
-     "positiveCount": 0,
-     "percentage": "string"
-   },
-   "premiere": {},
-   "releaseYears": [
-     {
-       "start": 2022,
-       "end": 2023
-     }
-   ],
-   "top10": 1,
-   "top250": 200,
-   "facts": [
-     {
-       "value": "string",
-       "type": "string",
-       "spoiler": true
-     }
-   ],
- }
- */
-
 public struct Logo: Decodable {
     public let url: String?
 }
@@ -99,7 +42,7 @@ public extension Movie {
         public let name: String?
         public let site: String?
         public let type: String?
-        public let size: Int
+        public let size: Int?
     }
 }
 
