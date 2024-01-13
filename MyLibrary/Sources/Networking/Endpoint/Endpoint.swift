@@ -61,6 +61,18 @@ struct Endpoint {
     
     @inlinable
     @inline(__always)
+    static func movieList(for slug: String, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.list.rawValue, slug].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "cover.url")
+                URLQueryItem(name: Field.required, value: "cover.previewUrl")
+            })
+    }
+    
+    @inlinable
+    @inline(__always)
     static func movies(for slug: String, page: Int, limit: Int) -> Self {
         .init(
             path: [APIVersion.new, Subpath.movie.rawValue].joined(separator: "/"),

@@ -63,6 +63,11 @@ public final class NetworkManager {
     }
     
     @inlinable
+    public func getMovieList(for slug: String, page: Int = 1, limit: Int = 10) async throws -> Collection {
+        try await performRequest(.movieList(for: slug, page: page, limit: limit), model: Collection.self)
+    }
+    
+    @inlinable
     public func getMovie(withId id: Int) async throws -> Movie {
         try await performRequest(.movie(withId: id), model: Movie.self)
     }
