@@ -21,56 +21,58 @@ struct LogInView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color((PrimaryColor.mainDark.rawValue))
-                .ignoresSafeArea()
-            
-            VStack(alignment: .center, spacing: 20) {
-                Spacer()
+        NavigationView {
+            ZStack {
+                Color((PrimaryColor.mainDark.rawValue))
+                    .ignoresSafeArea()
                 
-                CustomTextField(value: $viewModel.email, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your mail")
-                    .keyboardType(.emailAddress)
-                    .textInputAutocapitalization(.never)
-                    .shake($shake) { }
-                
-                CustomSecureField(value: $viewModel.password, titleBorder: "Password", offsetNameX: -118, offsetNameY: -28, placeHolder: "Enter your password")
-                    .autocapitalization(.none)
-                    .shake($shake) { }
-                
-                HStack {
+                VStack(alignment: .center, spacing: 20) {
                     Spacer()
-                    NavigationLink {
-                        ReturnPassword()
-                    } label: {
-                        Text("forgot password?")
-                            .font(.custom(.montMedium, size: 14))
+                    
+                    CustomTextField(value: $viewModel.email, titleBorder: "Login", offsetNameX: -130, offsetNameY: -28, placeHolder: "Enter your mail")
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                        .shake($shake) { }
+                    
+                    CustomSecureField(value: $viewModel.password, titleBorder: "Password", offsetNameX: -118, offsetNameY: -28, placeHolder: "Enter your password")
+                        .autocapitalization(.none)
+                        .shake($shake) { }
+                    
+                    HStack {
+                        Spacer()
+                        NavigationLink {
+                            ReturnPassword()
+                        } label: {
+                            Text("forgot password?")
+                                .font(.custom(.montMedium, size: 14))
+                        }
+                        .offset(y: -10)
+                        .padding(.top, 0)
+                        .padding(.trailing, 20)
                     }
-                    .offset(y: -10)
-                    .padding(.top, 0)
-                    .padding(.trailing, 20)
-                }
-                
-                Spacer()
-                Button {
-                    rootView.wrappedValue.dismiss()
-                } label: {
-                    Text("Dismiss")
-                }
-                NavigationLink(destination: {
-                    Registration()
-                }, label: {
-                    Text("Registration")
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 20)
-                        .font(.custom(.montMedium, size: 16))
-                        .background(.black)
-                        .cornerRadius(32)
-                        .padding(.horizontal, 16)
-                })
-                
-                Button(action: {
-                   
+                    
+                    Spacer()
+                    
+                    Button {
+                        rootView.wrappedValue.dismiss()
+                    } label: {
+                        Text("Dismiss")
+                    }
+                    
+                    NavigationLink(destination: {
+                        Registration()
+                    }, label: {
+                        Text("Registration")
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 20)
+                            .font(.custom(.montMedium, size: 16))
+                            .background(.black)
+                            .cornerRadius(32)
+                            .padding(.horizontal, 16)
+                    })
+                    
+                    Button(action: {
                         Task {
                             do {
                                 try await viewModel.signIn()
@@ -84,30 +86,32 @@ struct LogInView: View {
                                 shake = true
                             }
                         }
-                }) {
-                    Text("LogIn")
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 20)
-                        .font(.custom(.montMedium, size: 16))
-                        .background(Color(PrimaryColor.mint.rawValue))
-                        .cornerRadius(32)
+                    }) {
+                        Text("LogIn")
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 20)
+                            .font(.custom(.montMedium, size: 16))
+                            .background(Color(PrimaryColor.mint.rawValue))
+                            .cornerRadius(32)
+                    }
+                    .padding(.horizontal, 16)
                 }
-                .padding(.horizontal, 16)
+                .padding()
             }
-            .padding()
+            //        .onChange(of: showSignInView) { showSignInView in
+            //            if !showSignInView {
+            //                Task {
+            //                    do {
+            //                        try? await viewModel.fetchUser()
+            //                    }
+            //                }
+            //            }
+            //        }
+            
+            .navigationTitle("Sign In")
+            .navigationBarTitleDisplayMode(.large)
         }
-//        .onChange(of: showSignInView) { showSignInView in
-//            if !showSignInView {
-//                Task {
-//                    do {
-//                        try? await viewModel.fetchUser()
-//                    }
-//                }
-//            }
-//        }
-        .navigationTitle("Sign In")
-        .navigationBarTitleDisplayMode(.large)
     }
 }
 
