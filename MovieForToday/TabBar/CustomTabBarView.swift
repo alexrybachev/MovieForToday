@@ -8,13 +8,13 @@
 import SwiftUI
 
 enum Tab: CaseIterable {
-    case home, search, download, profile
+    case home, search, tree, profile
     
     var title: String {
         switch self {
         case .home: "Home"
         case .search: "Search"
-        case .download: "Wishlist"
+        case .tree: "Tree"
         case .profile: "Profile"
         }
     }
@@ -23,7 +23,7 @@ enum Tab: CaseIterable {
         switch self {
         case .home: .home
         case .search: .search
-        case .download: .download
+        case .tree: .star
         case .profile: .profile
         }
     }
@@ -46,10 +46,10 @@ struct CustomTabBarView: View {
                     ImageText(
                         image: tab.icon,
                         text: selectedTab == tab ? tab.title : "",
-                        color: selectedTab == tab ? Color.primaryColor(.mint) : .textGrey
+                        color: selectedTab == tab ? .customMint : .textGrey
                     )
                         .padding()
-                        .if(selectedTab == tab) { $0.background(Color.primaryColor(.softDark)) }
+                        .if(selectedTab == tab) { $0.background(.customSoftDark) }
                         .clipShape(Capsule())
                 }
                 
@@ -57,7 +57,7 @@ struct CustomTabBarView: View {
             }
         }
         .frame(maxHeight: tabBarHeight)
-        .background(Color.primaryColor(.mainDark))
+        .background(.customMain)
     }
 }
 

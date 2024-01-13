@@ -10,5 +10,5 @@ import Foundation
 /// Критерий фильма: жанр, страна и т.д.
 public struct FieldValue: Decodable {
     public let name: String
-    public let slug: String
+    public let slug: String?
 }
