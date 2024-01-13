@@ -43,7 +43,7 @@ struct MovieDetailView: View {
                     
                     // MARK: Action buttons
                     HStack {
-                        NavigationLink(destination: {/* TrailerView() */}) {
+                        NavigationLink(destination: { TrailerView(movieModel: movieModel)}) {
                             TrailerButtonView(
                                 width: Constants.buttonWidth,
                                 height: Constants.buttonHeight

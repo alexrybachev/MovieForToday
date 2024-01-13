@@ -35,12 +35,13 @@ public final class NetworkManager {
         self.session = URLSession(configuration: config)
     }
     
-    //MARK: - Public methods
+    //MARK: - Genres
     @inlinable
     public func getAllGenres() async throws -> [FieldValue] {
         try await performRequest(.genres, model: [FieldValue].self)
     }
     
+    //MARK: - Movies
     @inlinable
     public func getTop10Movies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
         try await performRequest(.top10(page: page, limit: limit), model: MovieList.self)
@@ -57,7 +58,12 @@ public final class NetworkManager {
     }
     
     @inlinable
-    public func getMovies(for slug: String, page: Int = 1, limit: Int = 10) async throws -> Collection {
+    public func getMovies(for slug: String, page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.movies(for: slug, page: page, limit: limit), model: MovieList.self)
+    }
+    
+    @inlinable
+    public func getMovieList(for slug: String, page: Int = 1, limit: Int = 10) async throws -> Collection {
         try await performRequest(.movieList(for: slug, page: page, limit: limit), model: Collection.self)
     }
     
@@ -74,6 +80,22 @@ public final class NetworkManager {
     @inlinable
     public func getTopRatedMovies(page: Int = 1, limit: Int = 10) async throws -> MovieList {
         try await performRequest(.topRatedMovies(page: page, limit: limit), model: MovieList.self)
+    }
+    
+    @inlinable
+    public func getMoviesReleasedAt(year: Int, page: Int = 1, limit: Int = 10) async throws -> MovieList {
+        try await performRequest(.moviesReleasedAt(year: year, page: page, limit: limit), model: MovieList.self)
+    }
+    
+    //MARK: - People
+    @inlinable
+    public func searchPerson(named name: String, page: Int = 1, limit: Int = 10) async throws -> PersonList {
+        try await performRequest(.searchPerson(byName: name, page: page, limit: limit), model: PersonList.self)
+    }
+    
+    @inlinable
+    public func getPerson(withId id: Int) async throws -> Person {
+        try await performRequest(.person(withId: id), model: Person.self)
     }
     
     //MARK: - Internal methods
