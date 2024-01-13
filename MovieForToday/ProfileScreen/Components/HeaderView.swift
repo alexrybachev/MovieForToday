@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     @State var profileImage: UIImage?
+    @Binding var isAuthorisation: Bool
     var name: String?
     var mail: String
     
@@ -33,10 +34,12 @@ struct HeaderView: View {
             
             Spacer()
             
-            NavigationLink(destination: EditProfile(profileImage: $profileImage, name: name ?? "User", mail: mail)) {
-                Image("editColor")
-                    .scaledToFit()
-                    .frame(width: 54, height: 54)
+            if isAuthorisation {
+                NavigationLink(destination: EditProfile(profileImage: $profileImage, name: name ?? "User", mail: mail)) {
+                    Image("editColor")
+                        .scaledToFit()
+                        .frame(width: 54, height: 54)
+                }
             }
         }
         .padding()
@@ -45,7 +48,7 @@ struct HeaderView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.gray, lineWidth: 1.0)
-                .opacity(0.3)
+                .opacity(0.2)
         }
         .padding(.horizontal, 24)
     }
@@ -60,5 +63,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(profileImage: UIImage(named: "margo")!, name: "", mail: "")
+    HeaderView(profileImage: UIImage(named: "margo")!, isAuthorisation: .constant(false), name: "Margo", mail: "margo@gmail.com")
 }

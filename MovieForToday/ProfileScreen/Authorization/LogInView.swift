@@ -9,11 +9,14 @@ import SwiftUI
 import FirebaseAuth
 
 struct LogInView: View {
+    @Environment(\.presentationMode) var rootView
     @StateObject var viewModel = SignInViewModel()
     @Binding var showSignInView: Bool
+    @Binding var isAuthorisation: Bool
     @State var shake = false
-    init(showSignInView: Binding<Bool>) {
+    init(showSignInView: Binding<Bool>, isAuthorisation: Binding<Bool>) {
         self._showSignInView = showSignInView
+        self._isAuthorisation = isAuthorisation
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named:  PrimaryColor.mainDark.rawValue) ?? .white]
     }
     
@@ -48,7 +51,11 @@ struct LogInView: View {
                 }
                 
                 Spacer()
-                
+                Button {
+                    rootView.wrappedValue.dismiss()
+                } label: {
+                    Text("Dismiss")
+                }
                 NavigationLink(destination: {
                     Registration()
                 }, label: {
@@ -63,18 +70,20 @@ struct LogInView: View {
                 })
                 
                 Button(action: {
-                    Task {
-                        do {
-                            try await viewModel.signIn()
-                            if Auth.auth().currentUser != nil {
-                                self.showSignInView = false
+                   
+                        Task {
+                            do {
+                                try await viewModel.signIn()
+                                if Auth.auth().currentUser != nil {
+                                    self.showSignInView = false
+                                    isAuthorisation = true
+                                }
+                                return
+                            } catch {
+                                print(error)
+                                shake = true
                             }
-                            return
-                        } catch {
-                            print(error)
-                            shake = true
                         }
-                    }
                 }) {
                     Text("LogIn")
                         .foregroundStyle(.white)
@@ -88,20 +97,20 @@ struct LogInView: View {
             }
             .padding()
         }
-        .onChange(of: showSignInView) { showSignInView in
-            if !showSignInView {
-                Task {
-                    do {
-                        try? await viewModel.fetchUser()
-                    }
-                }
-            }
-        }
+//        .onChange(of: showSignInView) { showSignInView in
+//            if !showSignInView {
+//                Task {
+//                    do {
+//                        try? await viewModel.fetchUser()
+//                    }
+//                }
+//            }
+//        }
         .navigationTitle("Sign In")
         .navigationBarTitleDisplayMode(.large)
     }
 }
 
 #Preview {
-    LogInView(showSignInView: .constant(false))
+    LogInView(showSignInView: .constant(false), isAuthorisation: .constant(false))
 }

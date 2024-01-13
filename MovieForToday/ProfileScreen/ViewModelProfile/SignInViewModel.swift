@@ -14,6 +14,7 @@ final class SignInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var currentUser: UserData?
+    @Published var savedUser: SaveUser?
     @Published var showNotification = false
     @Published var profileImage: UIImage?
     
@@ -39,7 +40,8 @@ final class SignInViewModel: ObservableObject {
     
     func fetchUser() async throws  {
         do {
-            currentUser = try FirebaseManager.shared.getAuthenticatedUser()
+            self.currentUser = try FirebaseManager.shared.getAuthenticatedUser()
+            try await FirebaseManager.shared.getUserData(userId: currentUser?.uid ?? "" )
         } catch let error {
             throw error
         }

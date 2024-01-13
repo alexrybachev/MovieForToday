@@ -21,7 +21,7 @@ struct AboutUsView: View {
                 }
                 Divider().background(.gray)
                     .padding(.horizontal, 16)
-                    .opacity(0.3)
+                    .opacity(0.2)
                 HStack {
                     Text("Team")
                         .padding()

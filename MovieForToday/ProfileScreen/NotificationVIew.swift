@@ -39,7 +39,7 @@ struct NotificationVIew: View {
                     
                     Divider().background(.gray)
                         .padding(.horizontal, 16)
-                        .opacity(0.3)
+                        .opacity(0.2)
                     
                     HStack {
                         Text("Exceptions")
@@ -54,7 +54,7 @@ struct NotificationVIew: View {
                 .overlay {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(Color.gray, lineWidth: 1.0)
-                        .opacity(0.3)
+                        .opacity(0.2)
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 24)

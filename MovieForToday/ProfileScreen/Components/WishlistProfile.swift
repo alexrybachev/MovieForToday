@@ -13,7 +13,7 @@ struct WishlistProfile: View {
             .overlay {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color.gray, lineWidth: 1.0)
-                    .opacity(0.3)
+                    .opacity(0.2)
             }
             .padding(.horizontal, 24)
     }
