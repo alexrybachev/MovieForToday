@@ -23,7 +23,7 @@ struct Endpoint {
             components.queryItems = queryItems
         }
         guard let url = components.url else {
-            fatalError("Unable to create url from components: \(components)")
+            preconditionFailure("Unable to create url from components: \(components)")
         }
         return url
     }
