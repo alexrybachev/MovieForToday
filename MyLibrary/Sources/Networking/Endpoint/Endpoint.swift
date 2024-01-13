@@ -172,6 +172,22 @@ struct Endpoint {
             })
     }
     
+    //MARK: - Image
+    @inlinable
+    @inline(__always)
+    static func getImages(for movieId: Int, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.image.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "url")
+                URLQueryItem(name: "movieId", value: movieId.description)
+                URLQueryItem(name: "type", value: "shooting")
+                URLQueryItem(name: "type", value: "frame")
+                URLQueryItem(name: "type", value: "promo")
+            })
+    }
+    
 }
 
 //MARK: - Helpers
