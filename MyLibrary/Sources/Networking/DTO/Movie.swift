@@ -34,6 +34,7 @@ public struct Movie: Decodable, Identifiable {
     public let persons: [Person]?
     public let rating: Rating
     public let videos: VideoContent?
+    public let genres: [FieldValue]?
 }
 
 public extension Movie {
