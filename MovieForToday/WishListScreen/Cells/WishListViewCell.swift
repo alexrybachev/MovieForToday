@@ -47,7 +47,7 @@ struct WishListViewCell: View {
                         .foregroundStyle(.textWhiteGrey)
                     
                     HStack {
-                        Text(movieModel.category)
+                        Text(movieModel.genres.joined(separator: ", "))
                             .font(.custom(.montRegular, size: Constants.smallTextSize))
                             .foregroundStyle(.textGrey)
                         

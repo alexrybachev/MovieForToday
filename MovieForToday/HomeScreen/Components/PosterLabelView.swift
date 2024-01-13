@@ -26,6 +26,10 @@ struct PosterLabelView: View {
 }
 
 #Preview {
-    PosterLabelView(title: "Top Gun", subtitle: "Action", spacing: 16)
-        .background(.customMain)
+    PosterLabelView(
+        title: "Top Gun",
+        subtitle: "Action",
+        spacing: 16
+    )
+    .background(.customMain)
 }

@@ -6,27 +6,42 @@
 //
 
 import Foundation
+import Networking
 
-struct MovieModel {
+struct MovieModel: Identifiable {
     let id: Int
     let urlPoster: String
+    let backdrop: String
     let rating: String
     let name: String
+    let description: String
     let year: String
     let duration: String
     let genres: [String]
-    let category: String
+    let persons: [MoviePerson]
+    let trailerUrl: String
     
     static func getMocData() -> MovieModel {
         MovieModel(id: 10,
                    urlPoster: "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
+                   backdrop: "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
                    rating: "4.5",
                    name: "Spider-Man",
+                   description: "Description",
                    year: "2021",
                    duration: "148",
                    genres: Genre.getMockData(),
-                   category: "Movie")
+                   persons: [],
+                   trailerUrl: ""
+        )
     }
+}
+
+struct MoviePerson: Identifiable {
+    let id: Int
+    let photo: String
+    let name: String
+    let profession: String
 }
 
 struct Genre: Hashable {
@@ -53,3 +68,4 @@ struct Genre: Hashable {
         ]
     }
 }
+

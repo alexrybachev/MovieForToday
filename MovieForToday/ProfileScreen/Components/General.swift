@@ -26,7 +26,7 @@ struct General: View {
                 .opacity(0.3)
             NavigationSettings(imageIcon: "globe", textNavigation: "Language", destination: EmptyView())
         }
-        .background(Color((PrimaryColor.mainDark.rawValue)))
+        .background(Color.customMain)
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)

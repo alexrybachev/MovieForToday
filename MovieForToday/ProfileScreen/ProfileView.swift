@@ -17,7 +17,7 @@ struct ProfileView: View {
         NavigationView {
             ScrollView {
                 ZStack {
-                    Color((PrimaryColor.mainDark.rawValue))
+                    Color.customMain
                         .ignoresSafeArea()
                     
                     VStack(spacing: 14)  {
@@ -52,7 +52,7 @@ struct ProfileView: View {
                     .padding(.bottom, 70)
                 }
             }
-            .background(Color(PrimaryColor.mainDark.rawValue))
+            .background(Color.customMain)
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear() {
@@ -78,11 +78,11 @@ struct ProfileView: View {
                     }
                 }
             }
-            .fullScreenCover(isPresented: $showSignInView)  {
-                NavigationView {
-                    LogInView(showSignInView: $showSignInView)
-                }
-            }
+//            .fullScreenCover(isPresented: $showSignInView)  {
+//                NavigationView {
+//                    LogInView(showSignInView: $showSignInView)
+//                }
+//            }
         }
     }
     

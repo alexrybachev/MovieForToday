@@ -30,7 +30,7 @@ struct NavigationSettings<Destination: View>: View {
         }
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(PrimaryColor.mainDark.rawValue))
+            .background(Color.customMain)
     }
 }
 

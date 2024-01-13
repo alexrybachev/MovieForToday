@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct GenreButtonsScrollView: View {
-    @State private var selectedGenre: Genre? = Genre.getMockData().first
-    let genres: [Genre]
+    @Binding var selectedCategory: Int
+    @Binding var categories: [String]
+    var action: (String) -> Void
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(genres, id: \.self) { genre in
+                ForEach(0..<categories.count, id: \.self) { index in
                     SwitchCategoriesButton(
-                        genre: genre.name,
-                        isSelected: genre == selectedGenre
-                    ) {
-                        selectedGenre = genre
-                        // TODO: Sort
-                    }
+                        selectedTag: $selectedCategory,
+                        id: index,
+                        genre: categories[index],
+                        action: {
+                            print("selected category: ", categories[index])
+                            #warning("TODO: Sort")
+                            action(categories[index])
+                        }
+                    )
                 }
             }
             .padding([.top, .bottom])
@@ -30,6 +34,10 @@ struct GenreButtonsScrollView: View {
 }
 
 #Preview {
-    GenreButtonsScrollView(genres: MovieModel.getMocData().genre)
-        .background(.customMain)
+    GenreButtonsScrollView(
+        selectedCategory: .constant(0),
+        categories: .constant(["All", "Action", "Boevik"]),
+        action: { _ in }
+    )
+    .background(Color.customMain)
 }

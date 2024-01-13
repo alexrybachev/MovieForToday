@@ -14,13 +14,13 @@ struct MovieListView: View {
         ZStack {
             VStack {
                 // Buttons
-                GenreButtonsScrollView(genres: movieModel.genre)
+//                GenreButtonsScrollView(genres: movieModel.genre)
                 
                 // Posters
                 NavigationLink {
                     // TODO: PopularMovieView()?
                 } label: {
-                    PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
+//                    PosterScrollView(genre: movieModel.genre, urlPoster: movieModel.urlPoster)
                 }
             }
         }

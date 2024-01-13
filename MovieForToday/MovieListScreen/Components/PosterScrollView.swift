@@ -9,7 +9,7 @@ import SwiftUI
 import RemoteImage
 
 struct PosterScrollView: View {
-    let genre: [Genre]
+    let genre: [String]
     let urlPoster: String
     
     var body: some View {
@@ -39,10 +39,10 @@ struct PosterScrollView: View {
                     }
                     
                     HStack {
-                        Text(genre.name.capitalized)
-                            .foregroundStyle(.textWhiteGrey)
-                            .font(.custom(.montSemiBold, size: Constants.titleSize))
-                            .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 0))
+//                        Text(genre.name.capitalized)
+//                            .foregroundStyle(.textWhiteGrey)
+//                            .font(.custom(.montSemiBold, size: Constants.titleSize))
+//                            .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 0))
                         
                         Spacer()
                     }
@@ -66,7 +66,7 @@ private extension PosterScrollView {
 
 #Preview {
     PosterScrollView(
-        genre: MovieModel.getMocData().genre,
+        genre: ["Action", "Magic", "Anime"],
         urlPoster: MovieModel.getMocData().urlPoster
     )
         .background(.customMain)

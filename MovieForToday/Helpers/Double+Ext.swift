@@ -8,6 +8,7 @@
 import Foundation
 
 extension Double {
+    
     var convertToString: String {
         String(format: "%.1f", self)
     }

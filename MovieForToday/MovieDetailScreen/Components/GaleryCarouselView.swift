@@ -10,22 +10,14 @@ import RemoteImage
 
 struct GaleryCarouselView: View {
     @State private var isFullScreen = false
-    let movieModel: MovieModel
+    @Binding var movieModel: MovieModel
+    
     let headlineTextSize: CGFloat
     let imageWidth: CGFloat
     let imageHeight: CGFloat
     let cornerRadius: CGFloat
     
     var body: some View {
-        HStack {
-            Text("galery")
-                .foregroundStyle(.textWhiteGrey)
-                .font(.custom(.montSemiBold, size: headlineTextSize))
-            
-            Spacer()
-        }
-        .padding()
-        
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 // TODO: Don't forget!
@@ -33,7 +25,7 @@ struct GaleryCarouselView: View {
                     Button {
                         isFullScreen = true
                     } label: {
-                        RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+                        RemoteImage(link: movieModel.urlPoster) { image in
                             MovieImageView(
                                 image: image,
                                 width: imageWidth,
@@ -55,8 +47,15 @@ struct GaleryCarouselView: View {
             FullScreenImageView(movieModel: movieModel)
         }
     }
+    
 }
 
 #Preview {
-    GaleryCarouselView(movieModel: MovieModel.getMocData(), headlineTextSize: 16, imageWidth: 100, imageHeight: 101, cornerRadius: 16)
+    GaleryCarouselView(
+        movieModel: .constant(MovieModel.getMocData()),
+        headlineTextSize: 16,
+        imageWidth: 100,
+        imageHeight: 101,
+        cornerRadius: 16
+    )
 }

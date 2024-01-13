@@ -10,8 +10,9 @@ import SwiftUI
 struct PrivacyPolicy: View {
     var body: some View {
         ZStack {
-            Color((PrimaryColor.mainDark.rawValue))
+            Color.customMain
                 .ignoresSafeArea()
+            
             ScrollView {
                 VStack(alignment: .leading) {
                     Text("Tearms")

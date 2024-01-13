@@ -27,7 +27,9 @@ struct CustomButton: View {
 }
 
 #Preview {
-    CustomButton(text: "Login", color: Color(PrimaryColor.mint.rawValue), action: {
+    CustomButton(text: "Login",
+                 color: Color.customMint,
+                 action: {
         print("Button pressed")
     })
 }

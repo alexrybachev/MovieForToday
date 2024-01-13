@@ -19,17 +19,13 @@ struct SwitchCategoriesButton: View {
         Text(genre.capitalized)
             .padding([.top, .bottom], 8)
             .padding([.leading, .trailing], 12)
-            .foregroundStyle(
-                id == selectedTag
-                //                    isSelected
-                ? Color.customMint
-                : Color.textWhiteGrey
-            )
+            .foregroundStyle(id == selectedTag ? Color.customMint : Color.textWhiteGrey)
             .if(id == selectedTag) { $0.background(.customSoftDark) }
             .font(.custom(.montMedium, size: 12))
             .clipShape(.rect(cornerRadius: 8))
             .onTapGesture {
                 selectedTag = id
+                action()
             }
     }
 }

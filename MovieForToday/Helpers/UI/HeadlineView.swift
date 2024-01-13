@@ -15,14 +15,14 @@ struct HeadlineView: View {
     var body: some View {
         HStack() {
             Text(headline)
-                .foregroundStyle(Color.textColor(.whiteGrey))
+                .foregroundStyle(Color.textWhiteGrey)
                 .font(.custom(.montSemiBold, size: 16))
             
             Spacer()
             
             if isAddButton {
                 Button("see_all", action: action)
-                    .foregroundStyle(Color.primaryColor(.mint))
+                    .foregroundStyle(Color.customMint)
                     .font(.custom(.montMedium, size: 14))
             }
         }

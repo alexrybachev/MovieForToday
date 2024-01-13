@@ -26,7 +26,7 @@ struct HeaderView: View {
 
                 Text(verbatim: mail)
                     .font(Font.custom(CustomFont.montMedium, size: 14))
-                    .foregroundColor(Color(TextColors.grey.rawValue))
+                    .foregroundColor(Color.textGrey)
                  
             }
             .padding(.leading, 8)
@@ -39,7 +39,7 @@ struct HeaderView: View {
             }
         }
         .padding()
-        .background(Color((PrimaryColor.mainDark.rawValue)))
+        .background(Color.customMain)
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)

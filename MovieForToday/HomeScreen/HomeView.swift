@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = PopularMovieViewModel()
+    @ObservedObject var homeViewModel: HomeViewModel
+    
     @State private var searchText = ""
     @State private var isSearch = false
     
@@ -16,31 +17,44 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 ScrollView {
-                    // MARK: CustomSearchBar
+
                     CustomSearchBar(
                         searchText: $searchText,
                         isSearch: $isSearch,
                         placeholderText: "search_a_title..",
-                        action: {}
+                        action: {
+                            print("CustomSearchBar on HomeView")
+                        }
                     )
                     .padding(EdgeInsets(top: 26, leading: 16, bottom: 26, trailing: 16))
                     
-                    // MARK: Movie category poster carousel
-                    MovieCategoryPosterCarouselView(movieModel: viewModel.movieModels.first!)
+                    MovieCategoryPosterCarouselView(homeViewModel: homeViewModel)
                         .frame(height: 200)
                     
-                    // MARK: Headlines and Buttons
-                    HeadlineView(headline: "categories", action: {})
+                    HeadlineView(headline: "categories", action: {
+                        print("tap 'see all' on categories")
+                    })
                     
-                    GenreButtonsScrollView(genres: viewModel.movieModels.first!.genre)
+                    GenreButtonsScrollView(
+                        selectedCategory: $homeViewModel.selectedCategory,
+                        categories: $homeViewModel.categories,
+                        action: { category in
+                            homeViewModel.fetchMovies(category)
+                        }
+                    )
+                    .padding([.leading, .trailing])
                     
-                    HeadlineView(headline: "most_popular", action: {})
+                    HeadlineView(headline: "most_popular", action: {
+                        print("tap 'see all' on most_popular")
+                    })
                     
-                    // MARK: Movie poster carousel
-                    MoviePosterCarouselView(movieModel: viewModel.movieModels.first!)
+                    MoviePosterCarouselView(movieModels: $homeViewModel.movieModels)
                         .padding(.top)
                 }
             }
+//            .onAppear {
+//                homeViewModel.fetchMovies("All")
+//            }
             .background(.customMain)
             .toolbar {
                 // Open WishListView
@@ -71,5 +85,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(homeViewModel: HomeViewModel())
 }

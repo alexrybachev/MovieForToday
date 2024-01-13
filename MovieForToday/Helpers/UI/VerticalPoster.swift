@@ -45,7 +45,7 @@ struct VerticalPoster: View {
                     Spacer()
                 }
                 
-                Text(movieModel.category)
+                Text(movieModel.genres.joined(separator: ", "))
                     .foregroundStyle(Color.textGrey)
                     .font(.custom(.montMedium, size: 10))
                 Spacer()

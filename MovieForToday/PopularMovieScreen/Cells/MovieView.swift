@@ -63,7 +63,7 @@ struct MovieView: View {
                     Divider()
                         .background(Color.white)
                     
-                    Text(movieModel.category)
+                    Text(movieModel.genres.joined(separator: ", "))
                         .font(.custom(.montMedium, size: 12))
                         .foregroundStyle(Color.white)
                 }
@@ -73,7 +73,7 @@ struct MovieView: View {
             
             Spacer()
         }
-        .background(Color.primaryColor(.mainDark))
+        .background(Color.customMain)
         .frame(height: Constants.heightImage)
     }
 }

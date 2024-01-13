@@ -12,13 +12,17 @@ struct ReturnPassword: View {
     @State private var showAlert = false
     @StateObject var signInViewModel = SignInViewModel()
     @State var mail: String = ""
+    
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mainDark.rawValue) ?? .white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(Color.customMain)
+        ]
     }
+    
     var body: some View {
         NavigationView {
             ZStack {
-                Color((PrimaryColor.mainDark.rawValue))
+                Color.customMain
                     .ignoresSafeArea()
                 VStack {
                     Spacer()
@@ -43,7 +47,7 @@ struct ReturnPassword: View {
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 20)
                             .font(.custom(.montMedium, size: 16))
-                            .background(Color(PrimaryColor.mint.rawValue))
+                            .background(Color.customMint)
                             .cornerRadius(32)
                     }
                     .padding(.bottom, 10)

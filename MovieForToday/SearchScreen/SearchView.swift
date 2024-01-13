@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @StateObject private var viewModel = SearchViewModel()
+    @StateObject private var searchViewModel = SearchViewModel()
     
     #warning("Удалить и Скорректировать входящий параметр moviewModel для TabBar")
     let movieModel: MovieModel = MovieModel.getMocData()
@@ -21,15 +21,15 @@ struct SearchView: View {
             VStack(spacing: 16) {
                 
                 CustomSearchBar(
-                    searchText: $viewModel.searchText,
-                    isSearch: $viewModel.isSearch,
+                    searchText: $searchViewModel.searchText,
+                    isSearch: $searchViewModel.isSearch,
                     placeholderText: "search_placeholder",
                     action: {
                         print("SearchBar редактируется")
                     }
                 )
                 
-                if viewModel.isSearch {
+                if searchViewModel.isSearch {
 //                    ScrollView(axis: .vertical) {
 //                        LazyVStack {
 //                            
@@ -51,7 +51,16 @@ struct SearchView: View {
                     )
                     
                     #warning("Скорректировать MoviewView для переиспользования")
-                    MovieView(movieModel: MovieModel.getMocData())
+                    ScrollView(.horizontal) {
+                        LazyHStack {
+                            ForEach(searchViewModel.upcomingMovies, id: \.id) {
+                                MovieView(movieModel: $0)
+                            }
+                        }
+                    }
+                    .frame(height: 147)
+                    
+//                    MovieView(movieModel: MovieModel.getMocData())
                     
                     Spacer()
                     
@@ -62,9 +71,8 @@ struct SearchView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 12) {
-                            ForEach(0..<3) { _ in
+                            ForEach(0..<searchViewModel.recentMovieIds.count, id: \.self) { _ in
                                 ZStack(alignment: .bottom) {
-                                    // MARK: Posters
                                     NavigationLink {
                                         MovieDetailView(movieModel: movieModel)
                                     } label: {
@@ -82,7 +90,10 @@ struct SearchView: View {
             .padding()
         }
         .onAppear {
-            viewModel.fetchCategories()
+            searchViewModel.fetchUpcomingMovie()
+            searchViewModel.fetchCategories()
+            searchViewModel.getRecentMovieIds()
+            print(searchViewModel.recentMovieIds)
         }
     }
 }

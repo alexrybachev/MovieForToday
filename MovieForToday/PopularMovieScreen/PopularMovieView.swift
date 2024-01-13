@@ -16,6 +16,9 @@ struct PopularMovieView: View {
             Color.customMain
                 .ignoresSafeArea()
             
+//            MovieCategoryPosterCarouselView(homeViewModel: homeViewModel)
+//                .frame(height: 200)
+            
             ScrollView {
                 ForEach(0..<20) { _ in
                     MovieView(movieModel: viewModel.movieModels.first!)

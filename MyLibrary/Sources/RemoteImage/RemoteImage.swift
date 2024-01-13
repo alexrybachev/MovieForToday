@@ -1,6 +1,6 @@
 //
 //  RemoteImage.swift
-//  
+//
 //
 //  Created by Илья Шаповалов on 28.12.2023.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct RemoteImage<I: View, P: View, E: View>: View {
-    private let url: URL
+    private let url: URL?
     private let configure: (Image) -> I
     private let placeholder: () -> P
     private let errorHandler: (Error) -> E
@@ -43,10 +43,26 @@ public struct RemoteImage<I: View, P: View, E: View>: View {
         self.errorHandler = errorHandler
     }
     
+    public init(
+        link: String,
+        configure: @escaping (Image) -> I = { $0 },
+        placeholder: @escaping () -> P = ProgressView.init,
+        errorHandler: @escaping (Error) -> E = { _ in EmptyView() }
+    ) {
+        self.url = URL(string: link)
+        self.configure = configure
+        self.placeholder = placeholder
+        self.errorHandler = errorHandler
+    }
+    
     //MARK: - Private methods
     @Sendable
     @MainActor
     func performRequest() async {
+        guard let url else {
+            self.state = .error(URLError(.badURL))
+            return
+        }
         switch cache.library[url] {
         case .some(let image):
             self.state = .success(image)
@@ -66,7 +82,7 @@ public struct RemoteImage<I: View, P: View, E: View>: View {
         }
     }
 }
- 
+
 extension RemoteImage {
     enum ImageState {
         case loading

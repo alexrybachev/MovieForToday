@@ -18,12 +18,12 @@ final class EndpointTests: XCTestCase {
         )
     }
     
-    func test_movieListWithSlug() {
-        let sut = Endpoint.movieList(for: "Baz", page: 1, limit: 10)
+    func test_movieWithSlug() {
+        let sut = Endpoint.movies(for: "Baz", page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
-            URL(string: "https://api.kinopoisk.dev/v1.4/list/Baz?page=1&limit=10&notNullFields=cover.url&notNullFields=cover.previewUrl")
+            URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&notNullFields=id&notNullFields=name&notNullFields=rating.kp&notNullFields=poster.url&notNullFields=genres.name&genres.name=Baz")
         )
     }
     

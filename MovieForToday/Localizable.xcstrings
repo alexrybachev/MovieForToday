@@ -192,17 +192,6 @@
     "Hello, " : {
 
     },
-    "Hello, world!" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Hello, world!"
-          }
-        }
-      }
-    },
     "Hello, World!" : {
       "localizations" : {
         "en" : {
@@ -459,6 +448,22 @@
         }
       }
     },
+    "recent_movie" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Movies"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавно просмотренные"
+          }
+        }
+      }
+    },
     "Registration" : {
 
     },
@@ -528,6 +533,9 @@
           }
         }
       }
+    },
+    "search_placeholder" : {
+
     },
     "see_all" : {
       "extractionState" : "manual",
@@ -650,6 +658,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ёлка"
+          }
+        }
+      }
+    },
+    "upcoming_movie" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming movies"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скоро выходят"
           }
         }
       }
