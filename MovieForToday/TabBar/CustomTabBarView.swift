@@ -8,13 +8,13 @@
 import SwiftUI
 
 enum Tab: CaseIterable {
-    case home, search, download, profile
+    case home, search, tree, profile
     
     var title: String {
         switch self {
         case .home: "Home"
         case .search: "Search"
-        case .download: "Wishlist"
+        case .tree: "Tree"
         case .profile: "Profile"
         }
     }
@@ -23,7 +23,7 @@ enum Tab: CaseIterable {
         switch self {
         case .home: .home
         case .search: .search
-        case .download: .download
+        case .tree: .star
         case .profile: .profile
         }
     }

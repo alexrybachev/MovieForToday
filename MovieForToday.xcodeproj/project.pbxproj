@@ -86,6 +86,8 @@
 		FA0ABB952B4D7B03000F30DB /* MoviePosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ABB942B4D7B03000F30DB /* MoviePosterCarouselView.swift */; };
 		FA1C011D2B3C5A880047D1EB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */; };
 		FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */; };
+		FA229E0D2B51D58E003A6426 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA229E0C2B51D58E003A6426 /* Bundle-Decodable.swift */; };
+		FA229E0F2B51D636003A6426 /* NewYearMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA229E0E2B51D636003A6426 /* NewYearMovies.swift */; };
 		FA44168B2B49D62C00AE536B /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44168A2B49D62C00AE536B /* CustomSearchBar.swift */; };
 		FA44168D2B4A05F900AE536B /* HeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44168C2B4A05F900AE536B /* HeadlineView.swift */; };
 		FA732D1C2B5057D1005D46F8 /* DetailBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA732D1B2B5057D1005D46F8 /* DetailBackgroundImageView.swift */; };
@@ -167,6 +169,8 @@
 		FA0ABB942B4D7B03000F30DB /* MoviePosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCarouselView.swift; sourceTree = "<group>"; };
 		FA1C011C2B3C5A880047D1EB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		FA1C011F2B3C644A0047D1EB /* WishListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewCell.swift; sourceTree = "<group>"; };
+		FA229E0C2B51D58E003A6426 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		FA229E0E2B51D636003A6426 /* NewYearMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYearMovies.swift; sourceTree = "<group>"; };
 		FA44168A2B49D62C00AE536B /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		FA44168C2B4A05F900AE536B /* HeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineView.swift; sourceTree = "<group>"; };
 		FA732D1B2B5057D1005D46F8 /* DetailBackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBackgroundImageView.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				288039072B37361200691E0E /* ChristmasTreeView.swift */,
+				FA9A15A92B52CAFF0014541B /* Components */,
 			);
 			path = ChristmasTreeScreen;
 			sourceTree = "<group>";
@@ -505,6 +510,15 @@
 				FA8384132B447A9B004B7A13 /* CrewLabelView.swift */,
 				FA732D232B505F25005D46F8 /* GaleryCarouselView.swift */,
 				FA7B26162B45CC7A00B13C6D /* FullScreenImageView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FA9A15A92B52CAFF0014541B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA229E0C2B51D58E003A6426 /* Bundle-Decodable.swift */,
+				FA229E0E2B51D636003A6426 /* NewYearMovies.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -649,8 +663,10 @@
 				0D2DB48E2B4EEE60003D2414 /* More.swift in Sources */,
 				FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */,
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
+				FA229E0D2B51D58E003A6426 /* Bundle-Decodable.swift in Sources */,
 				FADC05D22B3DB2ED0031FD57 /* ErrorImageView.swift in Sources */,
 				3B319A402B4C42B70056DF68 /* OnboardingScreenView.swift in Sources */,
+				FA229E0F2B51D636003A6426 /* NewYearMovies.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				FA83840B2B443F50004B7A13 /* BackgroundImageView.swift in Sources */,
 				0D2DB4902B4EEE60003D2414 /* HeaderView.swift in Sources */,
