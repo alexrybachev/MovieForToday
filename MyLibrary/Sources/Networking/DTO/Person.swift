@@ -13,6 +13,6 @@ public struct Person: Decodable {
     public let name: String?
     public let age: Int?
     public let description: String?
-    public let profession: [String]?
+    public let profession: String?
     public let movies: [Movie]?
 }
