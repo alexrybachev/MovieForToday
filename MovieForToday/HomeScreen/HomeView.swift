@@ -65,8 +65,8 @@ struct HomeView: View {
                 }
             }
             .task {
-                //                let category = homeViewModel.categories[homeViewModel.selectedCategory]
-                //                homeViewModel.fetchMovies(category)
+                                let category = homeViewModel.categories[homeViewModel.selectedCategory]
+                                homeViewModel.fetchMovies(category)
             }
             .background(.customMain)
             .toolbar {

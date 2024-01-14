@@ -44,7 +44,7 @@ struct MovieForTodayApp: App {
                     .preferredColorScheme(.dark)
                     .onAppear {
                         homeViewModel.fetchMovieCollection()
-//                        homeViewModel.fetchCategories()
+                        homeViewModel.fetchCategories()
                     }
             } else {
                 OnboardingView()
