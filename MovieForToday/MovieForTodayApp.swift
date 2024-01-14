@@ -38,6 +38,7 @@ struct MovieForTodayApp: App {
         WindowGroup {
             if isOnboarding {
                 ContentView(homeViewModel: homeViewModel)
+                    .preferredColorScheme(.dark)
                     .onAppear {
                         homeViewModel.fetchMovieCollection()
 //                        homeViewModel.fetchCategories()
