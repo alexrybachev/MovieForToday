@@ -25,7 +25,7 @@ struct CustomSecureField: View {
             .overlay {
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(value.isEmpty ? Color.customMint : Color.gray, lineWidth: 1.0)
+                        .stroke(value.isEmpty ? Color(.customMint) : Color.gray, lineWidth: 1.0)
                         .opacity(0.3)
                     Text(titleBorder)
                         .foregroundStyle(.white)

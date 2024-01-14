@@ -20,14 +20,15 @@ struct HeaderView: View {
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/, style: /*@START_MENU_TOKEN@*/FillStyle()/*@END_MENU_TOKEN@*/)
                 .frame(width: 54, height: 54)
                 .padding(.leading, 16)
+            
             VStack(alignment: .leading, spacing: 8)  {
                 Text(name ?? "User")
                     .font(Font.custom(CustomFont.montSemiBold, size: 16))
                     .foregroundStyle(.white)
 
                 Text(verbatim: mail)
-                    .font(Font.custom(CustomFont.montMedium, size: 14))
-                    .foregroundColor(Color.textGrey)
+                    .font(Font.custom(.montMedium, size: 14))
+                    .foregroundColor(Color(.textGrey))
                  
             }
             .padding(.leading, 8)
@@ -43,7 +44,7 @@ struct HeaderView: View {
             }
         }
         .padding()
-        .background(Color.customMain)
+        .background(.customMain)
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)

@@ -13,13 +13,13 @@ struct LanguageView: View {
     
     var body: some View {
         ZStack {
-            Color.customMain
+            Color(.customMain)
                 .ignoresSafeArea()
             VStack {
                 VStack(spacing: 0) {
                     HStack {
                         Text("Suggested Languages")
-                            .font(Font.custom(CustomFont.montSemiBold, size: 12))
+                            .font(Font.custom(.montSemiBold, size: 12))
                             .foregroundColor(.gray)
                             .padding(.leading, 16)
                             .padding(.top, 24)
@@ -33,11 +33,11 @@ struct LanguageView: View {
                         } label: {
                             HStack {
                                 Text("English")
-                                    .font(Font.custom(CustomFont.montSemiBold, size: 15))
+                                    .font(Font.custom(.montSemiBold, size: 15))
                                     .foregroundColor(.white)
                                 Spacer()
                                 Image(systemName:  isEnglishSelected ? "checkmark" : "")
-                                    .foregroundColor(.customMint)
+                                    .foregroundColor(Color.primaryColor(.mint))
                             }
                         }
                     }
@@ -56,11 +56,11 @@ struct LanguageView: View {
                         } label: {
                             HStack {
                                 Text("Russian")
-                                    .font(Font.custom(CustomFont.montSemiBold, size: 15))
+                                    .font(Font.custom(.montSemiBold, size: 15))
                                     .foregroundColor(.white)
                                 Spacer()
                                 Image(systemName: isRussianSelected ? "checkmark" : "")
-                                    .foregroundColor(.customMint)
+                                    .foregroundColor(Color.primaryColor(.mint))
                             }
                         }
                     }
@@ -80,6 +80,12 @@ struct LanguageView: View {
         }
         .navigationTitle("Notification")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
 }
 

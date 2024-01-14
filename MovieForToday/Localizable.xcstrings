@@ -18,7 +18,7 @@
         }
       }
     },
-    "Actors" : {
+    "Alex Rybachev" : {
 
     },
     "cancel" : {
@@ -74,6 +74,9 @@
 
     },
     "Changes to the Service and/or Terms:" : {
+
+    },
+    "Developers" : {
 
     },
     "Dismiss" : {
@@ -139,6 +142,9 @@
     "Exceptions" : {
 
     },
+    "For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero's identity is revealed, bringing his Super Hero responsibilities into conflict with his normal life and putting those he cares about most at risk. More" : {
+
+    },
     "forgot password?" : {
 
     },
@@ -198,8 +204,18 @@
     "Hello, " : {
 
     },
-    "Hello, World!" : {
+    "Hello, world!" : {
       "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hello, world!"
+          }
+        }
+      }
+    },
+    "Hello, World!" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -225,9 +241,6 @@
           }
         }
       }
-    },
-    "index: %lld" : {
-
     },
     "language" : {
       "extractionState" : "manual",
@@ -325,9 +338,6 @@
         }
       }
     },
-    "Movie Related" : {
-
-    },
     "movie_lists" : {
       "localizations" : {
         "en" : {
@@ -343,6 +353,9 @@
           }
         }
       }
+    },
+    "No testers were harmed during development. MIT License." : {
+
     },
     "notification" : {
       "extractionState" : "manual",
@@ -461,22 +474,6 @@
         }
       }
     },
-    "recent_movie" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recent Movies"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Недавно просмотренные"
-          }
-        }
-      }
-    },
     "Registration" : {
 
     },
@@ -549,9 +546,6 @@
           }
         }
       }
-    },
-    "search_placeholder" : {
-
     },
     "see_all" : {
       "extractionState" : "manual",
@@ -683,22 +677,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ёлка"
-          }
-        }
-      }
-    },
-    "upcoming_movie" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upcoming movies"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скоро выходят"
           }
         }
       }

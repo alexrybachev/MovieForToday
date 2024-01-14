@@ -10,9 +10,8 @@ import SwiftUI
 struct PrivacyPolicy: View {
     var body: some View {
         ZStack {
-            Color.customMain
+            Color(.customMain)
                 .ignoresSafeArea()
-            
             ScrollView {
                 VStack(alignment: .leading) {
                     Text("Tearms")
@@ -36,6 +35,12 @@ struct PrivacyPolicy: View {
             }
         }
         .navigationTitle("Privcy Policy")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
 }
 

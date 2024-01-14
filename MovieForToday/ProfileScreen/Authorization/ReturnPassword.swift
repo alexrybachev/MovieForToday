@@ -10,7 +10,7 @@ import SwiftUI
 struct ReturnPassword: View {
     @Environment(\.presentationMode) var rootView
     @State private var showAlert = false
-    @StateObject var signInViewModel = SignInViewModel()
+    @ObservedObject var signInViewModel = SignInViewModel()
     @State var mail: String = ""
     
     init() {

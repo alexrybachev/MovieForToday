@@ -20,7 +20,7 @@ struct EditProfile: View {
     var body: some View {
         VStack {
             ZStack {
-                Color.customMain
+                Color(.customMain)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 16) {
@@ -55,12 +55,9 @@ struct EditProfile: View {
                     
                     Spacer()
                     
-                    CustomButton(text: "Save changes",
-                                 color: Color.customMint,
-                                 action: {
+                    CustomButton(text: "Save changes", color: Color(.customMint), action: {
                         Task {
                             do {
-                                //                                try await FirebaseManager.shared.updateEmail(email: mail)
                                 isPresentAlert = true
                                 try await FirebaseManager.shared.updateName(name: name)
                                 print("Change mail and password")
@@ -87,6 +84,12 @@ struct EditProfile: View {
             .foregroundColor(.white)
         }
         .navigationTitle("Edit Profile")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
     func image(image: UIImage?) -> Image {
         if let profileImage = image {
