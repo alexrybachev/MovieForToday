@@ -31,6 +31,7 @@ struct PopularMovieView: View {
         }
         .task {
             viewModel.fetchMovies(with: slug)
+            viewModel.fetchMovies(viewModel.categories[viewModel.selectedCategory])
         }
     }
 }
