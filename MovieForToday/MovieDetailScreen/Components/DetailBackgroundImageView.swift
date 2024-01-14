@@ -9,7 +9,9 @@ import SwiftUI
 import RemoteImage
 
 struct DetailBackgroundImageView: View {
-    let movieModel: MovieModel
+    
+    @Binding var movieModel: MovieModel
+    
     let gradient: [Color] = [
         .customMain,
         .customMain.opacity(0),
@@ -19,7 +21,7 @@ struct DetailBackgroundImageView: View {
     ]
     
     var body: some View {
-        RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+        RemoteImage(link: movieModel.urlPoster) { image in
             BackgroundImageView(image: image, gradient: gradient, blur: 1)
         } placeholder: {
             BackgroundImageView(image: Image(.topGunVert), gradient: gradient, blur: 10)
@@ -30,5 +32,5 @@ struct DetailBackgroundImageView: View {
 }
 
 #Preview {
-    DetailBackgroundImageView(movieModel: MovieModel.getMocData())
+    DetailBackgroundImageView(movieModel: .constant(MovieModel.getMocData()))
 }

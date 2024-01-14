@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WishListView: View {
-    @StateObject var viewModel = PopularMovieViewModel()
+    @StateObject var viewModel = WishListViewModel()
     
     var body: some View {
         ZStack {
@@ -20,8 +20,7 @@ struct WishListView: View {
                 )
             } else {
                 ScrollView(showsIndicators: false) {
-                    // TODO: временное решение
-                    ForEach(viewModel.movieModels, id: \.name) { movie in
+                    ForEach(viewModel.movieModels) { movie in
                         NavigationLink {
                             MovieDetailView(movieModel: movie)
                         } label: {
@@ -30,6 +29,10 @@ struct WishListView: View {
                     }
                 }
             }
+        }
+        .task {
+            print("task start")
+            viewModel.getFavoriteMovies()
         }
         .navigationTitle("wishlist")
         .navigationBarTitleDisplayMode(.inline)

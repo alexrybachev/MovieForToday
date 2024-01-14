@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var homeViewModel: HomeViewModel
+    
     @State private var selectedTab: Tab = .home
     private let tabBarHeight: CGFloat = 72
     
@@ -16,7 +18,7 @@ struct ContentView: View {
             VStack {
                 switch selectedTab {
                 case .home:
-                    HomeView()
+                    HomeView(homeViewModel: homeViewModel)
                 case .search:
                     SearchView()
                 case .tree:
@@ -34,11 +36,11 @@ struct ContentView: View {
 }
 
 #Preview("English") {
-    ContentView()
+    ContentView(homeViewModel: HomeViewModel())
         .environment(\.locale, .init(identifier: "en"))
 }
 
 #Preview("Russian") {
-    ContentView()
+    ContentView(homeViewModel: HomeViewModel())
         .environment(\.locale, .init(identifier: "ru"))
 }

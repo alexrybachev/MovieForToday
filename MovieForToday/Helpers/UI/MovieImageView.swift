@@ -40,5 +40,11 @@ struct MovieImageView: View {
 }
 
 #Preview {
-    MovieImageView(image: Image(.topGunVert), width: 242, height: 166, cornerRadius: 8, showPlayButton: true)
+    MovieImageView(
+        image: Image(.topGunVert), 
+        width: 242,
+        height: 166,
+        cornerRadius: 8,
+        showPlayButton: true
+    )
 }

@@ -11,22 +11,22 @@ import RemoteImage
 struct FullScreenImageView: View {
     @Environment(\.dismiss) var dismiss
     @State private var selected = 0
-    let movieModel: MovieModel
+    @Binding var movieImages: [MovieImage]
     
     var body: some View {
         NavigationView {
             VStack {
                 TabView(selection: $selected) {
-                    ForEach(0..<5) { _ in
+                    ForEach(movieImages, id: \.previewUrl) { movieImage in
                         RemoteImage(
-                            url: URL(string: movieModel.urlPoster)!,
+                            link: movieImage.previewUrl,
                             configure: { $0.resizable().scaledToFit() }
                         )
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
-                PagingIndexView(numberOfItems: 5, selectedTab: selected)
+                PagingIndexView(numberOfItems: movieImages.count, selectedTab: $selected)
                     .animation(.default, value: selected)
             }
             .background(.customMain)
@@ -43,5 +43,5 @@ struct FullScreenImageView: View {
 }
 
 #Preview {
-    FullScreenImageView(movieModel: MovieModel.getMocData())
+    FullScreenImageView(movieImages: .constant([]))
 }

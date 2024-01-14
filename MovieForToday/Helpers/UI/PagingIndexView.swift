@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PagingIndexView: View {
     let numberOfItems: Int
-    let selectedTab: Int
+    @Binding var selectedTab: Int
     
     private let dotHeight: CGFloat = 8
     private let dotWidth: CGFloat = 24
@@ -19,8 +19,8 @@ struct PagingIndexView: View {
     
     var body: some View {
         HStack(spacing: dotSpacing) {
-            ForEach(0..<numberOfItems) { index in
-                if showIndex(index) {
+            ForEach(0..<numberOfItems, id: \.self) { index in
+//                if showIndex(index) {
                     Capsule()
                         .foregroundStyle(selectedTab == index ? primaryColor : secondaryColor)
                         .scaleEffect(selectedTab == index ? 1 : 0.8)
@@ -28,7 +28,7 @@ struct PagingIndexView: View {
                             width: selectedTab == index ? dotWidth : dotHeight,
                             height: dotHeight
                         )
-                }
+//                }
             }
         }
     }
@@ -39,5 +39,5 @@ struct PagingIndexView: View {
 }
 
 #Preview {
-    PagingIndexView(numberOfItems: 5, selectedTab: 0)
+    PagingIndexView(numberOfItems: 5, selectedTab: .constant(0))
 }

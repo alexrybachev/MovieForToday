@@ -14,12 +14,12 @@ struct Registration: View {
     @State var showAlert = false
     @State var shake = false
     init() {
-            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PrimaryColor.mainDark.rawValue) ?? .white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.customMain)]
             }
     var body: some View {
         NavigationView {
             ZStack {
-                Color((PrimaryColor.mainDark.rawValue))
+                Color.customMain
                     .ignoresSafeArea()
                 
                 VStack(spacing: 30) {

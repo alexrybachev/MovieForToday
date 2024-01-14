@@ -1,6 +1,6 @@
 //
 //  RemoteImage.swift
-//  
+//
 //
 //  Created by Илья Шаповалов on 28.12.2023.
 //
@@ -82,7 +82,7 @@ public struct RemoteImage<I: View, P: View, E: View>: View {
         }
     }
 }
- 
+
 extension RemoteImage {
     enum ImageState {
         case loading

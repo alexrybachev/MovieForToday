@@ -16,7 +16,6 @@ public struct ImageContent: Decodable {
     public let previewUrl: String?
 }
 
-
 public struct Movie: Decodable, Identifiable {
     public let id: Int
     public let externalId: ExternalId?
@@ -35,6 +34,7 @@ public struct Movie: Decodable, Identifiable {
     public let rating: Rating
     public let videos: VideoContent?
     public let genres: [FieldValue]?
+    public let ratingMpaa: String?
 }
 
 public extension Movie {

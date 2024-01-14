@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import WebPlayer
 
 struct MovieDetailView: View {
-    @State private var isSharing = false        
+    
+    @StateObject private var movieDetail = MovieDetailViewModel()
+    
+    @State private var isSharing = false
+    
     let movieModel: MovieModel
     
     var body: some View {
         ZStack {
             // MARK: Background image
-            DetailBackgroundImageView(movieModel: movieModel)
+            DetailBackgroundImageView(movieModel: $movieDetail.movieModel)
             
             ScrollView {
                 VStack {
@@ -34,16 +39,19 @@ struct MovieDetailView: View {
                         ImageText(image: .clock, text: movieModel.duration, isMinutes: true)
                         Divider()
                         
-                        ImageText(image: .film, text: movieModel.genre.first!.name.capitalized)
+                        ImageText(image: .film, text: movieModel.genres.joined(separator: ", "))
                     }
-                    .padding(.top)
-                    .frame(maxWidth: Constants.labelsWidth)
+                    .padding([.top, .leading, .trailing])
+                    .onTapGesture {
+                        print("\nURL video:\n", movieDetail.movieModel.trailerUrl)
+                    }
                     
+                    // MARK: - Rating
                     RatingView(rating: movieModel.rating, isBackground: true)
                     
                     // MARK: Action buttons
                     HStack {
-                        NavigationLink(destination: { TrailerView(movieModel: movieModel)}) {
+                        NavigationLink(destination: { TrailerView(movieModel: $movieDetail.movieModel, movieImages: $movieDetail.movieImages)}) {
                             TrailerButtonView(
                                 width: Constants.buttonWidth,
                                 height: Constants.buttonHeight
@@ -53,33 +61,45 @@ struct MovieDetailView: View {
                         Spacer()
                         
                         // TODO: Play movie button
-                        ShareButtonView(image: .film, action: {})
+                        NavigationLink {
+                            WebPlayerView(movieId: String(movieModel.id))
+                        } label: {
+                            ShareButtonImage(image: .film)
+                        }
                         
                         Spacer()
                         
                         ShareButtonView(image: .share, action: { isSharing = true })
                             .sheet(isPresented: $isSharing) {
                                 // TODO: Share to..
+                                #warning("TODO: Share to..")
                             }
                     }
                     .frame(maxWidth: Constants.buttonsWidth)
                     .padding(.top)
                     
-                    // MARK: Text views
+                    HeadlineView(headline: "story_line", isAddButton: false ,action: {})
+                        .padding(.top)
+                    
                     DetailTextView(
+                        descriptionMovie: movieModel.description,
                         headlineTextSize: Constants.headlineText,
                         subheadlineTextSize: Constants.subheadlineText
                     )
                     
+                    HeadlineView(headline: "cast_and_crew", isAddButton: false ,action: {})
+                    
                     // MARK: Crew labels scroll view
                     CrewLabelsScrollView(
-                        movieModel: movieModel,
+                        movieModel: $movieDetail.movieModel,
                         height: Constants.circleLabelHeight
                     )
                     
+                    HeadlineView(headline: "galery", isAddButton: false ,action: {})
+                    
                     // MARK: Galery carusel
                     GaleryCarouselView(
-                        movieModel: movieModel,
+                        movieImages: $movieDetail.movieImages,
                         headlineTextSize: Constants.headlineText,
                         imageWidth: Constants.movieImageWidth,
                         imageHeight: Constants.movieImageHeight,
@@ -89,7 +109,14 @@ struct MovieDetailView: View {
                 .padding(.top)
             }
         }
-        .navigationTitle(movieModel.name)
+        .task {
+            movieDetail.fetchMovieDetail(for: movieModel.id)
+            movieDetail.fetchMovieImages(for: movieModel.id)
+        }
+        .onAppear {
+            movieDetail.saveRecentMovie(with: movieModel.id)
+        }
+        .navigationTitle(movieDetail.movieModel.name)
         .navigationBarTitleDisplayMode(.inline)
         .background(.customMain)
         .navigationBarBackButtonHidden(true)
@@ -99,7 +126,10 @@ struct MovieDetailView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                AddToFavoritesButton(action: {})
+                AddToFavoritesButton(action: {
+                    print("add button tapped")
+                    movieDetail.saveFavoriteMovie(with: movieModel.id)
+                })
             }
         }
     }

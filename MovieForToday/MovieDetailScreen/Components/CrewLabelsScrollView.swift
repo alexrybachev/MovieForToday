@@ -9,19 +9,18 @@ import SwiftUI
 import RemoteImage
 
 struct CrewLabelsScrollView: View {
-    let movieModel: MovieModel
+    @Binding var movieModel: MovieModel
     let height: CGFloat
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                // TODO: временное решение
-                ForEach(0..<5) { _ in
-                    RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+            LazyHStack {
+                ForEach(movieModel.persons) { person in
+                    RemoteImage(link: person.photo) { image in
                         CrewLabelView(
                             image: image,
-                            name: movieModel.name,
-                            role: movieModel.genre.first!.name.capitalized
+                            name: person.name,
+                            role: person.profession.capitalized
                         )
                     } placeholder: {
                         ProgressView()
@@ -37,7 +36,8 @@ struct CrewLabelsScrollView: View {
     }
 }
 
-#Preview {
-    CrewLabelsScrollView(movieModel: MovieModel.getMocData(), height: 150)
-        .background(.customMain)
-}
+
+//#Preview {
+//    CrewLabelsScrollView(movieModel: MovieModel.getMocData(), height: 150)
+//        .background(.customMain)
+//}

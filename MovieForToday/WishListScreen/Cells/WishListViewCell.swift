@@ -38,7 +38,7 @@ struct WishListViewCell: View {
                 }
                 
                 VStack(alignment: .leading, spacing: Constants.verticalPaddings) {
-                    Text(movieModel.genre.first!.name.capitalized)
+                    Text(movieModel.genres.first!.capitalized)
                         .font(.custom(.montMedium, size: Constants.smallTextSize))
                         .foregroundStyle(.textWhiteGrey)
                     
@@ -47,7 +47,7 @@ struct WishListViewCell: View {
                         .foregroundStyle(.textWhiteGrey)
                     
                     HStack {
-                        Text(movieModel.category)
+                        Text(movieModel.genres.joined(separator: ", "))
                             .font(.custom(.montRegular, size: Constants.smallTextSize))
                             .foregroundStyle(.textGrey)
                         

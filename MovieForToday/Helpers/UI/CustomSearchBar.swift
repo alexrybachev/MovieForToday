@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct CustomSearchBar: View {
+    
     @FocusState private var isFocused: Bool
     @Binding var searchText: String
     @Binding var isSearch: Bool
+    
     let placeholderText: LocalizedStringKey
-    let action: () -> Void
+    let action: (String) -> Void
     
     var body: some View {
         HStack {
@@ -21,11 +23,17 @@ struct CustomSearchBar: View {
                     .colorMultiply(.textGrey)
                 
                 TextField(placeholderText, text: $searchText)
+                    .foregroundStyle(Color.textWhiteGrey)
                     .focused($isFocused)
                     .onChange(of: isFocused) { newValue in
                         withAnimation {
                             isSearch = newValue
                         }
+                    }
+                    .onSubmit {
+                        print("search text: ", searchText)
+                        action(searchText)
+                        print("status search bar:", isSearch)
                     }
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
@@ -39,7 +47,7 @@ struct CustomSearchBar: View {
                         searchText = ""
                         isFocused = false
                     }
-                    action()
+//                    action()
                 } label: {
                     Text("cancel")
                         .font(.custom(.montMedium, size: 14))
@@ -52,5 +60,10 @@ struct CustomSearchBar: View {
 }
 
 #Preview {
-    CustomSearchBar(searchText: .constant(""), isSearch: .constant(true), placeholderText: "search_a_title..", action: {})
+    CustomSearchBar(
+        searchText: .constant(""),
+        isSearch: .constant(true),
+        placeholderText: "search_a_title..",
+        action: { _ in}
+    )
 }

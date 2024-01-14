@@ -13,26 +13,35 @@ struct PlaceholderView: View {
     let subtitle: String
     
     var body: some View {
-        VStack(spacing: 16) {
-            Image(name)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 76)
+        ZStack {
+            Color.customMain
+                .ignoresSafeArea()
             
-            Text(title)
-                .font(.custom(.montSemiBold, size: 16))
-                .foregroundStyle(.textWhiteGrey)
-            
-            Text(subtitle)
-                .font(.custom(.montRegular, size: 12))
-                .foregroundStyle(.textGrey)
+            VStack(spacing: 16) {
+                Image(name)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 76)
+                
+                Text(title)
+                    .font(.custom(.montSemiBold, size: 16))
+                    .foregroundStyle(.textWhiteGrey)
+                
+                Text(subtitle)
+                    .font(.custom(.montRegular, size: 12))
+                    .foregroundStyle(.textGrey)
+            }
+            .frame(minWidth: 252, maxHeight: 164)
+            .padding([.leading, .trailing])
         }
-        .frame(minWidth: 252, maxHeight: 164)
-        .padding([.leading, .trailing])
     }
 }
 
 #Preview {
-    PlaceholderView(name: .box, title: "There Is No Movie Yet!", subtitle: "Find your movie by Type title, categories, years, etc")
-        .background(.customMain)
+    PlaceholderView(
+        name: .box,
+        title: "There Is No Movie Yet!",
+        subtitle: "Find your movie by Type title, categories, years, etc"
+    )
+    .background(.customMain)
 }

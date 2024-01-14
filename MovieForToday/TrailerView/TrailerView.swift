@@ -10,79 +10,58 @@ import RemoteImage
 import WebPlayer
 
 /* TODO: - list
-    1. Change Bg and FG to special view (DRY)
-    2. There is a special date view instead of manual
+ 1. Change Bg and FG to special view (DRY)
+ 2. There is a special date view instead of manual
  */
 struct TrailerView: View {
     
+    @Binding var movieModel: MovieModel
+    @Binding var movieImages: [MovieImage]
+    
     @State private var isSharing = false
     @State private var isFullScreen = false
-    let gradient = [
-        Color.primaryColor(.mainDark),
-        Color.primaryColor(.mainDark).opacity(0),
-        Color.primaryColor(.mainDark),
-        Color.primaryColor(.mainDark),
-        Color.primaryColor(.mainDark)
-    ]
-    
-    let movieModel: MovieModel
     
     // MARK: - ViewBuilder Elements
-
-    @ViewBuilder private var Trailer: some View {
-        Rectangle()
-            .frame(width: 200, height: 200)
-            .background(Color.white)
-    }
     
-    @ViewBuilder private var MovieInfo: some View {
-        VStack (alignment: .leading, spacing: 16){
-            Text(movieModel.name)
-                .foregroundStyle(Color.textColor(.whiteGrey))
-                .font(.custom(.montSemiBold, size: Constants.headlineText))
-            HStack{
-                ImageText(image: .calendar, text: "Release Date")
-                Text(movieModel.year) //TODO: full date
-                    .foregroundStyle(Color.textWhiteGrey)
-                Divider()
-                
-                ImageText(image: .film, text: movieModel.genre.first!.name.capitalized)
-                Spacer()
+    @ViewBuilder
+    private var MovieInfo: some View {
+        VStack (alignment: .leading, spacing: 16) {
+            HeadlineView(headline: LocalizedStringKey(movieModel.name), isAddButton: false, action: {})
+            
+            HStack {
+                ImageText(image: .calendar, text: movieModel.year)
+                ImageText(image: .film, text: movieModel.genres.map { $0.capitalized }.joined(separator: ", "))
             }
-            .padding(.top)
+            .padding([.top, .bottom])
             .frame(maxWidth: .infinity)
         }
         .padding(.horizontal)
     }
     
-    @ViewBuilder private var MovieSynopsis: some View {
+    @ViewBuilder
+    private var MovieSynopsis: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("story_line")
-                .foregroundStyle(Color.textColor(.whiteGrey))
-                .font(.custom(.montSemiBold, size: Constants.headlineText))
+            HeadlineView(headline: "story_line", isAddButton: false, action: {})
             
-            Text("For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero's identity is revealed, bringing his Super Hero responsibilities into conflict with his normal life and putting those he cares about most at risk. More")
-                .foregroundStyle(Color.textColor(.whiteGrey))
+            Text(movieModel.description)
+                .foregroundStyle(Color.textWhiteGrey)
                 .font(.custom(.montRegular, size: Constants.subheadlineText))
-                .padding(.bottom)
+                .padding([.leading, .trailing])
             
-            Text("cast_and_crew")
-                .foregroundStyle(Color.textColor(.whiteGrey))
-                .font(.custom(.montSemiBold, size: Constants.headlineText))
+            HeadlineView(headline: "cast_and_crew", isAddButton: false, action: {})
         }
-        .padding()
     }
     
-    @ViewBuilder private var MovieCast: some View {
+    @ViewBuilder
+    private var MovieCast: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                // TODO: временное решение
-                ForEach(0..<5) { _ in
-                    RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+            LazyHStack {
+                ForEach(movieModel.persons) { person in
+                    RemoteImage(link: person.photo) { image in
                         CrewLabelView(
                             image: image,
-                            name: movieModel.name,
-                            role: movieModel.genre.first!.name.capitalized
+                            name: person.name,
+                            role: person.profession
                         )
                     } placeholder: {
                         ProgressView()
@@ -97,75 +76,41 @@ struct TrailerView: View {
         .padding(.bottom)
     }
     
-    @ViewBuilder private var MovieGallery: some View {
-        HStack {
-            Text("galery")
-                .foregroundStyle(Color.textColor(.whiteGrey))
-                .font(.custom(.montSemiBold, size: Constants.headlineText))
+    // MARK: - View
+    var body: some View {
+        ZStack {
+            Color.customMain
+                .ignoresSafeArea()
             
-            Spacer()
-        }
-        .padding()
-        
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(0..<5) { _ in
-                    Button {
-                        isFullScreen = true
-                    } label: {
-                        RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
-                            MovieImageView(
-                                image: image,
-                                width: Constants.movieImageWidth,
-                                height: Constants.movieImageHeight,
-                                cornerRadius: Constants.movieImageCornerRadius
-                            )
-                        } placeholder: {
-                            ProgressView()
-                                .frame(
-                                    width: Constants.movieImageWidth,
-                                    height: Constants.movieImageHeight
-                                )
-                        }
-                    }
+            ScrollView {
+                VStack {
+                    WebPlayerView(youtybeLink: movieModel.trailerUrl)
+                        .frame(height: 250)
+                        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
+                        .padding()
+                    
+                    
+                    MovieInfo
+                    
+                    MovieSynopsis
+                    
+                    MovieCast
+                    
+                    GaleryCarouselView(
+                        movieImages: $movieImages,
+                        headlineTextSize: Constants.headlineText,
+                        imageWidth: Constants.movieImageWidth,
+                        imageHeight: Constants.movieImageHeight,
+                        cornerRadius: Constants.movieImageCornerRadius
+                    )
+                    
                 }
             }
+            .padding(.bottom, Constants.tabBarHeight)
         }
-        .sheet(isPresented: $isFullScreen) {
-            FullScreenImageView(movieModel: movieModel)
-        }
-    }
-        // MARK: - View
-        var body: some View {
-            ZStack {
-                
-                LinearGradient(colors: gradient, startPoint: .top, endPoint: .bottom)
-                
-                ScrollView {
-                    VStack {
-                        WebPlayerView(youtybeLink: "https://www.youtube.com/watch?v=xcE3MIHuuhg&themeRefresh=1")
-                            .frame(height: 250)
-                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
-                            .padding()
-                        
-                        
-//                        Trailer
-                        
-                        MovieInfo
-                        
-                        MovieSynopsis
-                        
-                        MovieCast
-                        
-                        MovieGallery
-                        
-                    }
-                }
-                .padding(.bottom, Constants.tabBarHeight)
-            }
         .navigationTitle(movieModel.name)
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color.primaryColor(.mainDark))
+        .background(Color.customMain)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -202,5 +147,8 @@ private extension TrailerView {
 }
 
 #Preview {
-    TrailerView(movieModel: MovieModel.getMocData())
+    TrailerView(
+        movieModel: .constant(MovieModel.getMocData()),
+        movieImages: .constant([])
+    )
 }

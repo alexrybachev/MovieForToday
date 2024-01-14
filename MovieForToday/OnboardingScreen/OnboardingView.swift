@@ -15,7 +15,7 @@ struct OnboardingView: View {
                 OnboardingScreenView()
             }
         }
-        .background(Color.primaryColor(.mainDark))
+        .background(Color.customMain)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

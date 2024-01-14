@@ -14,7 +14,7 @@ struct MovieView: View {
     
     var body: some View {
         HStack(spacing: Constants.horizontalSpacing) {
-            RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+            RemoteImage(link: movieModel.urlPoster) { image in
                 ZStack {
                     MovieImageView(
                         image: image,
@@ -58,12 +58,12 @@ struct MovieView: View {
                 HStack(spacing: 8) {
                     
                     ImageText(image: .film,
-                              text: movieModel.genre.first!.name.capitalized)
+                              text: movieModel.genres.first!.capitalized)
                     
                     Divider()
                         .background(Color.white)
                     
-                    Text(movieModel.category)
+                    Text(movieModel.genres.joined(separator: ", "))
                         .font(.custom(.montMedium, size: 12))
                         .foregroundStyle(Color.white)
                 }
@@ -73,7 +73,7 @@ struct MovieView: View {
             
             Spacer()
         }
-        .background(Color.primaryColor(.mainDark))
+        .background(Color.customMain)
         .frame(height: Constants.heightImage)
     }
 }

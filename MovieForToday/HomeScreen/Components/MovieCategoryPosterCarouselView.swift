@@ -9,17 +9,18 @@ import SwiftUI
 import RemoteImage
 
 struct MovieCategoryPosterCarouselView: View {
+    @ObservedObject var homeViewModel: HomeViewModel
+    
     @State private var selected = 0
-    let movieModel: MovieModel
     
     var body: some View {
         VStack {
             TabView(selection: $selected) {
-                ForEach(0..<3) { _ in
+                ForEach(homeViewModel.movieCollection, id: \.name) { collection in
                     NavigationLink {
-                        // TODO: PopularMovieView?
+                        PopularMovieView(viewModel: homeViewModel, slug: collection.name)
                     } label: {
-                        RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+                        RemoteImage(url: URL(string: collection.cover?.url ?? "")!) { image in
                             MovieImageView(
                                 image: image,
                                 width: Constants.posterWidth,
@@ -28,8 +29,8 @@ struct MovieCategoryPosterCarouselView: View {
                             )
                             .overlay {
                                 PosterLabelView(
-                                    title: movieModel.name,
-                                    subtitle: movieModel.category,
+                                    title: collection.name,
+                                    subtitle: "\(collection.moviesCount ?? 0) movies",
                                     spacing: Constants.labelSpacing
                                 )
                                 .offset(x: Constants.labelXoffset, y: Constants.labelYoffset)
@@ -52,7 +53,7 @@ struct MovieCategoryPosterCarouselView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-            PagingIndexView(numberOfItems: 3, selectedTab: selected)
+            PagingIndexView(numberOfItems: 3, selectedTab: $selected)
                 .animation(.default, value: selected)
         }
     }
@@ -71,6 +72,6 @@ private extension MovieCategoryPosterCarouselView {
 }
 
 #Preview {
-    MovieCategoryPosterCarouselView(movieModel: MovieModel.getMocData())
+    MovieCategoryPosterCarouselView(homeViewModel: HomeViewModel())
         .background(.customMain)
 }
