@@ -19,7 +19,7 @@ final class EndpointTests: XCTestCase {
     }
     
     func test_moviesWithSlug() {
-        let sut = Endpoint.movies(for: "Baz", page: 1, limit: 10)
+        let sut = Endpoint.moviesFor(genre: "Baz", page: 1, limit: 10)
         
         XCTAssertEqual(
             sut.url,
@@ -127,5 +127,11 @@ final class EndpointTests: XCTestCase {
             sut.url,
             URL(string: "https://api.kinopoisk.dev/v1.4/person/search?page=1&limit=10&query=Баз")
         )
+    }
+    
+    func test_getMoviesForSlug() {
+        let sut = Endpoint.moviesFor(slug: "Baz", page: 1, limit: 10)
+        
+        XCTAssertEqual(sut.url, URL(string: "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&lists=Baz"))
     }
 }
