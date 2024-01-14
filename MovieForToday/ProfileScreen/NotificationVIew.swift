@@ -63,6 +63,12 @@ struct NotificationVIew: View {
         }
         .navigationTitle("Notification")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
 }
 

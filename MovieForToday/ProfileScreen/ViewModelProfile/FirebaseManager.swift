@@ -35,10 +35,12 @@ struct SaveUser {
 
 final class FirebaseManager {
     static let shared = FirebaseManager()
+    var error: ErrorMessage?
     private init() {}
     
     func getAuthenticatedUser() throws -> UserData  {
         guard let user = Auth.auth().currentUser else {
+            self.error?.error = String(URLError(.badServerResponse).localizedDescription)
             throw URLError(.badServerResponse)
         }
         return UserData.init(user: user)
@@ -71,6 +73,7 @@ final class FirebaseManager {
             try await updateEmail(email: "example@example.com")
         } catch {
             print("Error updating email: \(error.localizedDescription)")
+            self.error?.error = String(error.localizedDescription)
         }
     }
     
@@ -81,6 +84,7 @@ final class FirebaseManager {
         do {
             try await changeRequest?.commitChanges()
         } catch {
+            self.error?.error = error.localizedDescription
             throw error
         }
     }

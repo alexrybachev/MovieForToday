@@ -11,9 +11,12 @@ import FirebaseAuth
 struct LogInView: View {
     @Environment(\.presentationMode) var rootView
     @StateObject var viewModel = SignInViewModel()
+    @ObservedObject var errorMessage = ErrorMessage()
     @Binding var showSignInView: Bool
     @Binding var isAuthorisation: Bool
     @State var shake = false
+    @State private var error = ""
+    
     init(showSignInView: Binding<Bool>, isAuthorisation: Binding<Bool>) {
         self._showSignInView = showSignInView
         self._isAuthorisation = isAuthorisation
@@ -51,6 +54,16 @@ struct LogInView: View {
                         .padding(.trailing, 20)
                     }
                     
+//                    HStack {
+//                        Text(errorMessage.error ?? "")
+//                            .font(.title)
+//                            .frame(maxWidth: .infinity)
+//                            .frame(height: 40)
+//                            .font(.system(size: 20))
+//                            .foregroundColor(.red)
+//                            .padding()
+//                    }
+                    
                     Spacer()
                     
                     Button {
@@ -58,6 +71,7 @@ struct LogInView: View {
                     } label: {
                         Text("Dismiss")
                     }
+                    
                     
                     NavigationLink(destination: {
                         Registration()

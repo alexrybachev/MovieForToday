@@ -24,7 +24,7 @@ struct More: View {
             Divider().background(.gray)
                 .padding(.horizontal, 16)
                 .opacity(0.3)
-            NavigationSettings(imageIcon: "alert", textNavigation: "About Us", destination: EmptyView())
+            NavigationSettings(imageIcon: "alert", textNavigation: "About Us", destination: AboutUs())
         }
         .background(Color((PrimaryColor.mainDark.rawValue)))
         .cornerRadius(16)

@@ -11,6 +11,7 @@ import FirebaseAuth
 struct ProfileView: View {
     @AppStorage("showSignIn") var showSignInView = false
     @AppStorage("isAuthorisation") var isAuthorisation = false
+    @StateObject var errorMessage = ErrorMessage()
     
     @StateObject private var viewModel = SignInViewModel()
     var body: some View {
@@ -29,6 +30,7 @@ struct ProfileView: View {
                         if isAuthorisation {
                             WishlistProfile()
                         }
+                        
                         General()
                         
                         More()
@@ -38,10 +40,9 @@ struct ProfileView: View {
                                 if isAuthorisation {
                                     do {
                                         try FirebaseManager.shared.signOut()
-                                        
                                         isAuthorisation = false
                                     } catch {
-                                        print(error.localizedDescription)
+                                        self.errorMessage.error = error.localizedDescription
                                     }
                                 } else {
                                     self.showSignInView = true
@@ -66,6 +67,7 @@ struct ProfileView: View {
                             self.isAuthorisation = true
                         } catch {
                             print("Error fetching user data: \(error.localizedDescription)")
+                            self.errorMessage.error = error.localizedDescription
                         }
                     }
                 }
@@ -76,7 +78,7 @@ struct ProfileView: View {
                         do {
                             try await viewModel.fetchUser()
                         } catch {
-                            
+                            self.errorMessage.error = error.localizedDescription
                         }
                     }
                 }

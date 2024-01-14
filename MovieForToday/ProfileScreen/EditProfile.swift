@@ -85,6 +85,12 @@ struct EditProfile: View {
             .foregroundColor(.white)
         }
         .navigationTitle("Edit Profile")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
     func image(image: UIImage?) -> Image {
         if let profileImage = image {

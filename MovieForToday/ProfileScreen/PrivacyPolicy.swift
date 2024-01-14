@@ -35,6 +35,12 @@ struct PrivacyPolicy: View {
             }
         }
         .navigationTitle("Privcy Policy")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomBackButton()
+            }
+        }
     }
 }
 
