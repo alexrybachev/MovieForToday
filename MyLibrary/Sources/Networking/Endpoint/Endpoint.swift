@@ -66,6 +66,7 @@ struct Endpoint {
             path: [APIVersion.new, Subpath.list.rawValue, slug].joined(separator: "/"),
             queryItems: {
                 paginated(page: page, limit: limit)
+                URLQueryItem(name: "category", value: "Фильмы")
                 URLQueryItem(name: Field.required, value: "cover.url")
                 URLQueryItem(name: Field.required, value: "cover.previewUrl")
             })
