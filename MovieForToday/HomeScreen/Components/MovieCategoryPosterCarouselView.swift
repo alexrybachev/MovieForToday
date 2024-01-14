@@ -18,7 +18,7 @@ struct MovieCategoryPosterCarouselView: View {
             TabView(selection: $selected) {
                 ForEach(homeViewModel.movieCollection, id: \.name) { collection in
                     NavigationLink {
-                        PopularMovieView(viewModel: homeViewModel, slug: collection.name)
+                        PopularMovieView(viewModel: homeViewModel, slug: collection.slug)
                     } label: {
                         RemoteImage(url: URL(string: collection.cover?.url ?? "")!) { image in
                             MovieImageView(
@@ -28,12 +28,16 @@ struct MovieCategoryPosterCarouselView: View {
                                 cornerRadius: Constants.posterRadius
                             )
                             .overlay {
-                                PosterLabelView(
-                                    title: collection.name,
-                                    subtitle: "\(collection.moviesCount ?? 0) movies",
-                                    spacing: Constants.labelSpacing
-                                )
-                                .offset(x: Constants.labelXoffset, y: Constants.labelYoffset)
+                                VStack(alignment: .leading) {
+                                    Spacer()
+                                    PosterLabelView(
+                                        title: collection.name,
+                                        subtitle: "\(collection.moviesCount ?? 0) movies",
+                                        spacing: Constants.labelSpacing
+                                    )
+                                }
+                                .padding([.bottom, .leading])
+//                                .offset(x: Constants.labelXoffset, y: Constants.labelYoffset)
                             }
                         } placeholder: {
                             ProgressView()
