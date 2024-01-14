@@ -18,6 +18,9 @@
         }
       }
     },
+    "Alex Rybachev" : {
+
+    },
     "cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -71,6 +74,9 @@
 
     },
     "Changes to the Service and/or Terms:" : {
+
+    },
+    "Developers" : {
 
     },
     "Dismiss" : {
@@ -347,6 +353,9 @@
           }
         }
       }
+    },
+    "No testers were harmed during development. MIT License." : {
+
     },
     "notification" : {
       "extractionState" : "manual",

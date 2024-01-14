@@ -39,6 +39,8 @@
 		0D6742602B518BE300684987 /* WishlistProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D67425F2B518BE300684987 /* WishlistProfile.swift */; };
 		0D6742622B5199B600684987 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6742612B5199B600684987 /* AboutUsView.swift */; };
 		0D6742642B51A33100684987 /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6742632B51A33100684987 /* ShakeAnimation.swift */; };
+		0D6742682B53227400684987 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6742672B53227400684987 /* Errors.swift */; };
+		0D67426A2B533EFC00684987 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6742692B533EFC00684987 /* AboutUs.swift */; };
 		287C8E0B2B384D6100C687E7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */; };
 		287C8E0C2B384D6400C687E7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */; };
 		287C8E0D2B384D6700C687E7 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */; };
@@ -129,6 +131,8 @@
 		0D67425F2B518BE300684987 /* WishlistProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistProfile.swift; sourceTree = "<group>"; };
 		0D6742612B5199B600684987 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		0D6742632B51A33100684987 /* ShakeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
+		0D6742672B53227400684987 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		0D6742692B533EFC00684987 /* AboutUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUs.swift; sourceTree = "<group>"; };
 		287C8E082B384D1B00C687E7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		287C8E092B384D1B00C687E7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		287C8E0A2B384D1C00C687E7 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 			children = (
 				0D2DB4892B4EEE60003D2414 /* FirebaseManager.swift */,
 				0D2DB4882B4EEE60003D2414 /* SignInViewModel.swift */,
+				0D6742672B53227400684987 /* Errors.swift */,
 			);
 			path = ViewModelProfile;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				0D2DB4732B4EEE17003D2414 /* PrivacyPolicy.swift */,
 				0D2DB49D2B507D3B003D2414 /* LanguageView.swift */,
 				0D2DB4992B4F1D15003D2414 /* NotificationVIew.swift */,
+				0D6742692B533EFC00684987 /* AboutUs.swift */,
 				0D2DB4832B4EEE60003D2414 /* Authorization */,
 				0D2DB47A2B4EEE60003D2414 /* Components */,
 			);
@@ -653,12 +659,14 @@
 				287C8E2D2B388A2C00C687E7 /* MovieModel.swift in Sources */,
 				0D2DB4962B4EEE60003D2414 /* FirebaseManager.swift in Sources */,
 				0D2DB48E2B4EEE60003D2414 /* More.swift in Sources */,
+				0D6742682B53227400684987 /* Errors.swift in Sources */,
 				FA1C01202B3C644A0047D1EB /* WishListViewCell.swift in Sources */,
 				288038F62B37351A00691E0E /* MovieListView.swift in Sources */,
 				FA229E0D2B51D58E003A6426 /* Bundle-Decodable.swift in Sources */,
 				FADC05D22B3DB2ED0031FD57 /* ErrorImageView.swift in Sources */,
 				3B319A402B4C42B70056DF68 /* OnboardingScreenView.swift in Sources */,
 				FA229E0F2B51D636003A6426 /* NewYearMovies.swift in Sources */,
+				0D67426A2B533EFC00684987 /* AboutUs.swift in Sources */,
 				288039082B37361200691E0E /* ChristmasTreeView.swift in Sources */,
 				0D6742642B51A33100684987 /* ShakeAnimation.swift in Sources */,
 				FA83840B2B443F50004B7A13 /* BackgroundImageView.swift in Sources */,

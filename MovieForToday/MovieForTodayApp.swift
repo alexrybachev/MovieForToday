@@ -21,6 +21,7 @@ struct MovieForTodayApp: App {
         WindowGroup {
             if isOnboarding {
                 ContentView()
+                    .preferredColorScheme(.dark)
             } else {
                 OnboardingView()
             }
