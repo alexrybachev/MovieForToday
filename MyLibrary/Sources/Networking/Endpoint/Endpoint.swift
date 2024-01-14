@@ -23,7 +23,7 @@ struct Endpoint {
             components.queryItems = queryItems
         }
         guard let url = components.url else {
-            fatalError("Unable to create url from components: \(components)")
+            preconditionFailure("Unable to create url from components: \(components)")
         }
         return url
     }
@@ -169,6 +169,22 @@ struct Endpoint {
             queryItems: {
                 paginated(page: page, limit: limit)
                 URLQueryItem(name: Field.query, value: name)
+            })
+    }
+    
+    //MARK: - Image
+    @inlinable
+    @inline(__always)
+    static func getImages(for movieId: Int, page: Int, limit: Int) -> Self {
+        .init(
+            path: [APIVersion.new, Subpath.image.rawValue].joined(separator: "/"),
+            queryItems: {
+                paginated(page: page, limit: limit)
+                URLQueryItem(name: Field.required, value: "url")
+                URLQueryItem(name: "movieId", value: movieId.description)
+                URLQueryItem(name: "type", value: "shooting")
+                URLQueryItem(name: "type", value: "frame")
+                URLQueryItem(name: "type", value: "promo")
             })
     }
     
