@@ -18,7 +18,7 @@ struct MovieCategoryPosterCarouselView: View {
             TabView(selection: $selected) {
                 ForEach(homeViewModel.movieCollection, id: \.name) { collection in
                     NavigationLink {
-                        PopularMovieView(viewModel: homeViewModel, slug: collection.name)
+                        PopularMovieView(viewModel: homeViewModel, slug: collection.slug)
                     } label: {
                         RemoteImage(url: URL(string: collection.cover?.url ?? "")!) { image in
                             MovieImageView(
