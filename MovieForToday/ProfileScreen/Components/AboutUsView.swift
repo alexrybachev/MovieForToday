@@ -27,7 +27,7 @@ struct AboutUsView: View {
                     HStack {
                         Text("Team")
                             .padding()
-                            .font(Font.custom(CustomFont.montSemiBold, size: 18))
+                            .font(Font.custom(.montSemiBold, size: 18))
                             .foregroundColor(.white)
                             .padding(.leading, 16)
                         Spacer()

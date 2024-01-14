@@ -25,8 +25,7 @@ struct AboutUs: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text("Teamlead")
-                        
-                            .font(Font.custom(CustomFont.montSemiBold, size: 18))
+                            .font(Font.custom(.montSemiBold, size: 18))
                             .foregroundColor(.white)
                             .padding(.leading, 32)
                             .padding(.top, 12)
@@ -43,11 +42,10 @@ struct AboutUs: View {
                         Text("Alex Rybachev")
                             .foregroundStyle(.white)
                             .padding(.leading, 22)
-                            .font(Font.custom(CustomFont.montMedium, size: 18))
+                            .font(Font.custom(.montMedium, size: 18))
                         Spacer()
                     }
                     .padding(.vertical, 10)
-                    .background(Color((PrimaryColor.mainDark.rawValue)))
                     .cornerRadius(16)
                     .overlay {
                         RoundedRectangle(cornerRadius: 16)
@@ -57,7 +55,7 @@ struct AboutUs: View {
                     
                     HStack {
                         Text("Developers")
-                            .font(Font.custom(CustomFont.montSemiBold, size: 18))
+                            .font(Font.custom(.montSemiBold, size: 18))
                             .foregroundColor(.white)
                             .padding(.leading, 32)
                             .padding(.top, 12)
@@ -75,12 +73,11 @@ struct AboutUs: View {
                             Text(name)
                                 .foregroundStyle(.white)
                                 .padding(.leading, 22)
-                                .font(Font.custom(CustomFont.montMedium, size: 18))
+                                .font(Font.custom(.montMedium, size: 18))
                             Spacer()
                         }
                     }
                     .padding(.vertical, 10)
-                    .background(Color((PrimaryColor.mainDark.rawValue)))
                     .cornerRadius(16)
                     .overlay {
                         RoundedRectangle(cornerRadius: 16)

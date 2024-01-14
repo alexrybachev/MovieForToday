@@ -10,7 +10,7 @@ import SwiftUI
 struct EmptyProfileView: View {
     var body: some View {
             ZStack {
-                Color((PrimaryColor.mainDark.rawValue))
+                Color(.customMintDark)
                     .ignoresSafeArea()
             }
     }

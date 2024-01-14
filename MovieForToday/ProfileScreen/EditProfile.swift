@@ -20,7 +20,7 @@ struct EditProfile: View {
     var body: some View {
         VStack {
             ZStack {
-                Color((PrimaryColor.mainDark.rawValue))
+                Color(.customMain)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 16) {
@@ -55,10 +55,9 @@ struct EditProfile: View {
                     
                     Spacer()
                     
-                    CustomButton(text: "Save changes", color: Color(PrimaryColor.mint.rawValue), action: {
+                    CustomButton(text: "Save changes", color: Color(.customMint), action: {
                         Task {
                             do {
-                                //                                try await FirebaseManager.shared.updateEmail(email: mail)
                                 isPresentAlert = true
                                 try await FirebaseManager.shared.updateName(name: name)
                                 print("Change mail and password")

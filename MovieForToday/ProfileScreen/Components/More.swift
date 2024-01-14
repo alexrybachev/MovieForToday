@@ -26,7 +26,7 @@ struct More: View {
                 .opacity(0.3)
             NavigationSettings(imageIcon: "alert", textNavigation: "About Us", destination: AboutUs())
         }
-        .background(Color((PrimaryColor.mainDark.rawValue)))
+        .background(.customMain)
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)

@@ -13,7 +13,7 @@ struct General: View {
             HStack {
                 Text("General")
                     .padding()
-                    .font(Font.custom(CustomFont.montSemiBold, size: 18))
+                    .font(Font.custom(.montSemiBold, size: 18))
                     .foregroundColor(.white)
                     .padding(.leading, 16)
                 Spacer()
@@ -26,7 +26,7 @@ struct General: View {
                 .opacity(0.3)
             NavigationSettings(imageIcon: "globe", textNavigation: "Language", destination: LanguageView())
         }
-        .background(Color((PrimaryColor.mainDark.rawValue)))
+        .background(.customMain)
         .cornerRadius(16)
         .overlay {
             RoundedRectangle(cornerRadius: 16)
