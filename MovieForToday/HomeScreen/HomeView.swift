@@ -13,16 +13,18 @@ struct HomeView: View {
     @State private var searchText = ""
     @State private var isSearch = false
     
+    @State private var isShowCategories = false
+    @State private var isShowPopular = false
+    
     var body: some View {
         NavigationView {
             ZStack {
                 ScrollView {
-
                     CustomSearchBar(
                         searchText: $searchText,
                         isSearch: $isSearch,
                         placeholderText: "search_a_title..",
-                        action: {
+                        action: { _ in
                             print("CustomSearchBar on HomeView")
                         }
                     )
@@ -31,9 +33,14 @@ struct HomeView: View {
                     MovieCategoryPosterCarouselView(homeViewModel: homeViewModel)
                         .frame(height: 200)
                     
-                    HeadlineView(headline: "categories", action: {
-                        print("tap 'see all' on categories")
-                    })
+                    NavigationLink(
+                        destination: PopularMovieView(viewModel: homeViewModel, slug: nil),
+                        isActive: $isShowCategories,
+                        label: {
+                            HeadlineView(headline: "categories", action: {
+                                isShowCategories.toggle()
+                            })
+                        })
                     
                     GenreButtonsScrollView(
                         selectedCategory: $homeViewModel.selectedCategory,
@@ -52,9 +59,10 @@ struct HomeView: View {
                         .padding(.top)
                 }
             }
-//            .onAppear {
-//                homeViewModel.fetchMovies("All")
-//            }
+            .task {
+//                let category = homeViewModel.categories[homeViewModel.selectedCategory]
+//                homeViewModel.fetchMovies(category)
+            }
             .background(.customMain)
             .toolbar {
                 // Open WishListView

@@ -14,7 +14,7 @@ struct CustomSearchBar: View {
     @Binding var isSearch: Bool
     
     let placeholderText: LocalizedStringKey
-    let action: () -> Void
+    let action: (String) -> Void
     
     var body: some View {
         HStack {
@@ -30,6 +30,11 @@ struct CustomSearchBar: View {
                             isSearch = newValue
                         }
                     }
+                    .onSubmit {
+                        print("search text: ", searchText)
+                        action(searchText)
+                        print("status search bar:", isSearch)
+                    }
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             .font(.custom(.montMedium, size: 14))
@@ -42,7 +47,7 @@ struct CustomSearchBar: View {
                         searchText = ""
                         isFocused = false
                     }
-                    action()
+//                    action()
                 } label: {
                     Text("cancel")
                         .font(.custom(.montMedium, size: 14))
@@ -59,6 +64,6 @@ struct CustomSearchBar: View {
         searchText: .constant(""),
         isSearch: .constant(true),
         placeholderText: "search_a_title..",
-        action: {}
+        action: { _ in}
     )
 }

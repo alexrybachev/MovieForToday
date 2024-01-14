@@ -14,7 +14,7 @@ struct MovieView: View {
     
     var body: some View {
         HStack(spacing: Constants.horizontalSpacing) {
-            RemoteImage(url: URL(string: movieModel.urlPoster)!) { image in
+            RemoteImage(link: movieModel.urlPoster) { image in
                 ZStack {
                     MovieImageView(
                         image: image,

@@ -11,19 +11,19 @@ import Networking
 @MainActor
 final class HomeViewModel: ObservableObject {
     
-    private let networking = NetworkManager(apiKey: "NHF9KRY-Y43MNST-K5GMVR9-40FZPJS") // "91FNPYK-28Z4N08-K3AEZFE-G1204N7"
+    private let networking = NetworkManager(apiKey: "MEY4BQK-S3G4X7A-QWH2AEP-MKCHDYX")
     
     @Published var movieCollection: [Collection] = []
     @Published var categories: [String] = ["All"]
     @Published var movieModels: [MovieModel] = []
+    @Published var slugModels: [MovieModel] = []
     
     @Published var selectedCategory = 0
     
     func fetchMovieCollection() {
         Task {
             do {
-                let data = try await networking.getMovieList()
-                movieCollection = data.docs
+                movieCollection = try await networking.getMovieList().docs
             }
         }
     }
@@ -74,6 +74,35 @@ final class HomeViewModel: ObservableObject {
                         )
                     }
                 }
+            }
+        }
+    }
+    
+    func fetchMovies(with slug: String?) {
+        print(#function)
+        guard let slug else { return }
+        Task {
+            do {
+                let docs = try await networking.getMovies(for: slug).docs
+                print("slug docs: ", docs)
+                slugModels = docs.map {
+                    MovieModel(
+                        id: $0.id,
+                        urlPoster: $0.poster.previewUrl ?? "no urlPoster",
+                        backdrop: $0.backdrop?.url ?? "no backdrop",
+                        rating: $0.rating.kp.convertToString,
+                        name: $0.name ?? "no name",
+                        description: $0.description ?? "no description",
+                        year: String($0.year ?? 0),
+                        duration: String($0.movieLength ?? 0),
+                        genres: $0.genres?.compactMap { $0.name.capitalized } ?? [],
+                        persons: [],
+                        trailerUrl: $0.videos?.trailers.first?.url ?? ""
+                    )
+                }
+                print("slugModels: ", slugModels)
+            } catch let error {
+                    print("Error fetchMovies(with slug: String): ", error.localizedDescription)
             }
         }
     }

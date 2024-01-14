@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct AddToFavoritesButton: View {
+    @State private var isSelected = false
     let action: () -> Void
     
     var body: some View {
         Button(action: action) {
             AddToFavoritesLabel()
+                .colorMultiply(isSelected ? .red : .gray)
+                .onTapGesture {
+                    isSelected.toggle()
+                    action()
+                }
         }
         
     }

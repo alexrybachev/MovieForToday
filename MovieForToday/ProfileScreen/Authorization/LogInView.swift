@@ -17,13 +17,13 @@ struct LogInView: View {
     init(showSignInView: Binding<Bool>, isAuthorisation: Binding<Bool>) {
         self._showSignInView = showSignInView
         self._isAuthorisation = isAuthorisation
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named:  PrimaryColor.mainDark.rawValue) ?? .white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.customMain)]
     }
     
     var body: some View {
         NavigationView {
             ZStack {
-                Color((PrimaryColor.mainDark.rawValue))
+                Color.customMain
                     .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 20) {
@@ -92,7 +92,7 @@ struct LogInView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 20)
                             .font(.custom(.montMedium, size: 16))
-                            .background(Color(PrimaryColor.mint.rawValue))
+                            .background(Color.customMint)
                             .cornerRadius(32)
                     }
                     .padding(.horizontal, 16)

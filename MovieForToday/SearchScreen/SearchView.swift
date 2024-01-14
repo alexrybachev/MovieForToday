@@ -10,90 +10,112 @@ import SwiftUI
 struct SearchView: View {
     
     @StateObject private var searchViewModel = SearchViewModel()
-    
-    #warning("Удалить и Скорректировать входящий параметр moviewModel для TabBar")
-    let movieModel: MovieModel = MovieModel.getMocData()
+    @State var isSearchText = false
     
     var body: some View {
-        ZStack {
-            Color.customMain.ignoresSafeArea()
-            
-            VStack(spacing: 16) {
+        NavigationView {
+            ZStack {
+                Color.customMain.ignoresSafeArea()
                 
-                CustomSearchBar(
-                    searchText: $searchViewModel.searchText,
-                    isSearch: $searchViewModel.isSearch,
-                    placeholderText: "search_placeholder",
-                    action: {
-                        print("SearchBar редактируется")
-                    }
-                )
-                
-                if searchViewModel.isSearch {
-//                    ScrollView(axis: .vertical) {
-//                        LazyVStack {
-//                            
-//                        }
-//                    }
-                #warning("доработать с перестройкой лайаута")
+                VStack(spacing: 16) {
                     
-                } else {
-                    
-                    //                GenreButtonsScrollView(
-                    //                    genres: $viewModel.categories,
-                    //                    selectedTag: $viewModel.selectedTag
-                    //                )
-                    
-                    HeadlineView(
-                        headline: "upcoming_movie",
-                        isAddButton: false,
-                        action: {}
-                    )
-                    
-                    #warning("Скорректировать MoviewView для переиспользования")
-                    ScrollView(.horizontal) {
-                        LazyHStack {
-                            ForEach(searchViewModel.upcomingMovies, id: \.id) {
-                                MovieView(movieModel: $0)
+                    CustomSearchBar(
+                        searchText: $searchViewModel.searchText,
+                        isSearch: $searchViewModel.isSearch,
+                        placeholderText: "search_placeholder",
+                        action: { searchText in
+                            if searchText.isEmpty {
+                                isSearchText = false
+                            } else {
+                                isSearchText = true
+                                searchViewModel.fetchMovies(with: searchText)
+                                searchViewModel.fetchPersons(with: searchText)
                             }
                         }
-                    }
-                    .frame(height: 147)
-                    
-//                    MovieView(movieModel: MovieModel.getMocData())
-                    
-                    Spacer()
-                    
-                    HeadlineView(
-                        headline: "recent_movie",
-                        action: {}
                     )
                     
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 12) {
-                            ForEach(0..<searchViewModel.recentMovieIds.count, id: \.self) { _ in
-                                ZStack(alignment: .bottom) {
+                    if isSearchText {
+                        if !searchViewModel.persons.isEmpty {
+                            HeadlineView(headline: "Actors", isAddButton: false, action: {})
+                            
+                            ScrollView(.horizontal) {
+                                LazyHStack {
+                                    ForEach(searchViewModel.persons) { person in
+                                        PersonView(moviePerson: person)
+                                    }
+                                }
+                            }
+                            .frame(height: 87)
+                        }
+                        
+                        HeadlineView(headline: "Movie Related", isAddButton: true, action: {})
+                        ScrollView(.vertical) {
+                            LazyVStack {
+                                ForEach(searchViewModel.movieModels) { movieModel in
                                     NavigationLink {
                                         MovieDetailView(movieModel: movieModel)
                                     } label: {
-                                        VerticalPoster(movieModel: movieModel)
+                                        MovieView(movieModel: movieModel)
                                     }
                                 }
                             }
                         }
+                    } else {
+                        
+                        GenreButtonsScrollView(
+                            selectedCategory: $searchViewModel.selectedCategory,
+                            categories: $searchViewModel.categories,
+                            action: { category in
+                                searchViewModel.fetchMovies(category)
+                            }
+                        )
+                        
+                        HeadlineView(
+                            headline: "upcoming_movie",
+                            isAddButton: false,
+                            action: {}
+                        )
+                        
+                        ScrollView(.vertical) {
+                            LazyVStack {
+                                ForEach(searchViewModel.upcomingMovies) {
+                                    MovieView(movieModel: $0)
+                                }
+                            }
+                            .padding(.bottom, 0)
+                        }
+                        
+                        HeadlineView(
+                            headline: "recent_movie",
+                            action: {}
+                        )
+                        .padding(.top, 12)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 12) {
+                                ForEach(searchViewModel.recentMovies) { movieModel in
+                                    ZStack(alignment: .bottom) {
+                                        NavigationLink {
+                                            MovieDetailView(movieModel: movieModel)
+                                        } label: {
+                                            VerticalPoster(movieModel: movieModel)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .frame(height: 231)
+                        
+                        Spacer()
                     }
-                    .frame(height: 231)
-                    
-                    Spacer()
                 }
+                .padding()
             }
-            .padding()
         }
-        .onAppear {
-            searchViewModel.fetchUpcomingMovie()
-            searchViewModel.fetchCategories()
-            searchViewModel.getRecentMovieIds()
-            print(searchViewModel.recentMovieIds)
+        .task {
+            //            searchViewModel.fetchUpcomingMovie()
+            //            searchViewModel.fetchCategories()
+            //            searchViewModel.getRecentMovieIds()
         }
     }
 }

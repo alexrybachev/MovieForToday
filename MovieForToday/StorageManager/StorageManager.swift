@@ -13,7 +13,7 @@ final class StorageManager {
     
     private init() {}
     
-    func saveMovie(with id: Int) {
+    func saveRecentMovie(with id: Int) {
         var savedMovieIds = getMovies(with: .recentKey)
         
         if savedMovieIds.firstIndex(of: id) == nil {
@@ -24,7 +24,6 @@ final class StorageManager {
     
     func saveFavoriteMovie(with id: Int) {
         var savedMovieIds = getMovies(with: .favoriteKey)
-        
         if savedMovieIds.firstIndex(of: id) == nil {
             savedMovieIds.append(id)
             UserDefaults.standard.set(savedMovieIds, forKey: UsersKeys.favoriteKey.rawValue)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WebPlayer
 
 struct MovieDetailView: View {
     
@@ -41,13 +42,16 @@ struct MovieDetailView: View {
                         ImageText(image: .film, text: movieModel.genres.joined(separator: ", "))
                     }
                     .padding([.top, .leading, .trailing])
+                    .onTapGesture {
+                        print("\nURL video:\n", movieDetail.movieModel.trailerUrl)
+                    }
                     
                     // MARK: - Rating
                     RatingView(rating: movieModel.rating, isBackground: true)
                     
                     // MARK: Action buttons
                     HStack {
-                        NavigationLink(destination: { TrailerView(movieModel: $movieDetail.movieModel)}) {
+                        NavigationLink(destination: { TrailerView(movieModel: $movieDetail.movieModel, movieImages: $movieDetail.movieImages)}) {
                             TrailerButtonView(
                                 width: Constants.buttonWidth,
                                 height: Constants.buttonHeight
@@ -57,13 +61,18 @@ struct MovieDetailView: View {
                         Spacer()
                         
                         // TODO: Play movie button
-                        ShareButtonView(image: .film, action: {})
+                        NavigationLink {
+                            WebPlayerView(movieId: String(movieModel.id))
+                        } label: {
+                            ShareButtonImage(image: .film)
+                        }
                         
                         Spacer()
                         
                         ShareButtonView(image: .share, action: { isSharing = true })
                             .sheet(isPresented: $isSharing) {
                                 // TODO: Share to..
+                                #warning("TODO: Share to..")
                             }
                     }
                     .frame(maxWidth: Constants.buttonsWidth)
@@ -90,7 +99,7 @@ struct MovieDetailView: View {
                     
                     // MARK: Galery carusel
                     GaleryCarouselView(
-                        movieModel: $movieDetail.movieModel,
+                        movieImages: $movieDetail.movieImages,
                         headlineTextSize: Constants.headlineText,
                         imageWidth: Constants.movieImageWidth,
                         imageHeight: Constants.movieImageHeight,
@@ -100,10 +109,12 @@ struct MovieDetailView: View {
                 .padding(.top)
             }
         }
-        .onAppear {
+        .task {
             movieDetail.fetchMovieDetail(for: movieModel.id)
-            print(movieDetail.movieModel)
-            movieDetail.saveMovie(with: movieModel.id)
+            movieDetail.fetchMovieImages(for: movieModel.id)
+        }
+        .onAppear {
+            movieDetail.saveRecentMovie(with: movieModel.id)
         }
         .navigationTitle(movieDetail.movieModel.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -115,7 +126,10 @@ struct MovieDetailView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                AddToFavoritesButton(action: {})
+                AddToFavoritesButton(action: {
+                    print("add button tapped")
+                    movieDetail.saveFavoriteMovie(with: movieModel.id)
+                })
             }
         }
     }

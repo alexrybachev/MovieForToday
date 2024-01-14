@@ -18,8 +18,7 @@ struct MovieCategoryPosterCarouselView: View {
             TabView(selection: $selected) {
                 ForEach(homeViewModel.movieCollection, id: \.name) { collection in
                     NavigationLink {
-                        // TODO: PopularMovieView?
-                        #warning("TODO: PopularMovieView?")
+                        PopularMovieView(viewModel: homeViewModel, slug: collection.name)
                     } label: {
                         RemoteImage(url: URL(string: collection.cover?.url ?? "")!) { image in
                             MovieImageView(
@@ -54,7 +53,7 @@ struct MovieCategoryPosterCarouselView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-            PagingIndexView(numberOfItems: 3, selectedTab: selected)
+            PagingIndexView(numberOfItems: 3, selectedTab: $selected)
                 .animation(.default, value: selected)
         }
     }

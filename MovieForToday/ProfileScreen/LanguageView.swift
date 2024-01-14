@@ -13,7 +13,7 @@ struct LanguageView: View {
     
     var body: some View {
         ZStack {
-            Color((PrimaryColor.mainDark.rawValue))
+            Color.customMain
                 .ignoresSafeArea()
             VStack {
                 VStack(spacing: 0) {
@@ -37,7 +37,7 @@ struct LanguageView: View {
                                     .foregroundColor(.white)
                                 Spacer()
                                 Image(systemName:  isEnglishSelected ? "checkmark" : "")
-                                    .foregroundColor(Color.primaryColor(.mint))
+                                    .foregroundColor(.customMint)
                             }
                         }
                     }
@@ -60,7 +60,7 @@ struct LanguageView: View {
                                     .foregroundColor(.white)
                                 Spacer()
                                 Image(systemName: isRussianSelected ? "checkmark" : "")
-                                    .foregroundColor(Color.primaryColor(.mint))
+                                    .foregroundColor(.customMint)
                             }
                         }
                     }

@@ -44,6 +44,12 @@ struct MoviePerson: Identifiable {
     let profession: String
 }
 
+struct MovieImage {
+    let id: Int
+    let url: String
+    let previewUrl: String
+}
+
 struct Genre: Hashable {
     let ruName: String
     let enName: String

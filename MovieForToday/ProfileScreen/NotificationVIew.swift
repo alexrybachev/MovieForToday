@@ -11,14 +11,14 @@ struct NotificationVIew: View {
     @StateObject private var viewModel = SignInViewModel()
     var body: some View {
         ZStack {
-            Color((PrimaryColor.mainDark.rawValue))
+            Color.customMain
                 .ignoresSafeArea()
             VStack {
                 VStack(spacing: 0) {
                     HStack {
                         Text("Messages Notifications")
                             .font(Font.custom(CustomFont.montSemiBold, size: 12))
-                            .foregroundColor(Color(TextColors.grey.rawValue))
+                            .foregroundColor(Color.textGrey)
                             .padding(.leading, 16)
                             .padding(.top, 24)
                         Spacer()
