@@ -113,9 +113,9 @@ struct SearchView: View {
             }
         }
         .task {
-            //            searchViewModel.fetchUpcomingMovie()
-            //            searchViewModel.fetchCategories()
-            //            searchViewModel.getRecentMovieIds()
+            searchViewModel.fetchUpcomingMovie()
+            searchViewModel.fetchCategories()
+            searchViewModel.getRecentMovieIds()
         }
     }
 }

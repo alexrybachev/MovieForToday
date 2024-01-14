@@ -33,35 +33,40 @@ struct HomeView: View {
                     MovieCategoryPosterCarouselView(homeViewModel: homeViewModel)
                         .frame(height: 200)
                     
-//                    NavigationLink(
-//                        destination: PopularMovieView(viewModel: homeViewModel, slug: nil),
-//                        isActive: $isShowCategories,
-//                        label: {
-                            HeadlineView(headline: "categories", action: {
-                                isShowCategories.toggle()
-                            })
-//                        })
-                    
-                    GenreButtonsScrollView(
-                        selectedCategory: $homeViewModel.selectedCategory,
-                        categories: $homeViewModel.categories,
-                        action: { category in
-                            homeViewModel.fetchMovies(category)
-                        }
-                    )
-                    .padding([.leading, .trailing])
-                    
-                    HeadlineView(headline: "most_popular", action: {
-                        print("tap 'see all' on most_popular")
+                    HeadlineView(headline: "categories", action: {
+                        isShowCategories.toggle()
                     })
                     
-                    MoviePosterCarouselView(movieModels: $homeViewModel.movieModels)
-                        .padding(.top)
+                    NavigationLink(
+                        destination: PopularMovieView(viewModel: homeViewModel, slug: nil),
+                        isActive: $isShowCategories,
+                        label: {
+                            GenreButtonsScrollView(
+                                selectedCategory: $homeViewModel.selectedCategory,
+                                categories: $homeViewModel.categories,
+                                action: { category in
+                                    homeViewModel.fetchMovies(category)
+                                }
+                            )
+                            .padding([.leading, .trailing])
+                        })
+                    
+                    HeadlineView(headline: "most_popular", action: {
+                        isShowPopular.toggle()
+                    })
+                    
+                    NavigationLink(
+                        destination: PopularMovieView(viewModel: homeViewModel, slug: nil),
+                        isActive: $isShowPopular,
+                        label: {
+                            MoviePosterCarouselView(movieModels: $homeViewModel.movieModels)
+                                .padding(.top)
+                        })
                 }
             }
             .task {
-//                let category = homeViewModel.categories[homeViewModel.selectedCategory]
-//                homeViewModel.fetchMovies(category)
+                                let category = homeViewModel.categories[homeViewModel.selectedCategory]
+                                homeViewModel.fetchMovies(category)
             }
             .background(.customMain)
             .toolbar {

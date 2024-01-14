@@ -11,7 +11,7 @@ import Networking
 @MainActor
 final class SearchViewModel: ObservableObject {
     
-    private let networking = NetworkManager(apiKey: "BR9GX9R-2TD4AQX-H67HE11-CSGFVP4")
+    private let networking = NetworkManager(apiKey: globalKey)
     
     @Published var categories: [String] = ["All"]
     @Published var upcomingMovies: [MovieModel] = []
@@ -79,7 +79,7 @@ final class SearchViewModel: ObservableObject {
                         )
                     }
                 } else {
-                    let docs = try await networking.getMovies(for: category).docs
+                    let docs = try await networking.getMoviesFor(genre: category).docs
                     movieModels = docs.map {
                         MovieModel(
                             id: $0.id,

@@ -19,7 +19,14 @@
       }
     },
     "Actors" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Актёры"
+          }
+        }
+      }
     },
     "Alex Rybachev" : {
 
@@ -74,16 +81,37 @@
       }
     },
     "Change Password" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменить пароль"
+          }
+        }
+      }
     },
     "Changes to the Service and/or Terms:" : {
 
     },
     "Developers" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разработчики"
+          }
+        }
+      }
     },
     "Dismiss" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скрыть"
+          }
+        }
+      }
     },
     "duration" : {
       "extractionState" : "manual",
@@ -103,7 +131,14 @@
       }
     },
     "Edit Profile" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редактирование профиля"
+          }
+        }
+      }
     },
     "edit_profile" : {
       "extractionState" : "manual",
@@ -140,13 +175,34 @@
       }
     },
     "English" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Английский"
+          }
+        }
+      }
     },
     "Exceptions" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ограничения"
+          }
+        }
+      }
     },
     "forgot password?" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забыл пароль?"
+          }
+        }
+      }
     },
     "full_name" : {
       "extractionState" : "manual",
@@ -199,10 +255,24 @@
       }
     },
     "General" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основные"
+          }
+        }
+      }
     },
     "Hello, " : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привет,"
+          }
+        }
+      }
     },
     "Hello, world!" : {
       "extractionState" : "stale",
@@ -281,13 +351,27 @@
       }
     },
     "LogIn" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Логин"
+          }
+        }
+      }
     },
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames." : {
 
     },
     "Messages Notifications" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления"
+          }
+        }
+      }
     },
     "minutes" : {
       "extractionState" : "manual",
@@ -324,7 +408,14 @@
       }
     },
     "More" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Больше"
+          }
+        }
+      }
     },
     "most_popular" : {
       "localizations" : {
@@ -343,7 +434,14 @@
       }
     },
     "Movie Related" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подходящие фильмы"
+          }
+        }
+      }
     },
     "movie_lists" : {
       "localizations" : {
@@ -362,7 +460,14 @@
       }
     },
     "No testers were harmed during development. MIT License." : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ни один разработчик не пострадал в течение разработки!"
+          }
+        }
+      }
     },
     "notification" : {
       "extractionState" : "manual",
@@ -382,7 +487,14 @@
       }
     },
     "Notification" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления"
+          }
+        }
+      }
     },
     "Ok" : {
 
@@ -442,7 +554,14 @@
       }
     },
     "Privcy Policy" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Политика приватности"
+          }
+        }
+      }
     },
     "profile" : {
       "extractionState" : "manual",
@@ -462,7 +581,14 @@
       }
     },
     "Profile" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Профиль"
+          }
+        }
+      }
     },
     "rating" : {
       "extractionState" : "manual",
@@ -482,10 +608,30 @@
       }
     },
     "recent_movie" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Movies"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавно просмотренные"
+          }
+        }
+      }
     },
     "Registration" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регистрация"
+          }
+        }
+      }
     },
     "release_date" : {
       "extractionState" : "manual",
@@ -505,7 +651,14 @@
       }
     },
     "Russian" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Русский"
+          }
+        }
+      }
     },
     "save_changes" : {
       "extractionState" : "manual",
@@ -558,7 +711,20 @@
       }
     },
     "search_placeholder" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type title, categories, years, etc"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите название, категорию, актеры и др."
+          }
+        }
+      }
     },
     "see_all" : {
       "extractionState" : "manual",
@@ -578,7 +744,14 @@
       }
     },
     "Send" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отправить"
+          }
+        }
+      }
     },
     "share_to" : {
       "extractionState" : "manual",
@@ -598,7 +771,14 @@
       }
     },
     "Show Notifications" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать уведомления"
+          }
+        }
+      }
     },
     "show_notifications" : {
       "extractionState" : "manual",
@@ -618,10 +798,24 @@
       }
     },
     "Sign In" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ввойти"
+          }
+        }
+      }
     },
     "Sign Up" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зарегистрироваться"
+          }
+        }
+      }
     },
     "story_line" : {
       "localizations" : {
@@ -640,16 +834,44 @@
       }
     },
     "Suggested Languages" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рекомендуемые языки"
+          }
+        }
+      }
     },
     "Team" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Команда"
+          }
+        }
+      }
     },
     "Teamlead" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тимлидер"
+          }
+        }
+      }
     },
     "Tearms" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Правила"
+          }
+        }
+      }
     },
     "The account has been created. Please enter your username and password" : {
 
@@ -695,7 +917,20 @@
       }
     },
     "upcoming_movie" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming Movies"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скоро выходит"
+          }
+        }
+      }
     },
     "wishlist" : {
       "extractionState" : "manual",
