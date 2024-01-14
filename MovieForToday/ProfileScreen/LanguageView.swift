@@ -37,7 +37,7 @@ struct LanguageView: View {
                                     .foregroundColor(.white)
                                 Spacer()
                                 Image(systemName:  isEnglishSelected ? "checkmark" : "")
-                                    .foregroundColor(Color.primaryColor(.mint))
+                                    .foregroundColor(Color.customMint)
                             }
                         }
                     }
@@ -60,7 +60,7 @@ struct LanguageView: View {
                                     .foregroundColor(.white)
                                 Spacer()
                                 Image(systemName: isRussianSelected ? "checkmark" : "")
-                                    .foregroundColor(Color.primaryColor(.mint))
+                                    .foregroundColor(.customMint)
                             }
                         }
                     }

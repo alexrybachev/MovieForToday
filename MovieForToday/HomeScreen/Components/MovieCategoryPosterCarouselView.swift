@@ -38,7 +38,7 @@ struct MovieCategoryPosterCarouselView: View {
                         } placeholder: {
                             ProgressView()
                                 .frame(
-                                    width: Constants.posterWidth,
+                                    width: Constants.posterHeight,
                                     height: Constants.posterHeight
                                 )
                         } errorHandler: { _ in

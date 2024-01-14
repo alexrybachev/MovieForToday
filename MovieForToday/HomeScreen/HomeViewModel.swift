@@ -79,8 +79,9 @@ final class HomeViewModel: ObservableObject {
     }
     
     func fetchMovies(with slug: String?) {
-        print(#function)
-        guard let slug else { return }
+        print(#function, " with slug ", slug)
+        guard let slug = slug else { return }
+        print(#function, " with slug ", slug)
         Task {
             do {
                 let docs = try await networking.getMovies(for: slug).docs

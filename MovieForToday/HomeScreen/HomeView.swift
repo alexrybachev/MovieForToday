@@ -33,14 +33,14 @@ struct HomeView: View {
                     MovieCategoryPosterCarouselView(homeViewModel: homeViewModel)
                         .frame(height: 200)
                     
-                    NavigationLink(
-                        destination: PopularMovieView(viewModel: homeViewModel, slug: nil),
-                        isActive: $isShowCategories,
-                        label: {
+//                    NavigationLink(
+//                        destination: PopularMovieView(viewModel: homeViewModel, slug: nil),
+//                        isActive: $isShowCategories,
+//                        label: {
                             HeadlineView(headline: "categories", action: {
                                 isShowCategories.toggle()
                             })
-                        })
+//                        })
                     
                     GenreButtonsScrollView(
                         selectedCategory: $homeViewModel.selectedCategory,
