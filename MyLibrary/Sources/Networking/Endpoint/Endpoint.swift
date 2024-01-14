@@ -54,9 +54,7 @@ struct Endpoint {
             path: [APIVersion.new, Subpath.list.rawValue].joined(separator: "/"),
             queryItems: {
                 paginated(page: page, limit: limit)
-                URLQueryItem(name: "category", value: "Фильмы")
-                URLQueryItem(name: Field.required, value: "cover.url")
-                URLQueryItem(name: Field.required, value: "cover.previewUrl")
+                movieListFields
             })
     }
     
@@ -67,9 +65,7 @@ struct Endpoint {
             path: [APIVersion.new, Subpath.list.rawValue, slug].joined(separator: "/"),
             queryItems: {
                 paginated(page: page, limit: limit)
-                URLQueryItem(name: "category", value: "Фильмы")
-                URLQueryItem(name: Field.required, value: "cover.url")
-                URLQueryItem(name: Field.required, value: "cover.previewUrl")
+                movieListFields
             })
     }
     
@@ -230,10 +226,17 @@ extension Endpoint {
         URLQueryItem(name: Field.selectField, value: "ageRating")
         URLQueryItem(name: Field.selectField, value: "movieLength")
         URLQueryItem(name: Field.selectField, value: "description")
-//        URLQueryItem(name: Field.required, value: "rating.kp")
         URLQueryItem(name: Field.required, value: "backdrop.url")
         URLQueryItem(name: Field.required, value: "logo.url")
         URLQueryItem(name: Field.required, value: "videos.trailers.url")
+    }
+    
+    @usableFromInline
+    @QueryBuilder
+    static var movieListFields: [URLQueryItem] {
+        URLQueryItem(name: "category", value: "Фильмы")
+        URLQueryItem(name: Field.required, value: "cover.url")
+        URLQueryItem(name: Field.required, value: "cover.previewUrl")
     }
     
 }
