@@ -11,7 +11,7 @@ import Networking
 @MainActor
 final class HomeViewModel: ObservableObject {
     
-    private let networking = NetworkManager(apiKey: "MEY4BQK-S3G4X7A-QWH2AEP-MKCHDYX")
+    private let networking = NetworkManager(apiKey: globalKey)
     
     @Published var movieCollection: [Collection] = []
     @Published var categories: [String] = ["All"]
@@ -57,7 +57,7 @@ final class HomeViewModel: ObservableObject {
                         )
                     }
                 } else {
-                    let docs = try await networking.getMovies(for: category).docs
+                    let docs = try await networking.getMoviesFor(genre: category).docs
                     movieModels = docs.map {
                         MovieModel(
                             id: $0.id,
@@ -84,7 +84,7 @@ final class HomeViewModel: ObservableObject {
         print(#function, " with slug ", slug)
         Task {
             do {
-                let docs = try await networking.getMovies(for: slug).docs
+                let docs = try await networking.getMoviesFor(slug: slug).docs
                 print("slug docs: ", docs)
                 slugModels = docs.map {
                     MovieModel(

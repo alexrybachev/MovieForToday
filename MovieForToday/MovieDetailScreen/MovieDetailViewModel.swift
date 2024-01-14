@@ -11,7 +11,7 @@ import Networking
 @MainActor
 final class MovieDetailViewModel: ObservableObject {
     
-    private let networking = NetworkManager(apiKey: "BR9GX9R-2TD4AQX-H67HE11-CSGFVP4")
+    private let networking = NetworkManager(apiKey: globalKey)
     
     @Published var movieModel = MovieModel(
         id: 0,

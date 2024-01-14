@@ -434,7 +434,14 @@
       }
     },
     "Movie Related" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подходящие фильмы"
+          }
+        }
+      }
     },
     "movie_lists" : {
       "localizations" : {
@@ -453,7 +460,14 @@
       }
     },
     "No testers were harmed during development. MIT License." : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ни один разработчик не пострадал в течение разработки!"
+          }
+        }
+      }
     },
     "notification" : {
       "extractionState" : "manual",
@@ -697,7 +711,20 @@
       }
     },
     "search_placeholder" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type title, categories, years, etc"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите название, категорию, актеры и др."
+          }
+        }
+      }
     },
     "see_all" : {
       "extractionState" : "manual",
