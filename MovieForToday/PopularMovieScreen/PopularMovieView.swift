@@ -8,34 +8,31 @@
 import SwiftUI
 
 struct PopularMovieView: View {
-    
-    @ObservedObject var viewModel: HomeViewModel
     let slug: String?
+    let movies: [MovieModel]
+    let onAppear: () -> Void
     
     var body: some View {
         ZStack {
             Color.customMain
                 .ignoresSafeArea()
-            
-            MovieCategoryPosterCarouselView(homeViewModel: viewModel)
-                .frame(height: 200)
-            
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.slugModels) { movieModel in
+                    ForEach(movies) { movieModel in
                         MovieView(movieModel: movieModel)
                     }
                 }
             }
             .navigationTitle("popular_movie")
         }
-        .task {
-            viewModel.fetchMovies(with: slug)
-            viewModel.fetchMovies(viewModel.categories[viewModel.selectedCategory])
-        }
+        .onAppear(perform: onAppear)
     }
 }
 
 #Preview {
-    PopularMovieView(viewModel: HomeViewModel(), slug: nil)
+    PopularMovieView(
+        slug: nil,
+        movies: [],
+        onAppear: {}
+    )
 }

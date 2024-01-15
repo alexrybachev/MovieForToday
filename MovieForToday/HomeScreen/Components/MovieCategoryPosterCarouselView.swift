@@ -7,75 +7,100 @@
 
 import SwiftUI
 import RemoteImage
+import Networking
 
-struct MovieCategoryPosterCarouselView: View {
-    @ObservedObject var homeViewModel: HomeViewModel
+struct MovieCategoryPosterCarouselView<V: View>: View {
+    // MARK: - Drawing
+    private let posterHeight: CGFloat = 174
+    private let posterWidth: CGFloat = .infinity
+    private let posterRadius: CGFloat = 16
+    private let labelXoffset: CGFloat = -90
+    private let labelYoffset: CGFloat = 30
+    private let labelSpacing: CGFloat = 16
+    
+    let movieCollection: [Networking.Collection]
+    let destination: (String) -> V
     
     @State private var selected = 0
     
     var body: some View {
+        let _ = Self._printChanges()
         VStack {
             TabView(selection: $selected) {
-                ForEach(homeViewModel.movieCollection, id: \.name) { collection in
+                ForEach(movieCollection, id: \.name) { collection in
                     NavigationLink {
-                        PopularMovieView(viewModel: homeViewModel, slug: collection.slug)
+                        destination(collection.slug)
                     } label: {
-                        RemoteImage(url: URL(string: collection.cover?.url ?? "")!) { image in
-                            MovieImageView(
-                                image: image,
-                                width: Constants.posterWidth,
-                                height: Constants.posterHeight,
-                                cornerRadius: Constants.posterRadius
-                            )
-                            .overlay {
-                                VStack(alignment: .leading) {
-                                    Spacer()
-                                    PosterLabelView(
-                                        title: collection.name,
-                                        subtitle: "\(collection.moviesCount ?? 0) movies",
-                                        spacing: Constants.labelSpacing
-                                    )
-                                }
-                                .padding([.bottom, .leading])
-//                                .offset(x: Constants.labelXoffset, y: Constants.labelYoffset)
-                            }
-                        } placeholder: {
-                            ProgressView()
-                                .frame(
-                                    width: Constants.posterHeight,
-                                    height: Constants.posterHeight
+                        RemoteImage(
+                            link: collection.cover?.url ?? "",
+                            configure: configure(_:),
+                            placeholder: setPlaceholder,
+                            errorHandler: setErrorView
+                        )
+                        .overlay {
+                            VStack(alignment: .leading) {
+                                Spacer()
+                                PosterLabelView(
+                                    title: collection.name,
+                                    subtitle: "\(collection.moviesCount ?? 0) movies",
+                                    spacing: labelSpacing
                                 )
-                        } errorHandler: { _ in
-                            ErrorImageView(
-                                systemName: "photo",
-                                width: Constants.posterWidth,
-                                height: Constants.posterHeight
-                            )
+                            }
+                            .padding([.bottom, .leading])
                         }
                     }
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            
-            PagingIndexView(numberOfItems: 3, selectedTab: $selected)
+            PagingIndexView(numberOfItems: movieCollection.count, selectedTab: $selected)
                 .animation(.default, value: selected)
         }
     }
-}
-
-// MARK: - Drawing
-private extension MovieCategoryPosterCarouselView {
-    struct Constants {
-        static let posterHeight: CGFloat = 174
-        static let posterWidth: CGFloat = .infinity
-        static let posterRadius: CGFloat = 16
-        static let labelXoffset: CGFloat = -90
-        static let labelYoffset: CGFloat = 30
-        static let labelSpacing: CGFloat = 16
+    
+    init(
+        _ movieCollection: [Networking.Collection],
+        destination: @escaping (String) -> V
+    ) {
+        self.movieCollection = movieCollection
+        self.destination = destination
+        self.selected = selected
+    }
+    
+    //MARK: - Private methods
+    private func configure(_ image: SwiftUI.Image) -> some View {
+        image
+            .resizable()
+            .scaledToFill()
+            .frame(width: posterWidth, height: posterHeight)
+            .clipShape(.rect(cornerRadius: posterRadius))
+            .padding([.leading, .trailing])
+    }
+    
+    private func setPlaceholder() -> some View {
+        ProgressView()
+            .frame(
+                width: posterHeight,
+                height: posterHeight
+            )
+    }
+    
+    private func setErrorView(_ error: Error) -> some View {
+        ErrorImageView(
+            systemName: "photo",
+            width: posterWidth,
+            height: posterHeight
+        )
     }
 }
 
 #Preview {
-    MovieCategoryPosterCarouselView(homeViewModel: HomeViewModel())
+    NavigationView {
+        MovieCategoryPosterCarouselView(
+            Collection.sample,
+            destination: { _ in EmptyView() }
+        )
         .background(.customMain)
+    }
 }
+
+

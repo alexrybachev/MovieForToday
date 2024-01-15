@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+
 struct CustomSearchBar: View {
-    
     @FocusState private var isFocused: Bool
     @Binding var searchText: String
     @Binding var isSearch: Bool
@@ -37,7 +37,7 @@ struct CustomSearchBar: View {
                     }
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-            .font(.custom(.montMedium, size: 14))
+            .font(.montMedium14)
             .background(.customSoftDark)
             .clipShape(.rect(cornerRadius: 24))
             
@@ -60,10 +60,16 @@ struct CustomSearchBar: View {
 }
 
 #Preview {
-    CustomSearchBar(
-        searchText: .constant(""),
-        isSearch: .constant(true),
-        placeholderText: "search_a_title..",
-        action: { _ in}
-    )
+    ZStack {
+        Color.customMain.ignoresSafeArea()
+        VStack {
+            CustomSearchBar(
+                searchText: .constant(""),
+                isSearch: .constant(true),
+                placeholderText: "search_a_title..",
+                action: { _ in}
+            )
+            Spacer()
+        }
+    }
 }

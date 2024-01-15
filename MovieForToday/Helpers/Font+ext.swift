@@ -17,4 +17,10 @@ extension Font {
     static func custom(_ nameFont: CustomFont, size: CGFloat) -> SwiftUI.Font {
         SwiftUI.Font.custom(nameFont.rawValue, size: size)
     }
+    
+    static func montMedium(_ size: CGFloat) -> Font {
+        custom(.montMedium, size: size)
+    }
+    
+    static let montMedium14 = Font.montMedium(14)
 }

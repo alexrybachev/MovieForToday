@@ -18,3 +18,11 @@ public struct Collection: Decodable {
     public let updatedAt: String
     public let createdAt: String
 }
+
+public extension Collection {
+    static let sample: [Collection] = [
+        .init(category: "Category1", slug: "Slug1", moviesCount: 1, cover: nil, name: "Name1", updatedAt: "", createdAt: ""),
+        .init(category: "Category2", slug: "Slug2", moviesCount: 2, cover: nil, name: "Name2", updatedAt: "", createdAt: ""),
+        .init(category: "Category3", slug: "Slug3", moviesCount: 3, cover: nil, name: "Name3", updatedAt: "", createdAt: "")
+    ]
+}

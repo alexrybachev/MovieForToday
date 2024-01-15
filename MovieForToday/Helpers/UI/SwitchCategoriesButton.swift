@@ -8,34 +8,28 @@
 import SwiftUI
 
 struct SwitchCategoriesButton: View {
-    
-    @Binding var selectedTag: Int
-    var id: Int
-    
     let genre: String
+    let isSelected: Bool
     let action: () -> Void
     
     var body: some View {
         Text(genre.capitalized)
             .padding([.top, .bottom], 8)
             .padding([.leading, .trailing], 12)
-            .foregroundStyle(id == selectedTag ? Color.customMint : Color.textWhiteGrey)
-            .if(id == selectedTag) { $0.background(.customSoftDark) }
+            .foregroundStyle(isSelected ? Color.customMint : Color.textWhiteGrey)
+            .if(isSelected) { $0.background(.customSoftDark) }
             .font(.custom(.montMedium, size: 12))
             .clipShape(.rect(cornerRadius: 8))
-            .onTapGesture {
-                selectedTag = id
-                action()
-            }
+            .onTapGesture(perform: action)
     }
 }
 
 #Preview {
-    SwitchCategoriesButton(
-        selectedTag: .constant(1),
-        id: 1,
-        genre: "action",
-        action: {}
-    )
-    .background(Color.customMain)
+    ZStack {
+        Color.customMain.ignoresSafeArea()
+        HStack {
+            SwitchCategoriesButton(genre: "All", isSelected: true, action: {})
+            SwitchCategoriesButton(genre: "Boevik", isSelected: false, action: {})
+        }
+    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import RemoteImage
 
 struct MoviePosterCarouselView: View {
-    @Binding var movieModels: [MovieModel]
+    var movieModels: [MovieModel]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -30,5 +30,5 @@ struct MoviePosterCarouselView: View {
 }
 
 #Preview {
-    MoviePosterCarouselView(movieModels: .constant([MovieModel.getMocData()]))
+    MoviePosterCarouselView(movieModels: [MovieModel.getMocData()])
 }

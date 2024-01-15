@@ -18,7 +18,7 @@ struct ContentView: View {
             VStack {
                 switch selectedTab {
                 case .home:
-                    HomeView(homeViewModel: homeViewModel)
+                    HomeViewConnector(viewModel: homeViewModel)
                 case .search:
                     SearchView()
                 case .tree:

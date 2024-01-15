@@ -32,7 +32,7 @@ let globalKey = "JSRX406-H8HMG9X-N16CB79-WGWC9Y7"
 struct MovieForTodayApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @AppStorage("isOnboarding") var isOnboarding = false
-    @Environment(\.scenePhase) var scenePhase
+    @StateObject private var signInViewModel = SignInViewModel()
     let networking = NetworkManager(apiKey: globalKey)
     
     @StateObject var homeViewModel = HomeViewModel()
@@ -45,7 +45,9 @@ struct MovieForTodayApp: App {
                     .onAppear {
                         homeViewModel.fetchMovieCollection()
                         homeViewModel.fetchCategories()
+                        homeViewModel.fetchContent()
                     }
+                    .environmentObject(signInViewModel)
             } else {
                 OnboardingView()
 //                    .onAppear {

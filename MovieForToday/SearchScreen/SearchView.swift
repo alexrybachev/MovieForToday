@@ -62,13 +62,13 @@ struct SearchView: View {
                         }
                     } else {
                         
-                        GenreButtonsScrollView(
-                            selectedCategory: $searchViewModel.selectedCategory,
-                            categories: $searchViewModel.categories,
-                            action: { category in
-                                searchViewModel.fetchMovies(category)
-                            }
-                        )
+//                        GenreButtonsScrollView(
+//                            genres: $searchViewModel.selectedCategory,
+//                            selectedGenre: $searchViewModel.categories,
+//                            action: { category in
+//                                searchViewModel.fetchMovies(category)
+//                            }
+//                        )
                         
                         HeadlineView(
                             headline: "upcoming_movie",
